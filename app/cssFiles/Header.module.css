@@ -23,7 +23,18 @@
     transition: color 0.3s ease;
   }
 
-.image {
-    width:fit-content;
-    height: fit-content;
+  .image {
+    width: auto;
+    height: 60px;
+    min-width: 60px; /* Adjust as needed */
 }
+
+
+
+
+
+
+
+  .navLink:hover {
+    color: #FFD700;
+  }

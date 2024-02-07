@@ -1,54 +1,48 @@
 import React from "react";
 import Link from "next/link";
-import styles from "../cssFiles/Header.module.css";
+import styles from "../cssFiles/Header.module.css"; // Adjust the path as necessary
 
 export default function Header() {
-    return(
+    return (
         <header className={styles.header}>
             <nav>
                 <ul className={styles.navList}>
                     <li className={styles.navItem}>
-                        <Link legacyBehavior href={"/Test"}>
-                            <img src="sellphonelab\public\assets\icons\logo.png" alt="SellPhoneLab Logo" className={styles.image}/>
+                        <Link href="/">
+                            <img src="/assets/icons/logo.png" alt="SellPhoneLab Logo" className={styles.image}/>
                         </Link>
                     </li>
                     <li className={styles.navItem}>
-                        <Link legacyBehavior href={"/Test"}>
-                            <a className={styles.navLink}>Home</a>
+                        <Link href="/">
+                            Home
                         </Link>
                     </li>
                     <li className={styles.navItem}>
-                        <Link legacyBehavior href={"/Test"}>
-                            <a className={styles.navLink}>We Repair</a>
+                        <Link href="/repair">
+                            We Repair
                         </Link>
                     </li>
                     <li className={styles.navItem}>
-                        <Link legacyBehavior href={"/Test"}>
-                            <a className={styles.navLink}>Accessories</a>
+                        <Link href="/accessories">
+                            Accessories
                         </Link>
                     </li>
                     <li className={styles.navItem}>
-                        <Link legacyBehavior href={"/Test"}>
-                            <a className={styles.navLink}>What we do</a>
-                        </Link>
+                        <Link href="/what-we-do">What We Do</Link>
                     </li>
                     <li className={styles.navItem}>
-                        <Link legacyBehavior href={"/Test"}>
-                            <a className={styles.navLink}>About</a>
-                        </Link>
+                        <Link href="/about">About</Link>
                     </li>
                     <li className={styles.navItem}>
-                        <Link legacyBehavior href={"/Test"}>
-                            <a className={styles.navLink}>Blog</a>
-                        </Link>
+                        <Link href="/blog">Blog</Link>
                     </li>
                     <li className={styles.navItem}>
-                        <Link legacyBehavior href={"/Test"}>
-                            <a className={styles.navLink}>Contact</a>
+                        <Link href="/contact">
+                            Contact
                         </Link>
                     </li>
                 </ul>
             </nav>
         </header>
     );
-};
+}
