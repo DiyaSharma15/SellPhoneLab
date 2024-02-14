@@ -9,19 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-<<<<<<< HEAD
-    "next": "14.1.0",
-    "react": "^18",
-    "react-dom": "^18",
-    "react-slick": "^0.30.1",
-    "slick-carousel": "^1.8.1"
-=======
     "ionicons": "^7.2.2",
     "next": "14.1.0",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.0.1"
->>>>>>> 5ebcf2029910f8e03154b814ea63200c5e691199
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",
