@@ -1,7 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image"; // Make sure to use Next.js Image for optimization
-import styles from "../cssFiles/Footer.module.css"; // Adjust the path as needed
+import styles from "../cssFiles/Footer.module.css"; 
+
 
 export default function Footer() {
     return (
@@ -11,11 +12,24 @@ export default function Footer() {
                     <h2>Contact Us</h2>
                     <p>We welcome you in our store in Calgary, AB</p>
                     <div className={styles.socialLinks}>
-                        <Link href="https://facebook.com">Facebook</Link>
-                        <Link href="https://twitter.com">Twitter</Link>
-                        <Link href="https://instagram.com">Instagram</Link>
-                        <Link href="https://linkedin.com">LinkedIn</Link>
+                        <a href="https://facebook.com">
+                            <img src="/assets/images/home/facebook.svg" alt="Facebook" width="20" height="20" />
+                        </a>
+                        <a href="https://twitter.com">
+                            <img src="/assets/images/home/twitter.svg" alt="Twitter" width="20" height="20" />
+                        </a>
+                        <a href="https://instagram.com">
+                            <img src="/assets/images/home/instagram.svg" alt="Instagram" width="20" height="20" />
+                        </a>
+                        <a href="https://linkedin.com">
+                            <img src="/assets/images/home/linkedin.svg" alt="LinkedIn" width="20" height="20" />
+                        </a>
                     </div>
+                    <div className={styles.coupon}>
+                        <h3>Ask us for a Loyalty Card</h3>
+                        <p>Get 15% off any accessory & $15 off any repairs!</p>
+                    </div>
+
                 </div>
                 <div className={styles.locations}>
                     <div className={styles.location}>
@@ -35,7 +49,7 @@ export default function Footer() {
             <div className={styles.footerBottom} >
             <Link href="/" legacyBehavior>
                 <a>
-                    <Image src="/assets/icons/logo-transparent.png" alt="SellPhoneLab Logo" className={styles.image} width={60} height={60} />
+                    <Image src="/assets/icons/logo.png" alt="SellPhoneLab Logo" className={styles.image} width={400} height={472} />
                 </a>
             </Link>
 

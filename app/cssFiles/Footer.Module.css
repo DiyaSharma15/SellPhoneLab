@@ -17,6 +17,8 @@
     font-weight: bold;
 }
 
+
+
 .socialLinks {
     display: flex;
     gap: 10px;
@@ -28,9 +30,7 @@
     text-decoration: none;
 }
 
-.location {
-    /* Additional styles if needed */
-}
+
 
 .footerBottom {
     background-color: #0046BE !important; /* Ensures blue background is applied */
@@ -48,3 +48,15 @@
     background-color: #0046BE; /* Blue background */
     /* Other styles remain unchanged */
 }
+.coupon {
+    border: 2px dotted #000; /* Creates a dotted border with black color */
+    background-color: #fff; /* Sets the background color to white */
+    color: #000; /* Sets the text color to black */
+    padding: 20px; /* Adds some padding inside the coupon box */
+    margin: 10px 0; /* Adds some margin for spacing around the coupon */
+    text-align: center; /* Centers the text inside the coupon */
+    font-size: 0.9rem;
+    width: 150px; /* Adjust the font size as needed */
+  }
+  
+  
