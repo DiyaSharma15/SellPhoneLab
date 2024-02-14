@@ -30,6 +30,15 @@
     margin-bottom: 20px; /*Spacing between items*/
 }
 
+.backButton {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
 .repairFormContainer {
     flex: 1; /* Takes up 1 portion of the space*/
     margin: 20px;
