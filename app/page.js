@@ -13,34 +13,34 @@ export default function Home() {
       title: 'Chatr, Freedom & Lucky Mobile', 
       subtitle: 'The best prepaid plans available here.', 
       link: '/chatr-freedom-lucky-mobile', 
-      text: 'Discover our range of services and plans.' 
+      text: '/what-we-do' 
     },
     { 
       url: '/assets/images/home/sellphone-lab-inside-2-2048x952.jpg', 
       title: 'Leading Store in Calgary', 
       subtitle: 'A glimpse into our state-of-the-art facilities.', 
-      link: '/inside-sellphone-lab', 
+      link: '/about', 
       text: 'Take a tour of our lab.' 
     },
     { 
       url: '/assets/images/home/mobile-phones-9.jpg', 
       title: 'Latest Mobile Phones', 
       subtitle: 'Explore the latest in mobile technology.', 
-      link: '/latest-mobile-phones', 
+      link: '/blog', 
       text: 'Check out the newest arrivals.' 
     },
     { 
       url: '/assets/images/home/SellphoneLab-2048x1152.jpg', 
       title: 'Sellphone Lab Services', 
       subtitle: 'Your one-stop shop for all mobile needs.', 
-      link: '/services', 
+      link: '/repair', 
       text: 'Learn more about what we offer.' 
     },
     { 
       url: '/assets/images/home/Sale-of-new-used-phones.jpg', 
       title: 'New & Used Phones', 
       subtitle: 'Tested and Inspected, Satisfaction Guaranteed!', 
-      link: '/new-used-phones', 
+      link: '/accessories', 
       text: 'Find your next phone today.' 
     },
   ];

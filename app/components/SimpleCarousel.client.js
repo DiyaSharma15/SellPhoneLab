@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 
 const SimpleCarousel = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [hover, setHover] = useState(false); // State to manage hover effect
 
   const goToNext = () => {
     setCurrentIndex(prevIndex => (prevIndex + 1) % images.length);
@@ -12,6 +13,8 @@ const SimpleCarousel = ({ images }) => {
     const interval = setInterval(goToNext, 10000); // Change picture every 10 seconds
     return () => clearInterval(interval); // Clean up the interval on component unmount
   }, [images.length]);
+
+  const textShadow = '4px 4px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000, -1px 1px 0px #000, 1px 1px 0px #000'; // Outline effect
 
   return (
     <div style={{ position: 'relative', height: '700px', overflow: 'hidden' }}>
@@ -27,18 +30,21 @@ const SimpleCarousel = ({ images }) => {
             textAlign: 'center',
             zIndex: 2, // Ensure text is above the image
           }}>
-            <h2 style={{ fontSize: '4em', fontWeight: 'bold', marginBottom: '10px' }}>{image.title}</h2>
-            <p style={{ fontSize: '2em', fontWeight: 'bold', marginBottom: '20px' }}>{image.subtitle}</p>
+            <h2 style={{ fontSize: '4em', fontWeight: 'bold', marginBottom: '10px', textShadow }}>{image.title}</h2>
+            <p style={{ fontSize: '2em', fontWeight: 'bold', marginBottom: '20px', textShadow }}>{image.subtitle}</p>
             <a href={image.link} style={{ 
               display: 'inline-block', 
               marginTop: '60px', // Increased space between subtitle and button
               padding: '10px 20px', 
               backgroundColor: '#0046BE', 
               border: 'solid 1px white',
-              color: '#ffffff', 
+              color: hover ? '#F27024' : '#ffffff', // Change color on hover
               textDecoration: 'none', 
-              borderRadius: '5px' 
-            }}>Learn More</a>
+              borderRadius: '5px',
+            }}
+            onMouseEnter={() => setHover(true)}
+            onMouseLeave={() => setHover(false)}
+            >Learn More</a>
           </div>
         </div>
       ))}
@@ -64,4 +70,3 @@ const SimpleCarousel = ({ images }) => {
 };
 
 export default SimpleCarousel;
-
