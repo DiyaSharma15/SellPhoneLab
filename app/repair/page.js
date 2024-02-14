@@ -74,21 +74,25 @@ export default function Repair() {
 
               {/* Device Type selection */}
               {selectedBrand && !selectedDeviceType && (
-                <> 
+                <>
+                  <button className={styles.backButton} onClick={() => setSelectedBrand(null)}>
+                    <IoArrowBackCircle style={{fontSize: '30px'}} />
+                  </button>
                   {deviceTypes.find(brand => brand.brand === selectedBrand).models.map((model, index) => (
                     <div key={index} className={styles.brandItem} onClick={() => { setSelectedDeviceType(model.name); resetSelections("deviceType"); }}>
-                      <img src={model.image} alt={`${model.name}`} style={{width: '100px', height: 'auto'}} />
+                      <img src={model.image} alt={`${model.name}`} style={{width: '200px', height: 'auto'}} />
                       <p>{model.name}</p>
                     </div>
                   ))}
-                  <button onClick={() => setSelectedBrand(null)}>Back to brands</button>
                 </>
               )}
 
               {/* Device Model selection */}
               {selectedDeviceType && (
               <div>
-                <button onClick={() => setSelectedDeviceType(null)}>Back to device types</button>
+                <button className={styles.backButton} onClick={() => setSelectedDeviceType(null)}>
+                  <IoArrowBackCircle style={{fontSize: '30px'}} />
+                </button>
                 {deviceTypes
                   .find(brand => brand.brand === selectedBrand)
                   .models.find(model => model.name === selectedDeviceType)
