@@ -19,7 +19,7 @@ export default function Header() {
                     </li>
                     <li className={styles.navItem}>
                         <Link href="/repair">
-                            We Repair
+                            Repair
                         </Link>
                     </li>
                     <li className={styles.navItem}>
