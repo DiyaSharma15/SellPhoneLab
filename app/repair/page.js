@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Header from "../components/Header"
 import styles from "../cssFiles/RepairForm.module.css"
+import deviceTypes from "./deviceData";
 
 export default function Repair() {
   //State variables to hold form data
@@ -39,15 +40,26 @@ export default function Repair() {
    });
   };
 
+  //State Variables for selecting device type and device model
+  const [selectedBrand, setSelectedBrand] = useState(null);
+  const [selectedDeviceType, setSelectedDeviceType] = useState(null);
+  const [selectedModel, setSelectedModel] = useState(null);
+
     return (
         <div>
           <Header/>
           <div className={styles.layoutContainer}>
-            <div className={styles.leftSpace}>
+            <div className={styles.deviceSelection}>
               {/* TODO: Left space */}
+              {deviceTypes.map((brand, index) => (
+                <div key={index} className={styles.brandItem} onClick={() => setSelectedBrand(brand.brand)}>
+                  <img src={brand.image} alt={`${brand.brand} logo`} style={{width: '150px', height: '150px'}} />
+                  <p>{brand.brand}</p>
+                </div>
+              ))}
             </div>
             <div className={styles.repairFormContainer}>
-            <h2>Book a Repair</h2>
+            <h1>Book a Repair</h1>
             <form className={styles.repairForm} onSubmit={handleSubmit}>
               <label htmlFor="firstName">First Name</label>
               <input 
