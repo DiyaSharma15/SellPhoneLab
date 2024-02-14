@@ -17,12 +17,17 @@
     margin-top: auto;
   }
 
+.navItem a:hover {
+  color: #F27024;
+}
+
 .navLink {
     color: #fff;
     font-weight: bold;
     padding: 0.5rem;
     transition: color 0.3s ease;
   }
+
 
   .image {
     width: auto;
