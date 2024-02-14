@@ -7,12 +7,13 @@ const deviceTypes = [
       models: [
         {
           name: "iPhone",
-          image: "/assets/images/repair/Apple/DeviceType/Apple-iPhone.png",
+          image: "/assets/images/repair/Apple/iPhone/Apple-iPhone.png",
           series: [
             {
               name: "iPhone 15",
+              image: "/assets/images/repair/Apple/iPhone/15/15ProMax.png",
               devices: [
-                { name: "iPhone 15 Pro Max" }, //TODO: Add image
+                { name: "iPhone 15 Pro Max", image: "/assets/images/repair/Apple/iPhone/15ProMax.png"}, //TODO: Add image
                 { name: "iPhone 15 Pro" }, //TODO: Add image
                 { name: "iPhone 15 Plus" }, //TODO: Add image
                 { name: "iPhone 15" } //TODO: Add image
@@ -20,6 +21,7 @@ const deviceTypes = [
             },
             {
               name: "iPhone 14",
+              image: "/assets/images/repair/Apple/iPhone/14/14ProMax.png",
               devices: [
                 { name: "iPhone 14 Pro Max" }, //TODO: Add image
                 { name: "iPhone 14 Pro" }, //TODO: Add image
@@ -29,8 +31,9 @@ const deviceTypes = [
             },
             {
                 name: "iPhone 13",
+                image: "/assets/images/repair/Apple/iPhone/13/13ProMax.png",
                 devices: [
-                    { name: "iPhone 13 Pro Max" }, //TODO: Add image
+                    { name: "iPhone 13 Pro Max"}, //TODO: Add image
                     { name: "iPhone 13 Pro" }, //TODO: Add image
                     { name: "iPhone 13 mini" }, //TODO: Add image
                     { name: "iPhone 13" } //TODO: Add image
@@ -38,6 +41,7 @@ const deviceTypes = [
             },
             {
                 name: "iPhone 12",
+                image: "/assets/images/repair/Apple/iPhone/12/12ProMax.png",
                 devices: [
                     { name: "iPhone 12 Pro Max" }, //TODO: Add image
                     { name: "iPhone 12 Pro" }, //TODO: Add image
@@ -47,6 +51,7 @@ const deviceTypes = [
             },
             {
                 name: "iPhone 11",
+                image: "/assets/images/repair/Apple/iPhone/11/11ProMax.png",
                 devices: [
                     { name: "iPhone 11 Pro Max" }, //TODO: Add image
                     { name: "iPhone 11 Pro" }, //TODO: Add image
@@ -55,6 +60,7 @@ const deviceTypes = [
             },
             {
                 name: "iPhone X",
+                image: "/assets/images/repair/Apple/iPhone/X/iPhone-X.png",
                 devices: [
                     { name: "iPhone X" }, //TODO: Add image
                     { name: "iPhone XS" }, //TODO: Add image
@@ -88,7 +94,7 @@ const deviceTypes = [
         },
         {
           name: "iPad",
-          image: "/assets/images/repair/Apple/DeviceType/Apple-iPad.png",
+          image: "/assets/images/repair/Apple/iPad/Apple-iPad.png",
           devices: [
             { name: "iPad Pro" }, //TODO: Add image
             { name: "iPad Air" }, //TODO: Add image
@@ -97,7 +103,7 @@ const deviceTypes = [
         },
         {
           name: "Apple Watch",
-          image: "/assets/images/repair/Apple/DeviceType/Apple-Watch.png",
+          image: "/assets/images/repair/Apple/Watch/Apple-Watch.png",
           devices: [
             // It looks like these were mistakenly named as iPad models; consider updating these to Apple Watch models
             { name: "Apple Watch Series 7" }, //TODO: Add image
@@ -150,7 +156,7 @@ const deviceTypes = [
     },
     {
       brand: "Others",
-      image: "/assets/images/repair/Other/Other-Logo.svg",
+      image: "/assets/images/repair/Other/Other-Logo.png",
       models: [
         {
           name: "Other Phones",
