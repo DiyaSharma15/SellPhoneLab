@@ -45,18 +45,58 @@ export default function Repair() {
   const [selectedDeviceType, setSelectedDeviceType] = useState(null);
   const [selectedModel, setSelectedModel] = useState(null);
 
+  //Function to reset selections
+  const resetSelection = (level) => {
+    //TODO: Reset selections based on level
+    if (level === "brand") {
+      setSelectedDeviceType(null);
+      setSelectedModel(null);
+    } else if (level === "deviceType") {
+      setSelectedModel(null);
+    }
+  };
+
     return (
         <div>
           <Header/>
           <div className={styles.layoutContainer}>
             <div className={styles.deviceSelection}>
-              {/* TODO: Left space */}
-              {deviceTypes.map((brand, index) => (
-                <div key={index} className={styles.brandItem} onClick={() => setSelectedBrand(brand.brand)}>
+              {/* Brand Selection */}
+              {!selectedBrand && deviceTypes.map((brand, index) => (
+                <div key={index} className={styles.brandItem} onClick={() => {setSelectedBrand(brand.brand); resetSelection("brand"); }}>
                   <img src={brand.image} alt={`${brand.brand} logo`} style={{width: '150px', height: '150px'}} />
                   <p>{brand.brand}</p>
                 </div>
               ))}
+
+              {/* Device Type selection */}
+              {selectedBrand && !selectedDeviceType && (
+                <> 
+                  {deviceTypes.find(brand => brand.brand === selectedBrand).models.map((model, index) => (
+                    <div key={index} className={styles.brandItem} onClick={() => { setSelectedDeviceType(model.name); resetSelections("deviceType"); }}>
+                      <img src={model.image} alt={`${model.name}`} style={{width: '100px', height: 'auto'}} />
+                      <p>{model.name}</p>
+                    </div>
+                  ))}
+                  <button onClick={() => setSelectedBrand(null)}>Back to brands</button>
+                </>
+              )}
+
+              {/* Device Model selection */}
+              {selectedDeviceType && (
+              <div>
+                <button onClick={() => setSelectedDeviceType(null)}>Back to device types</button>
+                {deviceTypes
+                  .find(brand => brand.brand === selectedBrand)
+                  .models.find(model => model.name === selectedDeviceType)
+                  .devices.map((device, index) => (
+                    <div key={index} onClick={() => setSelectedModel(device.name)}>
+                      <p>{device.name}</p>
+                      {/* Display device images here if available */}
+                    </div>
+                ))}
+              </div>
+              )}
             </div>
             <div className={styles.repairFormContainer}>
             <h1>Book a Repair</h1>

@@ -6,7 +6,8 @@ const deviceTypes = [
         image: "/assets/images/repair/Apple/Apple-Logo.svg",
         models: [
             {
-                name: "iPhone",
+                name: "iPhone", 
+                image: "/assets/images/repair/Apple/DeviceType/Apple-iPhone.jpg",
                 devices: [
                     {name: "iPhone 15 Pro Max", /*TODO: Add image*/},
                     {name: "iPhone 15 Pro", /*TODO: Add image*/},
@@ -16,6 +17,16 @@ const deviceTypes = [
             },
             {
                 name: "iPad",
+                image: "/assets/images/repair/Apple/DeviceType/Apple-iPad.jpg",
+                devices: [
+                    {name: "iPad Pro", /*TODO: Add image*/},
+                    {name: "iPad Air", /*TODO: Add image*/},
+                    {name: "iPad", /*TODO: Add image*/},
+                ],
+            },
+            {
+                name: "Apple Watch",
+                image: "/assets/images/repair/Apple/DeviceType/Apple-Watch.png",
                 devices: [
                     {name: "iPad Pro", /*TODO: Add image*/},
                     {name: "iPad Air", /*TODO: Add image*/},

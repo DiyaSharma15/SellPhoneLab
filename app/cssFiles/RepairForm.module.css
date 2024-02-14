@@ -8,6 +8,7 @@
 }
 
 .deviceSelection {
+    position: relative;
     flex: 1.5; /*Takes up 1.5 portion of the space*/
     display: grid;
     grid-template-columns: repeat(3, 1fr); /*3 columns with equal width*/
@@ -18,6 +19,7 @@
     margin: 20px;
     padding: 20px;
 }
+
 
 .brandItem {
     cursor: pointer;
