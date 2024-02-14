@@ -5,7 +5,10 @@ import Header from "../components/Header"
 import styles from "../cssFiles/RepairForm.module.css"
 import deviceTypes from "./deviceData";
 
+import Footer from '../components/Footer';
+
 export default function Repair() {
+
   //State variables to hold form data
   const [formData, setFormData] = useState({
     fullName: "",
@@ -159,6 +162,8 @@ export default function Repair() {
             </form>
           </div>
         </div>
-      </div>    
+        <Footer/>
+      </div>
+      
     );
 }
