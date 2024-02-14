@@ -36,9 +36,9 @@ const SimpleCarousel = ({ images }) => {
               display: 'inline-block', 
               marginTop: '60px', // Increased space between subtitle and button
               padding: '10px 20px', 
-              backgroundColor: '#0046BE', 
+              backgroundColor: hover ? '#F27024' : '#0046BE', 
               border: 'solid 1px white',
-              color: hover ? '#F27024' : '#ffffff', // Change color on hover
+              color: '#ffffff', // Change color on hover
               textDecoration: 'none', 
               borderRadius: '5px',
             }}
