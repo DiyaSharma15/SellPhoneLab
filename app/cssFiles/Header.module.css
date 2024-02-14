@@ -20,7 +20,11 @@
 .navItem a:hover {
   color: #F27024;
 }
-
+.navItem a {
+  display: flex;
+  align-items: center; /* Ensure text and icon are aligned */
+  justify-content: space-between;
+}
 .navLink {
     color: #fff;
     font-weight: bold;
@@ -44,4 +48,25 @@
   .navLink{
     padding: 0.5rem 1rem;
   }
+}
+.dropdown {
+  position: absolute;
+  background-color: #0046BE;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1000;
+}
+
+.dropdownItem {
+  padding: 5px 0;
+}
+
+.dropdownItem a {
+  z-index: 1;
+  color: white; 
+  text-decoration: none;
+}
+
+.dropdownItem a:hover {
+  color: #F27024; 
 }

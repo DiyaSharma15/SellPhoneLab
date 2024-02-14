@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import Header from "./components/Header";
@@ -5,6 +6,8 @@ import Footer from "./components/Footer";
 import BrandToRepair from "./components/BrandToRepair";
 import Link from "next/link";
 import SimpleCarousel from './components/SimpleCarousel.client';
+import HomePageSections from "./components/HomePageSections";
+import AppointmentForm from "./components/AppointmentForm";
 
 export default function Home() {
   const images = [
@@ -44,12 +47,16 @@ export default function Home() {
       text: 'Find your next phone today.' 
     },
   ];
-  
+
   return (
     <div>
       <Header/>
       <SimpleCarousel images={images} />
       <BrandToRepair/>
+      <div style={{ display: 'flex', justifyContent: 'space-between', margin: '20px' }}>
+        <HomePageSections />
+        <AppointmentForm />
+      </div>
       <Footer/>
 
     </div>
