@@ -14,6 +14,7 @@
 
 .navItem {
     margin: 0%;
+    margin-top: auto;
   }
 
 .navLink {
@@ -26,15 +27,16 @@
   .image {
     width: auto;
     height: 60px;
-    min-width: 60px; /* Adjust as needed */
+    min-width: 60px;
 }
 
-
-
-
-
-
-
-  .navLink:hover {
-    color: #FFD700;
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navList{
+    flex-direction: column;
+    align-items: center;
   }
+  .navLink{
+    padding: 0.5rem 1rem;
+  }
+}
