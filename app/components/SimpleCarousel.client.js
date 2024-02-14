@@ -13,6 +13,7 @@ const SimpleCarousel = ({ images }) => {
     return () => clearInterval(interval); // Clean up the interval on component unmount
   }, [images.length]);
 
+  const textShadow = '4px 4px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000, -1px 1px 0px #000, 1px 1px 0px #000'; // Outline effect
   return (
     <div style={{ position: 'relative', height: '700px', overflow: 'hidden' }}>
       {images.map((image, index) => (
@@ -27,8 +28,8 @@ const SimpleCarousel = ({ images }) => {
             textAlign: 'center',
             zIndex: 2, // Ensure text is above the image
           }}>
-            <h2 style={{ fontSize: '4em', fontWeight: 'bold', marginBottom: '10px' }}>{image.title}</h2>
-            <p style={{ fontSize: '2em', fontWeight: 'bold', marginBottom: '20px' }}>{image.subtitle}</p>
+            <h2 style={{ fontSize: '4em', fontWeight: 'bold', marginBottom: '10px', textShadow }}>{image.title}</h2>
+            <p style={{ fontSize: '2em', fontWeight: 'bold', marginBottom: '20px', textShadow }}>{image.subtitle}</p>
             <a href={image.link} style={{ 
               display: 'inline-block', 
               marginTop: '60px', // Increased space between subtitle and button
