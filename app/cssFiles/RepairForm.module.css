@@ -1,44 +1,5 @@
 /* styles/repairform.module.css */
 
-.layoutContainer {
-    display: flex;
-    justify-content: center;
-    align-items: start;
-    gap: 20px;
-}
-
-.deviceSelection {
-    position: relative;
-    flex: 1.5; /*Takes up 1.5 portion of the space*/
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /*3 columns with equal width*/
-    grid-gap: 40px;
-    background-color: #ccc;
-    border: 1px solid #ccc;
-    border-radius: 5px; /*Rounded corners*/
-    margin: 20px;
-    padding: 20px;
-}
-
-
-.brandItem {
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px; /*Spacing between elements - Adjust as needed*/
-    margin-bottom: 20px; /*Spacing between items*/
-}
-
-.backButton {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
 .repairFormContainer {
     flex: 1; /* Takes up 1 portion of the space*/
     margin: 20px;
@@ -87,11 +48,6 @@
         border: 1px solid #555; /*Dark grey border*/
         background-color: #222; /*Dark grey background*/
         color: #ccc; /*Lighter text for visibility*/
-    }
-
-    .deviceSelection {
-        background-color: #222;
-        border: 1px solid #555;
     }
 
     .repairForm input,

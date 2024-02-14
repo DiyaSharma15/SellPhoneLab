@@ -1,6 +1,6 @@
 import React from 'react';
 import { IoArrowBackCircle } from "react-icons/io5";
-import styles from '../cssFiles/RepairForm.module.css'; // Assuming shared CSS for now
+import styles from '../cssFiles/DeviceSelection.module.css'; // Assuming shared CSS for now
 
 const DeviceSelection = ({
   selectedBrand,
@@ -20,7 +20,7 @@ const DeviceSelection = ({
       {!selectedBrand && deviceTypes.map((brand, index) => (
         <div key={index} className={styles.brandItem} onClick={() => { setSelectedBrand(brand.brand); resetSelection("brand"); }}>
           <img src={brand.image} alt={`${brand.brand} logo`} style={{width: '150px', height: '150px'}} />
-          <p>{brand.brand}</p>
+          <p className={styles.textStyle}>{brand.brand}</p>
         </div>
       ))}
 
@@ -33,7 +33,7 @@ const DeviceSelection = ({
           {deviceTypes.find(brand => brand.brand === selectedBrand).models.map((model, index) => (
             <div key={index} className={styles.brandItem} onClick={() => { setSelectedDeviceType(model.name); resetSelection("deviceType"); }}>
               <img src={model.image} alt={`${model.name}`} style={{width: '200px', height: 'auto'}} />
-              <p>{model.name}</p>
+              <p className={styles.textStyle}>{model.name}</p>
             </div>
           ))}
         </>

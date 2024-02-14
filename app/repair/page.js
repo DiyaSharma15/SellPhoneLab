@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import Header from "../components/Header";
 import styles from "../cssFiles/RepairForm.module.css";
 import deviceTypes from "./deviceData";
-import { IoArrowBackCircle } from "react-icons/io5";
 import Footer from '../components/Footer';
 import RepairForm from "../components/RepairForm"; // Assuming this import path is correct
 import DeviceSelection from "../components/DeviceSelection"; 
@@ -39,7 +38,6 @@ export default function Repair() {
   return (
     <div>
       <Header/>
-      <div className={styles.layoutContainer}>
         <DeviceSelection
           selectedBrand={selectedBrand}
           setSelectedBrand={setSelectedBrand}
@@ -53,8 +51,7 @@ export default function Repair() {
           resetSelection={resetSelection}
         />
         {/* TODO: Render the RepairForm component if a model has been selected */}
-        <RepairForm onSubmit={handleFormSubmit} />
-      </div>
+        {/* <RepairForm onSubmit={handleFormSubmit} /> */}
       <Footer/>
     </div>
   );
