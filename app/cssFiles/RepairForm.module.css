@@ -1,0 +1,68 @@
+/* styles/repairform.module.css */
+
+.repairFormContainer {
+    flex: 1; /* Takes up 1 portion of the space*/
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc; /*Light grey border*/
+    border-radius: 5px; /*Rounded corners*/
+}
+
+.repairForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /*Spacing between elements*/
+}
+
+.repairForm label {
+    font-weight: bold;
+}
+
+.repairForm input,
+.repairForm textarea,
+.repairForm button {
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.repairForm textarea {
+    resize: vertical; /*Allows the textarea to be resized vertically*/
+}
+
+.repairForm button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.repairForm button:hover {
+    background-color: #0056b3;
+}
+
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+    .repairFormContainer {
+        border: 1px solid #555; /*Dark grey border*/
+        background-color: #222; /*Dark grey background*/
+        color: #ccc; /*Lighter text for visibility*/
+    }
+
+    .repairForm input,
+    .repairForm textarea,
+    .repairForm button {
+        background-color: #333; /*Darker background for input fields*/
+        color: #ccc; /*Lighter text for visibility*/
+        border: 1px solid #444;
+    }
+
+    .repairForm button {
+        background-color: #0056b3;
+    }
+
+    .repairForm button:hover {
+        background-color: #004a9f;
+    }
+}
