@@ -5,8 +5,8 @@ import Header from "../components/Header";
 import styles from "../cssFiles/RepairForm.module.css";
 import deviceTypes from "./deviceData";
 import Footer from '../components/Footer';
-import RepairForm from "../components/RepairForm"; // Assuming this import path is correct
-import DeviceSelection from "../components/DeviceSelection"; 
+import RepairForm from "./components/RepairForm"; // Assuming this import path is correct
+import DeviceSelection from "./components/DeviceSelection"; 
 import HomePageSections from "../components/HomePageSections";
 
 export default function Repair() {

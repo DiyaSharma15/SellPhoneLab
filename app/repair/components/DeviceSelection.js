@@ -1,6 +1,6 @@
 import React from 'react';
 import { IoArrowBackCircle } from "react-icons/io5";
-import styles from '../cssFiles/DeviceSelection.module.css'; // Assuming shared CSS for now
+import styles from '../../cssFiles/DeviceSelection.module.css'; // Assuming shared CSS for now
 
 const DeviceSelection = ({
   selectedBrand,
