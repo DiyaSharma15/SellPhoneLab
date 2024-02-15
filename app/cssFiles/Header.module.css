@@ -15,6 +15,7 @@
 .navItem {
     margin: 0%;
     margin-top: auto;
+    font-weight: 600;
   }
 
 .navItem a:hover {
