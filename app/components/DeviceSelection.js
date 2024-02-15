@@ -14,20 +14,27 @@ const DeviceSelection = ({
   deviceTypes,
   resetSelection
 }) => {
+
+  //Set title based on current selection
+  let title = "Select a Brand to Start the Repair Process.";
+  if (selectedBrand && !selectedDeviceType) {
+    title = `Select your ${selectedBrand} device`;
+  } else if (selectedDeviceType && !selectedSeries) {
+    title = `Select your ${selectedDeviceType}`;
+  } else if (selectedSeries){
+    title = `Select your ${selectedSeries} model`;
+  }
   return (
+  <>
+    <div className={styles.titleStyle}>{title}</div>
     <div className={styles.deviceSelection}>
       {/* Brand Selection */}
-      {!selectedBrand && (
-        <>
-            <div className={styles.titleStyle}>Select a Brand</div> {/* Title for brand selection */}
-            {deviceTypes.map((brand, index) => (
-                <div key={index} className={styles.brandItem} onClick={() => { setSelectedBrand(brand.brand); resetSelection("brand"); }}>
-                <img src={brand.image} alt={`${brand.brand} logo`} style={{width: '220px', height: '150px'}} />
-                <p className={styles.textStyle}>{brand.brand}</p>
-                </div>
-            ))}
-        </>
-        )}
+      {!selectedBrand && deviceTypes.map((brand, index) => (
+      <div key={index} className={styles.brandItem} onClick={() => { setSelectedBrand(brand.brand); resetSelection("brand"); }}>
+      <img src={brand.image} alt={`${brand.brand} logo`} style={{width: '220px', height: '150px'}} />
+      <p className={styles.textStyle}>{brand.brand}</p>
+    </div>
+))}
 
       {/* Device Type selection */}
       {selectedBrand && !selectedDeviceType && (
@@ -35,7 +42,6 @@ const DeviceSelection = ({
           <button className={styles.backButton} onClick={() => setSelectedBrand(null)}>
             <IoArrowBackCircle style={{fontSize: '40px'}} />
           </button>
-          <div className={styles.titleStyle}>Select your {selectedBrand} device</div>
           {deviceTypes.find(brand => brand.brand === selectedBrand).models.map((model, index) => (
             <div key={index} className={styles.brandItem} onClick={() => { setSelectedDeviceType(model.name); resetSelection("deviceType"); }}>
               <img src={model.image} alt={`${model.name}`} style={{width: '200px', height: 'auto'}} />
@@ -79,6 +85,7 @@ const DeviceSelection = ({
         </>
       )}
     </div>
+  </>
   );
 };
 

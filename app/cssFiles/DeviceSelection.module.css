@@ -7,9 +7,7 @@
 }
 
 .titleStyle {
-    position: absolute;
-    top: 10px;
-    left: 40%;
+    margin-top: 20px;
     font-size: 24px;
     font-weight: bold;
     color: #333;
@@ -47,6 +45,10 @@
     border: none;
     cursor: pointer;
     color: #F27024;
+}
+
+.backButton:hover {
+    color: #0046BE;
 }
 
 /* @media (prefers-color-scheme: dark) {
