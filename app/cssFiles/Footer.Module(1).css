@@ -1,0 +1,62 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+}
+
+.mainContent {
+    background-color: #f0f0f0; /* Light grey background for the main content */
+    padding: 20px;
+    color: #333; /* Dark grey text for contrast */
+}
+
+.contactSection, .locations {
+    margin-bottom: 20px;
+}
+
+.contactSection h2, .locations h3 {
+    font-weight: bold;
+}
+
+
+
+.socialLinks {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.socialLinks a {
+    color: #333;
+    text-decoration: none;
+}
+
+
+
+.footerBottom {
+    background-color: #0046BE !important; /* Ensures blue background is applied */
+    color: #fff; /* White text for contrast */
+    text-align: center;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.footer .footerBottom {
+    background-color: #0046BE; /* Blue background */
+    /* Other styles remain unchanged */
+}
+.coupon {
+    border: 2px dotted #000; /* Creates a dotted border with black color */
+    background-color: #fff; /* Sets the background color to white */
+    color: #000; /* Sets the text color to black */
+    padding: 20px; /* Adds some padding inside the coupon box */
+    margin: 10px 0; /* Adds some margin for spacing around the coupon */
+    text-align: center; /* Centers the text inside the coupon */
+    font-size: 0.9rem;
+    width: 150px; /* Adjust the font size as needed */
+  }
+  
+  
