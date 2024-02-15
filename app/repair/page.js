@@ -7,6 +7,7 @@ import deviceTypes from "./deviceData";
 import Footer from '../components/Footer';
 import RepairForm from "../components/RepairForm"; // Assuming this import path is correct
 import DeviceSelection from "../components/DeviceSelection"; 
+import HomePageSections from "../components/HomePageSections";
 
 export default function Repair() {
   // State Variables for selecting device type, device model, and series
@@ -52,6 +53,7 @@ export default function Repair() {
         />
         {/* TODO: Render the RepairForm component if a model has been selected */}
         {/* <RepairForm onSubmit={handleFormSubmit} /> */}
+        <HomePageSections/>
       <Footer/>
     </div>
   );
