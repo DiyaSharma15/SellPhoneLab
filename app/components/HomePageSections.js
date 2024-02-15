@@ -15,7 +15,7 @@ const HomePageSections = () => {
     padding: '20px',
     margin: '10px',
     borderRadius: '8px',
-    width: 'calc(50% - 20px)',
+    width: 'calc(50% - 25px)',
     boxSizing: 'border-box',
     color: 'black', 
   };
