@@ -77,9 +77,9 @@ const DeviceSelection = ({
             .models.find(model => model.name === selectedDeviceType)
             .series.find(serie => serie.name === selectedSeries)
             .devices.map((device, index) => (
-              <div key={index} onClick={() => setSelectedModel(device.name)}>
-                <p>{device.name}</p>
-                {/* Display device images here if available */}
+              <div key={index} className={styles.brandItem} onClick={() => setSelectedModel(device.name)}>
+                <img src={device.image} alt={`${device.name}`} style={{ width: '200px', height: 'auto'}} />
+                <p className={styles.textStyle}>{device.name}</p>
               </div>
           ))}
         </>

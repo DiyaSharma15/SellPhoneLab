@@ -13,10 +13,10 @@ const deviceTypes = [
               name: "iPhone 15",
               image: "/assets/images/repair/Apple/iPhone/15/15ProMax.png",
               devices: [
-                { name: "iPhone 15 Pro Max", image: "/assets/images/repair/Apple/iPhone/15ProMax.png"}, //TODO: Add image
-                { name: "iPhone 15 Pro" }, //TODO: Add image
-                { name: "iPhone 15 Plus" }, //TODO: Add image
-                { name: "iPhone 15" } //TODO: Add image
+                { name: "iPhone 15 Pro Max", image: "/assets/images/repair/Apple/iPhone/15/15ProMax.png"}, //TODO: Add image
+                { name: "iPhone 15 Pro", image: "/assets/images/repair/Apple/iPhone/15/15ProMax.png" }, //TODO: Add image
+                { name: "iPhone 15 Plus", image: "/assets/images/repair/Apple/iPhone/15/iPhone-15.jpg" }, //TODO: Add image
+                { name: "iPhone 15", image: "/assets/images/repair/Apple/iPhone/15/iPhone-15.jpg" } //TODO: Add image
               ]
             },
             {
@@ -24,7 +24,7 @@ const deviceTypes = [
               image: "/assets/images/repair/Apple/iPhone/14/14ProMax.png",
               devices: [
                 { name: "iPhone 14 Pro Max" }, //TODO: Add image
-                { name: "iPhone 14 Pro" }, //TODO: Add image
+                { name: "iPhone 14 Pro" }, //TODO: Add imageone 15
                 { name: "iPhone 14 Plus" }, //TODO: Add image
                 { name: "iPhone 14" } //TODO: Add image
               ]
@@ -70,6 +70,7 @@ const deviceTypes = [
             },
             {
                 name: "iPhone SE",
+                image: "/assets/images/repair/Apple/iPhone/SE/SE.png",
                 devices: [
                     { name: "iPhone SE" }, //TODO: Add image
                     { name: "iPhone SE 2" }, //TODO: Add image
@@ -78,6 +79,7 @@ const deviceTypes = [
             },
             {
                 name: "iPhone 8",
+                image: "/assets/images/repair/Apple/iPhone/8/iPhone-8Plus.png",
                 devices: [
                     { name: "iPhone 8" }, //TODO: Add image
                     { name: "iPhone 8 Plus" } //TODO: Add image
@@ -85,6 +87,7 @@ const deviceTypes = [
             },
             {
                 name: "iPhone 7",
+                image: "/assets/images/repair/Apple/iPhone/7/iPhone-7Plus.png",
                 devices: [
                     { name: "iPhone 7" }, //TODO: Add image
                     { name: "iPhone 7 Plus" } //TODO: Add image
