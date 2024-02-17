@@ -129,22 +129,25 @@ const deviceTypes = [
             },
             {
               name: "iPad",
-              image: "/assets/images/repair/Apple/iPad/iPad/iPad.jpg",
+              image: "/assets/images/repair/Apple/iPad/iPad/7.png",
               devices: [
-                { name: "iPhone 15 Pro Max", image: "/assets/images/repair/Apple/iPhone/15/15ProMax.png"}, //TODO: Add image
-                { name: "iPhone 15 Pro", image: "/assets/images/repair/Apple/iPhone/15/15ProMax.png" }, //TODO: Add image
-                { name: "iPhone 15 Plus", image: "/assets/images/repair/Apple/iPhone/15/iPhone-15.jpg" }, //TODO: Add image
-                { name: "iPhone 15", image: "/assets/images/repair/Apple/iPhone/15/iPhone-15.jpg" } //TODO: Add image
+                { name: "iPad 7", image: "/assets/images/repair/Apple/iPad/iPad/7.png"}, 
+                { name: "iPad 6", image: "/assets/images/repair/Apple/iPad/iPad/6.png" }, 
+                { name: "iPad 5", image: "/assets/images/repair/Apple/iPad/iPad/5.png" }, 
+                { name: "iPad 4", image: "/assets/images/repair/Apple/iPad/iPad/4.png" },
+                { name: "iPad 3", image: "/assets/images/repair/Apple/iPad/iPad/3.png" },
+                { name: "iPad 2", image: "/assets/images/repair/Apple/iPad/iPad/2.png" }
               ]
             },
             {
               name: "iPad Air",
               image: "/assets/images/repair/Apple/iPad/iPadAir/iPad-Air.jpg",
               devices: [
-                { name: "iPhone 15 Pro Max", image: "/assets/images/repair/Apple/iPhone/15/15ProMax.png"}, //TODO: Add image
-                { name: "iPhone 15 Pro", image: "/assets/images/repair/Apple/iPhone/15/15ProMax.png" }, //TODO: Add image
-                { name: "iPhone 15 Plus", image: "/assets/images/repair/Apple/iPhone/15/iPhone-15.jpg" }, //TODO: Add image
-                { name: "iPhone 15", image: "/assets/images/repair/Apple/iPhone/15/iPhone-15.jpg" } //TODO: Add image
+                { name: "iPad Air 5", image: "/assets/images/repair/Apple/iPad/iPadAir/5.png"}, 
+                { name: "iPad Air 4", image: "/assets/images/repair/Apple/iPad/iPadAir/4.jpg" }, 
+                { name: "iPad Air 3", image: "/assets/images/repair/Apple/iPad/iPadAir/3.png" }, 
+                { name: "iPad Air 2", image: "/assets/images/repair/Apple/iPad/iPadAir/2.png" },
+                { name: "iPad Air 1", image: "/assets/images/repair/Apple/iPad/iPadAir/1.png" }
               ]
             },
           ]
@@ -152,11 +155,39 @@ const deviceTypes = [
         {
           name: "Apple Watch",
           image: "/assets/images/repair/Apple/Watch/Apple-Watch.png",
-          devices: [
-            // It looks like these were mistakenly named as iPad models; consider updating these to Apple Watch models
-            { name: "Apple Watch Series 7" }, //TODO: Add image
-            { name: "Apple Watch SE" }, //TODO: Add image
-            // Add more Apple Watch models here
+          series: [
+            {
+              name: "Apple Watch",
+              image: "/assets/images/repair/Apple/Watch/Series-8-45.jpg",
+              devices: [
+                { name: "Series 8 (45mm)", image: "/assets/images/repair/Apple/Watch/Series-8-45.jpg" }, 
+                { name: "Series 8 (41mm)", image: "/assets/images/repair/Apple/Watch/Series-8-41.jpg" }, 
+                { name: "Series 7 (45mm)", image: "/assets/images/repair/Apple/Watch/Series-7-45.jpg" }, 
+                { name: "Series 7 (41mm)", image: "/assets/images/repair/Apple/Watch/Series-7-41.jpg" },
+                { name: "Series 6 (44mm)", image: "/assets/images/repair/Apple/Watch/Series-6-44.jpg" },
+                { name: "Series 6 (40mm)", image: "/assets/images/repair/Apple/Watch/Series-6-40.jpg" },
+                { name: "Series 5 (44mm)", image: "/assets/images/repair/Apple/Watch/Series-5-44.jpg" },
+                { name: "Series 5 (40mm)", image: "/assets/images/repair/Apple/Watch/Series-5-40.jpg" },
+                { name: "Series 4 (44mm)", image: "/assets/images/repair/Apple/Watch/Series-4-44.jpg" },
+                { name: "Series 4 (40mm)", image: "/assets/images/repair/Apple/Watch/Series-4-40.jpg" },
+                { name: "Series 3 (42mm)", image: "/assets/images/repair/Apple/Watch/Series-3-42.jpg" },
+                { name: "Series 3 (38mm)", image: "/assets/images/repair/Apple/Watch/Series-3-38.jpg" },
+                { name: "Series 2 (42mm)", image: "/assets/images/repair/Apple/Watch/Series-2-42.jpg" },
+                { name: "Series 2 (38mm)", image: "/assets/images/repair/Apple/Watch/Series-2-38.jpg" },
+                { name: "Series 1 (42mm)", image: "/assets/images/repair/Apple/Watch/Series-1-42.jpg" },
+                { name: "Series 1 (38mm)", image: "/assets/images/repair/Apple/Watch/Series-1-38.jpg" }
+              ]
+            },
+            {
+              name: "Apple Watch SE",
+              image: "/assets/images/repair/Apple/Watch/SE/SE-2-44.jpg",
+              devices: [
+                { name: "SE Gen 2 (44mm)", image: "/assets/images/repair/Apple/Watch/SE/SE-2-44.jpg" }, 
+                { name: "SE Gen 2 (40mm)", image: "/assets/images/repair/Apple/Watch/SE/SE-2-40.jpg" }, 
+                { name: "SE Gen 1 (44mm)", image: "/assets/images/repair/Apple/Watch/SE/SE-1-44.jpg" }, 
+                { name: "SE Gen 1 (40mm)", image: "/assets/images/repair/Apple/Watch/SE/SE-1-40.jpg" }
+              ]
+            },
           ]
         }
         //TODO: OTHER DEVICES
