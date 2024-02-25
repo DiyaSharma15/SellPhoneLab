@@ -8,6 +8,7 @@ import Link from "next/link";
 import SimpleCarousel from './components/SimpleCarousel.client';
 import HomePageSections from "./components/HomePageSections";
 import AppointmentForm from "./components/AppointmentForm";
+import TradeIn_Assessment from "./components/TradeInAssessment";
 
 export default function Home() {
   const images = [
@@ -54,6 +55,7 @@ export default function Home() {
       <SimpleCarousel images={images} />
       <BrandToRepair/>
       <div style={{ display: 'flex', justifyContent: 'space-between', margin: '20px' }}>
+        <TradeIn_Assessment/>
         <HomePageSections />
         <AppointmentForm />
       </div>
