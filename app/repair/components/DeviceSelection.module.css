@@ -1,0 +1,69 @@
+/* styles/DeviceSelection.module.css */
+
+.selectionContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.item {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.2s; /* Smooth transform on hover */
+}
+
+.item:hover {
+    transform: scale(1.05); /* Slightly enlarge items on hover */
+}
+
+.item img {
+    width: 100px; /* Control the size of the images */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.textStyle {
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.titleStyle {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}
+
+.deviceSelection {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Adjust to 4 columns */
+    grid-gap: 20px; /* Adjust gap between items */
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px auto; /* Center the grid */
+    max-width: 960px; /* Control the max width */
+}
+
+.backButton, .backIcon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #F27024;
+    font-size: 24px;
+}
+
+.backButton:hover, .backIcon:hover {
+    color: #0046BE;
+}
+
+@media (max-width: 768px) {
+    .deviceSelection {
+        grid-template-columns: repeat(2, 1fr); /* Adjust for smaller screens */
+    }
+}

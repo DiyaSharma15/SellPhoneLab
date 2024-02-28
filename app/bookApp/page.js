@@ -2,11 +2,13 @@
 
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { db } from '/firebase-config'; // Adjust the path as necessary
+import { db } from '/firebase-config'; 
 import { collection, addDoc, Timestamp } from 'firebase/firestore';
 import { ProgressBar } from 'react-step-progress-bar';
 import 'react-step-progress-bar/styles.css';
-import styles from './BookAppointment.module.css'; // Ensure the path matches your CSS module file
+import styles from './BookAppointment.module.css';
+import Header from "../components/Header"
+import Footer from '../components/Footer';
 
 export default function BookAppointment() {
   const { register, handleSubmit, watch, reset } = useForm();
@@ -109,7 +111,10 @@ export default function BookAppointment() {
   };
 
   return (
+    <div>
+        <Header/>
     <div className={styles.formContainer}>
+        
       {isSubmitted ? (
         <div className={styles.thankYouMessage}>
           <h2>Thank You!</h2>
@@ -124,6 +129,9 @@ export default function BookAppointment() {
           </form>
         </>
       )}
+      
+    </div>
+    <Footer/>
     </div>
   );
 }
