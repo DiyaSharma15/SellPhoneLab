@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from"../cssFiles/TradeInAssessment.module.css";
+import iphoneModels from "./phonesTrade-in.json";
 
 //Trade-in Assessment Component 
 export default function TradeIn_Assessment(){
@@ -13,11 +14,12 @@ export default function TradeIn_Assessment(){
         setSelectedDevice(selectedDevice);
 
         //Set price based on selected device 
-        if (selectedDevice === "iphone 13"){
-            setPrice(400);
+        const device = iphoneModels.find((item) => item.name === selectedDevice);
+        if (device){
+            setPrice(device.price);
         }
-        else if (selectedDevice === "iphone 14"){
-            setPrice(460);
+        else {
+            setPrice(null);
         }
     };
 
@@ -40,17 +42,26 @@ export default function TradeIn_Assessment(){
                     <label>Select your device: </label>
                     <select onChange={handleDeviceSelection}>
                         <option value="">Select Device</option>
-                        <option value="iphone 13">iphone 13</option>
-                        <option value="iphone 14">iphone 14</option>
+                        {iphoneModels.map((item, index) => (
+                            <option key={index} value={item.name}>
+                                {item.name}
+                            </option>
+                        ))}
                     </select>
                 </div>  
             </div>  
             {/* Display Price */}
             <div className={styles.displayPrice}>
-                {price&& (
+                {price !== null && (
                     <div>
-                        <h3>Trade-in price for {selectedDevice}: </h3>
-                        <p>${price}</p>
+                        {price === 0 ? (
+                            <p>This phone needs further review. Please vist a SellPhone Lab store for more information.</p>
+                        ) : (
+                            <>
+                                <h3>Trade-in price for {selectedDevice}: </h3>
+                                <p>${price}</p>
+                            </>
+                        )}
                     </div>
                 )}
             </div>

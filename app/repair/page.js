@@ -1,60 +1,50 @@
+// Use client to help with fetching behavior that allows components to be rendered.
 "use client";
 
-import React, { useState } from "react";
-import Header from "../components/Header";
-import styles from "../cssFiles/RepairForm.module.css";
-import deviceTypes from "./deviceData";
+// Import all necessary components for repair page.
+import React, { useState } from 'react';
+import Header from '../components/Header';
 import Footer from '../components/Footer';
-import RepairForm from "./components/RepairForm"; // Assuming this import path is correct
-import DeviceSelection from "./components/DeviceSelection"; 
-import HomePageSections from "../components/HomePageSections";
+import DeviceSelection from './components/DeviceSelection';
+import RepairForm from './components/RepairForm';
+import deviceTypes from './deviceData';
 
+// Set up the default function for repair.
 export default function Repair() {
-  // State Variables for selecting device type, device model, and series
-  const [selectedBrand, setSelectedBrand] = useState(null);
-  const [selectedDeviceType, setSelectedDeviceType] = useState(null);
-  const [selectedSeries, setSelectedSeries] = useState(null);
-  const [selectedModel, setSelectedModel] = useState(null);
 
-  // Function to reset selections based on level
-  const resetSelection = (level) => {
-    if (level === "brand") {
-      setSelectedDeviceType(null);
-      setSelectedSeries(null);
-      setSelectedModel(null);
-    } else if (level === "deviceType") {
-      setSelectedSeries(null);
-      setSelectedModel(null);
-    } else if (level === "series") {
-      setSelectedModel(null);
-    }
+  // State hook for the selected model that user chooses.
+  const [selectedModel, setSelectedModel] = useState('');
+
+  // State hook for controlling the display of the repair form.
+  const [showForm, setShowForm] = useState(false);
+  
+  // This function handles the selection of a model the updates the selected model and shows the form.
+  const handleModelSelect = (model) => {
+    setSelectedModel(model); // Update the state with selected model.
+    setShowForm(true); // This makes the form visible.
   };
 
-  const handleFormSubmit = (formData) => {
-    console.log("Form submitted with data:", formData);
-    // TODO:include logic for what happens after form submission,
-    // such as sending data to an API
-  };
-
+  // Render function returns the UI structure for the repair page.
   return (
     <div>
       <Header/>
+      {!showForm ? (
+        // If the form is not shown, display the DeviceSelection component,
+        // passing deviceTypes and the model selection handler as props.
         <DeviceSelection
-          selectedBrand={selectedBrand}
-          setSelectedBrand={setSelectedBrand}
-          selectedDeviceType={selectedDeviceType}
-          setSelectedDeviceType={setSelectedDeviceType}
-          selectedSeries={selectedSeries}
-          setSelectedSeries={setSelectedSeries}
-          selectedModel={selectedModel}
-          setSelectedModel={setSelectedModel}
           deviceTypes={deviceTypes}
-          resetSelection={resetSelection}
+          onModelSelect={handleModelSelect}
         />
-        {/* TODO: Render the RepairForm component if a model has been selected */}
-        {/* <RepairForm onSubmit={handleFormSubmit} /> */}
-        <HomePageSections/>
-      <Footer/>
+      ) : (
+        // If the form is shown, display the RepairForm component,
+        // passing the selectedModel and a function to set the form visibility as props.
+        <RepairForm
+          selectedModel={selectedModel}
+          setShowForm={setShowForm}
+        />
+      )}
+      <Footer/> 
     </div>
   );
 }
+

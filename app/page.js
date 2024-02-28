@@ -1,16 +1,20 @@
+//Allows components to be rendered.
 "use client";
+
+//Import all necessary styles and components.
 import React from "react";
 import Image from "next/image";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import BrandToRepair from "./components/BrandToRepair";
-import Link from "next/link";
-import SimpleCarousel from './components/SimpleCarousel.client';
-import HomePageSections from "./components/HomePageSections";
-import AppointmentForm from "./components/AppointmentForm";
-import TradeIn_Assessment from "./components/TradeInAssessment";
+import Header from "./components/Header"; // Header component.
+import Footer from "./components/Footer"; // Footer component.
+import BrandToRepair from "./components/BrandToRepair"; // To display the brands.
+import Link from "next/link"; // Helps with client side navigation.
+import SimpleCarousel from './components/SimpleCarousel.client'; // Client side carousel.
+import HomePageSections from "./components/HomePageSections"; // Home page content.
+import TradeIn_Assessment from "./components/TradeInAssessment"; // Trade in valuation component.
 
+// Default function for the HomePage.
 export default function Home() {
+  // images for carousel, will move this to separate file later on, for simplicity.
   const images = [
     { 
       url: '/assets/images/home/Sellphone-mobiles-1-2048x1152.jpg', 
@@ -49,15 +53,16 @@ export default function Home() {
     },
   ];
 
+  // Render the function to create the UI of the page.
   return (
+    //Import all the components of homepage. (Header at top, Footer at the end)
     <div>
-      <Header/>
+      <Header/> 
       <SimpleCarousel images={images} />
       <BrandToRepair/>
       <div style={{ display: 'flex', justifyContent: 'space-between', margin: '20px' }}>
         <TradeIn_Assessment/>
         <HomePageSections />
-        <AppointmentForm />
       </div>
       <Footer/>
 

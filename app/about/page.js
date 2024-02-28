@@ -2,7 +2,7 @@
 import React from "react";
 import Header from "../components/Header"
 import Head from "next/head";
-import styles from "../cssFiles/About.module.css"
+import styles from "./About.module.css"
 
 export default function About() {
     return (
