@@ -66,6 +66,9 @@ export default function Header() {
                     <li className={styles.navItem}>
                         <Link href="/contact">Contact</Link>
                     </li>
+                    <li className={styles.navItem}>
+                        <Link href="/bookApp">Book Appointment</Link>
+                    </li>
                 </ul>
             </nav>
         </header>
