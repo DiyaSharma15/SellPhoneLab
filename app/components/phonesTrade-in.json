@@ -1,0 +1,182 @@
+[
+    {
+        "name": "iPhone 7 32GB",
+        "price": 0
+      },
+      {
+        "name": "iPhone 7 128GB",
+        "price": 35
+      },
+      {
+        "name": "iPhone 7 256GB",
+        "price": 40
+      },
+      {
+        "name": "iPhone 7 Plus 32GB",
+        "price": 60
+      },
+      {
+        "name": "iPhone 7 Plus 128GB",
+        "price": 65
+      },
+      {
+        "name": "iPhone 7 Plus 256GB",
+        "price": 70
+      },
+      {
+        "name": "iPhone 8 64GB",
+        "price": 60
+      },
+      {
+        "name": "iPhone 8 256GB",
+        "price": 80
+      },
+      {
+        "name": "iPhone 8 Plus 64GB",
+        "price": 0
+      },
+      {
+        "name": "iPhone 8 Plus 256GB",
+        "price": 0
+      },
+      {
+        "name": "iPhone X 64GB",
+        "price": 110
+      },
+      {
+        "name": "iPhone X 256GB",
+        "price": 140
+      },
+      {
+        "name": "iPhone XR 64GB",
+        "price": 130
+      },
+      {
+        "name": "iPhone XR 128GB",
+        "price": 150
+      },
+      {
+        "name": "iPhone XR 256GB",
+        "price": 160
+      },
+      {
+        "name": "iPhone XS 64GB",
+        "price": 140
+      },
+      {
+        "name": "iPhone XS 256GB",
+        "price": 160
+      },
+      {
+        "name": "iPhone XS 512GB",
+        "price": 165
+      },
+      {
+        "name": "iPhone XS Max 64GB",
+        "price": 190
+      },
+      {
+        "name": "iPhone XS Max 256GB",
+        "price": 220
+      },
+      {
+        "name": "iPhone XS Max 512GB",
+        "price": 230
+      },
+      {
+        "name": "iPhone 11 64GB",
+        "price": 100
+      },
+      {
+        "name": "iPhone 11 128GB",
+        "price": 250
+      },
+      {
+        "name": "iPhone 11 256GB",
+        "price": 250
+      },
+      {
+        "name": "iPhone 11 Pro 64GB",
+        "price": 250
+      },
+      {
+        "name": "iPhone 11 Pro 256GB",
+        "price": 320
+      },
+      {
+        "name": "iPhone 11 Pro 512GB",
+        "price": 330
+      },
+      {
+        "name": "iPhone 11 Pro Max 64GB",
+        "price": 320
+      },
+      {
+        "name": "iPhone 11 Pro Max 256GB",
+        "price": 360
+      },
+      {
+        "name": "iPhone 11 Pro Max 512GB",
+        "price": 380
+      },
+      {
+        "name": "iPhone SE 64GB",
+        "price": 0
+      },
+      {
+        "name": "iPhone SE 128GB",
+        "price": 0
+      },
+      {
+        "name": "iPhone SE 256GB",
+        "price": 0
+      },
+      {
+        "name": "iPhone 12 Mini 64GB",
+        "price": 240
+      },
+      {
+        "name": "iPhone 12 Mini 128GB",
+        "price": 260
+      },
+      {
+        "name": "iPhone 12 Mini 256GB",
+        "price": 270
+      },
+      {
+        "name": "iPhone 12 64GB",
+        "price": 340
+      },
+      {
+        "name": "iPhone 12 128GB",
+        "price": 360
+      },
+      {
+        "name": "iPhone 12 256GB",
+        "price": 0
+      },
+      {
+        "name": "iPhone 12 Pro 128GB",
+        "price": 0
+      },
+      {
+        "name": "iPhone 12 Pro 256GB",
+        "price": 0
+      },
+      {
+        "name": "iPhone 12 Pro 512GB",
+        "price": 0
+      },
+      {
+        "name": "iPhone 12 Pro Max 128GB",
+        "price": 0
+      },
+      {
+        "name": "iPhone 12 Pro Max 256GB",
+        "price": 0
+      },
+      {
+        "name": "iPhone 12 Pro Max 512GB",
+        "price": 0
+      }
+]
