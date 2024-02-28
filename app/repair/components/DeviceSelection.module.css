@@ -1,69 +1,54 @@
-/* styles/DeviceSelection.module.css */
-
+/* DeviceSelection.module.css */
 .selectionContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.item {
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    transition: transform 0.2s; /* Smooth transform on hover */
-}
-
-.item:hover {
-    transform: scale(1.05); /* Slightly enlarge items on hover */
-}
-
-.item img {
-    width: 100px; /* Control the size of the images */
-    height: auto; /* Maintain aspect ratio */
-}
-
-.textStyle {
-    color: black;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.titleStyle {
-    margin-top: 20px;
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    text-align: center;
-}
-
-.deviceSelection {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Adjust to 4 columns */
-    grid-gap: 20px; /* Adjust gap between items */
-    padding: 20px;
-    border-radius: 5px;
-    margin: 20px auto; /* Center the grid */
-    max-width: 960px; /* Control the max width */
-}
-
-.backButton, .backIcon {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #F27024;
-    font-size: 24px;
-}
-
-.backButton:hover, .backIcon:hover {
-    color: #0046BE;
-}
-
-@media (max-width: 768px) {
-    .deviceSelection {
-        grid-template-columns: repeat(2, 1fr); /* Adjust for smaller screens */
+    border: 8px solid #0046BE; /* Thicker blue border with specified color */
+    display: flex; /* Uses flexbox for layout */
+    flex-wrap: wrap; /* Allows items to wrap to the next line */
+    justify-content: flex-start; /* Align items to the start to reduce initial spacing */
+    padding: 10px; /* Adds some padding inside the container */
+    margin-top: 30px; /* Adds space at the top to create distance from the header */
+    position: relative; /* Sets a positioning context for absolute positioning inside */
+  }
+  
+  .item {
+    width: 150px; /* Sets the width of each item */
+    height: 150px; /* Sets the height of each item to maintain aspect ratio */
+    display: flex; /* Uses flexbox for layout inside each item */
+    flex-direction: column; /* Stacks item content vertically */
+    align-items: center; /* Centers items horizontally */
+    justify-content: center; /* Centers items vertically */
+    margin: 10px; /* Adds margin around each item for spacing */
+    text-align: center; /* Ensures text within each item is centered */
+    cursor: pointer; /* Changes cursor to pointer to indicate items are clickable */
+  }
+  
+  .item img {
+    max-width: 100%; /* Ensures images are fully contained within the item's width */
+    max-height: 80%; /* Limits image height to allow space for text below */
+    object-fit: contain; /* Ensures the aspect ratio of images is maintained */
+    transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+  }
+  
+  .item img:hover {
+    transform: scale(1.1); /* Scales up the image on hover for a zoom effect */
+  }
+  
+  .backIcon {
+    cursor: pointer; /* Changes the cursor to a pointer to indicate clickable */
+    position: absolute; /* Positions the icon absolutely relative to its nearest positioned ancestor */
+    top: 0; /* Aligns the icon to the top of the container */
+    left: 0; /* Aligns the icon to the left of the container */
+    transform: scale(3); /* Scales the icon to be three times its original size */
+    margin: 10px; /* Adds a bit of margin to move it slightly from the edges */
+    color: orange; /* Ensures the icon is orange to make it visible */
+  }
+  
+  /* Responsive adjustments */
+  @media screen and (max-width: 768px) {
+    .selectionContainer {
+      justify-content: center; /* Centers items on smaller screens */
     }
-}
+    .item {
+      margin: 5px; /* Reduces margin on smaller screens for tighter spacing */
+    }
+  }
+  
