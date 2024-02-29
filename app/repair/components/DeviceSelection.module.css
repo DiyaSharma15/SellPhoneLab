@@ -1,54 +1,62 @@
-/* DeviceSelection.module.css */
+/* Main container styles */
 .selectionContainer {
-    border: 8px solid #0046BE; /* Thicker blue border with specified color */
-    display: flex; /* Uses flexbox for layout */
-    flex-wrap: wrap; /* Allows items to wrap to the next line */
-    justify-content: flex-start; /* Align items to the start to reduce initial spacing */
-    padding: 10px; /* Adds some padding inside the container */
-    margin-top: 30px; /* Adds space at the top to create distance from the header */
-    position: relative; /* Sets a positioning context for absolute positioning inside */
+  border: 8px solid #0046BE; /* Thicker blue border with specified color */
+  display: flex; /* Uses flexbox for layout */
+  flex-wrap: wrap; /* Allows items to wrap to the next line */
+  justify-content: flex-start; /* Align items to the start to reduce initial spacing */
+  padding: 20px; /* Adds more padding inside the container for space around items */
+  margin-top: 30px; /* Adds space at the top to create distance from the header */
+  position: relative; /* Sets a positioning context for absolute positioning inside */
+  gap: 20px; /* Adds gap between items for better spacing without affecting margin */
+}
+
+/* Individual item styles */
+.item {
+  width: 150px; /* Sets the width of each item */
+  height: 200px; /* Sets a fixed height for each item to ensure uniformity */
+  display: flex; /* Uses flexbox for layout inside each item */
+  flex-direction: column; /* Stacks item content vertically */
+  align-items: center; /* Centers items horizontally */
+  justify-content: center; /* Centers items vertically */
+  margin: 10px; /* Adds margin around each item for spacing */
+  text-align: center; /* Ensures text within each item is centered */
+  cursor: pointer; /* Changes cursor to pointer to indicate items are clickable */
+  border: 2px solid #ccc; /* Adds a light border to each item for visual separation */
+  background-color: #f9f9f9; /* Light background color for each item */
+  border-radius: 10px; /* Rounds the corners of the item borders */
+}
+
+/* Image styles */
+.item img {
+  max-width: 90%; /* Adjusts width to provide padding around the image */
+  height: 100px; /* Fixed height for all images to ensure uniformity */
+  object-fit: contain; /* Ensures the aspect ratio of images is maintained */
+  margin-bottom: 10px; /* Space between the image and the text */
+}
+
+/* Text styles */
+.item p {
+  color: black; /* Ensures text is black */
+  font-size: 14px; /* Adjusts font size for readability */
+  margin: 0; /* Removes default margin */
+}
+
+/* Back icon styles */
+.backIcon {
+  cursor: pointer; /* Changes the cursor to a pointer to indicate clickable */
+  position: absolute; /* Positions the icon absolutely relative to its nearest positioned ancestor */
+  top: 20px; /* Adds space from the top of the container */
+  left: 20px; /* Adds space from the left of the container */
+  font-size: 30px; /* Adjusts the icon size for visibility */
+  color: #0046BE; /* Changes the icon color to match the border for consistency */
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .selectionContainer {
+    justify-content: center; /* Centers items on smaller screens */
   }
-  
   .item {
-    width: 150px; /* Sets the width of each item */
-    height: 150px; /* Sets the height of each item to maintain aspect ratio */
-    display: flex; /* Uses flexbox for layout inside each item */
-    flex-direction: column; /* Stacks item content vertically */
-    align-items: center; /* Centers items horizontally */
-    justify-content: center; /* Centers items vertically */
-    margin: 10px; /* Adds margin around each item for spacing */
-    text-align: center; /* Ensures text within each item is centered */
-    cursor: pointer; /* Changes cursor to pointer to indicate items are clickable */
+    margin: 5px; /* Reduces margin on smaller screens for tighter spacing */
   }
-  
-  .item img {
-    max-width: 100%; /* Ensures images are fully contained within the item's width */
-    max-height: 80%; /* Limits image height to allow space for text below */
-    object-fit: contain; /* Ensures the aspect ratio of images is maintained */
-    transition: transform 0.3s ease; /* Smooth transition for zoom effect */
-  }
-  
-  .item img:hover {
-    transform: scale(1.1); /* Scales up the image on hover for a zoom effect */
-  }
-  
-  .backIcon {
-    cursor: pointer; /* Changes the cursor to a pointer to indicate clickable */
-    position: absolute; /* Positions the icon absolutely relative to its nearest positioned ancestor */
-    top: 0; /* Aligns the icon to the top of the container */
-    left: 0; /* Aligns the icon to the left of the container */
-    transform: scale(3); /* Scales the icon to be three times its original size */
-    margin: 10px; /* Adds a bit of margin to move it slightly from the edges */
-    color: orange; /* Ensures the icon is orange to make it visible */
-  }
-  
-  /* Responsive adjustments */
-  @media screen and (max-width: 768px) {
-    .selectionContainer {
-      justify-content: center; /* Centers items on smaller screens */
-    }
-    .item {
-      margin: 5px; /* Reduces margin on smaller screens for tighter spacing */
-    }
-  }
-  
+}
