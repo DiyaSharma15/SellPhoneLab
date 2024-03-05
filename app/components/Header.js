@@ -1,11 +1,37 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "../cssFiles/Header.module.css"; // Adjust the path as necessary
 import { MdArrowDropDown, MdArrowDropUp } from "react-icons/md";
+import { auth } from '/firebase-config'; // Adjust the path to your Firebase config file
+import { onAuthStateChanged, signOut } from 'firebase/auth';
 
 export default function Header() {
     const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                // User is signed in
+                setIsLoggedIn(true);
+            } else {
+                // User is signed out
+                setIsLoggedIn(false);
+            }
+        });
+        return () => unsubscribe(); // Clean up subscription on unmount
+    }, []);
+
+    const handleLogout = async () => {
+        try {
+            await signOut(auth);
+            // Optionally, redirect the user to the homepage after logging out
+            window.location.href = '/';
+        } catch (error) {
+            console.error("Error signing out: ", error);
+        }
+    };
 
     return (
         <header className={styles.header}>
@@ -66,9 +92,15 @@ export default function Header() {
                     <li className={styles.navItem}>
                         <Link href="/contact">Contact</Link>
                     </li>
-                    <li className={styles.navItem}>
-                        <Link href="/bookApp">Book Appointment</Link>
-                    </li>
+                    {isLoggedIn ? (
+                        <li className={styles.navItem} onClick={handleLogout}>
+                            <a style={{cursor: 'pointer'}}>Logout</a>
+                        </li>
+                    ) : (
+                        <li className={styles.navItem}>
+                            <Link href="/login">Login</Link>
+                        </li>
+                        )}
                 </ul>
             </nav>
         </header>
