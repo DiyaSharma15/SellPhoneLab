@@ -20,7 +20,7 @@ export default function Login() {
       alert(error.message);
     }
   };
-//seth.d87@icloud.com
+
   return (
     <div className={styles.container}>
       <form onSubmit={handleLogin} className={styles.form}>
