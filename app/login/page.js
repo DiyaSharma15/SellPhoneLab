@@ -1,9 +1,10 @@
 "use client";
-
 import React, { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '/firebase-config'; // Adjust the path based on where you placed your firebase-config
 import styles from './components/Login.module.css'; // Update the import path to match your file structure
+import { IoArrowBack } from 'react-icons/io5'; // Importing back icon
+import Link from 'next/link'; // Importing Link for navigation
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -23,6 +24,12 @@ export default function Login() {
 
   return (
     <div className={styles.container}>
+      {/* Adding back button at the top */}
+      <div className={styles.backButtonContainer}>
+        <Link href="/" >
+          <IoArrowBack size="1.5em"></IoArrowBack>
+        </Link>
+      </div>
       <form onSubmit={handleLogin} className={styles.form}>
         <h2 className={styles.formTitle}>Admin Login</h2>
         <input

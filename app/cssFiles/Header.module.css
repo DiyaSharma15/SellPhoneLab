@@ -71,3 +71,36 @@
 .dropdownItem a:hover {
   color: #F27024; 
 }
+
+.mobileMenuIcon {
+  display: none;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .mobileMenuIcon {
+    display: block; 
+    position:absolute;
+    right: 50px;
+    top: 35px;
+  }
+
+  .navList {
+    display: none;
+    padding: 25px;
+  }
+
+  .navList.mobileVisible {
+    display: block; /* Show nav list when mobile menu is visible */
+    position: absolute;
+    background-color: #0046BE;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    width: 100%;
+    z-index: 1000;
+  }
+
+  .navItem {
+    display: block; /* Stack nav items vertically */
+    margin: 15px;
+  }
+}

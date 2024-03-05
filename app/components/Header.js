@@ -2,13 +2,14 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "../cssFiles/Header.module.css"; // Adjust the path as necessary
-import { MdArrowDropDown, MdArrowDropUp } from "react-icons/md";
+import { MdArrowDropDown, MdArrowDropUp, MdMenu } from "react-icons/md";
 import { auth } from '/firebase-config'; // Adjust the path to your Firebase config file
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 
 export default function Header() {
     const [isDropdownVisible, setIsDropdownVisible] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isMobileMenuVisible, setIsMobileMenuVisible] = useState(false);
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -26,7 +27,6 @@ export default function Header() {
     const handleLogout = async () => {
         try {
             await signOut(auth);
-            // Optionally, redirect the user to the homepage after logging out
             window.location.href = '/';
         } catch (error) {
             console.error("Error signing out: ", error);
@@ -34,22 +34,21 @@ export default function Header() {
     };
 
     return (
-        <header className={styles.header}>
+<header className={styles.header}>
+            <Link href="/">
+                <img src="/assets/icons/logo.png" alt="SellPhoneLab Logo" className={styles.image}/>
+            </Link>
+            <div className={styles.mobileMenuIcon} onClick={() => setIsMobileMenuVisible(!isMobileMenuVisible)}>
+                <MdMenu size="1.5em" />
+            </div>
             <nav>
-                <ul className={styles.navList}>
-                    <li className={styles.navItem}>
-                        <Link href="/">
-                            <img src="/assets/icons/logo.png" alt="SellPhoneLab Logo" className={styles.image}/>
-                        </Link>
-                    </li>
+                <ul className={`${styles.navList} ${isMobileMenuVisible ? styles.mobileVisible : ""}`}>
                     <li className={styles.navItem}>
                         <Link href="/">Home</Link>
                     </li>
                     <li className={styles.navItem} onMouseEnter={() => setIsDropdownVisible(true)} onMouseLeave={() => setIsDropdownVisible(false)}>
                         <div style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
-                            <Link href="/repair">
-                                Repair
-                            </Link>
+                            Repair
                             <div onClick={() => setIsDropdownVisible(!isDropdownVisible)} style={{ display: 'flex', alignItems: 'center' }}>
                                 {isDropdownVisible ? <MdArrowDropUp /> : <MdArrowDropDown />}
                             </div>
@@ -93,16 +92,22 @@ export default function Header() {
                         <Link href="/contact">Contact</Link>
                     </li>
                     {isLoggedIn ? (
-                        <li className={styles.navItem} onClick={handleLogout}>
-                            <a style={{cursor: 'pointer'}}>Logout</a>
-                        </li>
+                        <>
+                            <li className={styles.navItem}>
+                                <Link href="/admin/">Admin Dashboard</Link>
+                            </li>
+                            <li className={styles.navItem} onClick={handleLogout}>
+                                <a style={{cursor: 'pointer'}}>Logout</a>
+                            </li>
+                        </>
                     ) : (
                         <li className={styles.navItem}>
                             <Link href="/login">Login</Link>
                         </li>
-                        )}
+                    )}
                 </ul>
             </nav>
         </header>
     );
+    
 }
