@@ -1,21 +1,46 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-.header {
-    margin-bottom: 20px;
-    font-size: 24px;
-    font-weight: 500;
+
+.header h1,
+.priceInfo h3 {
+  color: #0046be;
+  font-weight: bold;
 }
-.description {
-    margin-bottom: 10px;
-}
-.deviceSelection {
-    padding-right: 20px;
-    flex: 1;
-}
+
+.header,
+.description,
+.deviceSelection,
 .displayPrice {
-    padding-left: 20px;
-    flex: 1;
+  text-align: center;
+  margin-bottom: 20px;
+  color: black; /* Text color for content */
+}
+
+.select,
+.priceInfo {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px 0;
+  background-color: white;
+  width: 100%;
+}
+
+.select:hover {
+  border-color: #007bff;
+}
+
+.priceInfo {
+  background-color: #e6e6e6;
+  box-shadow: inset 0 0 10px #ccc;
 }
