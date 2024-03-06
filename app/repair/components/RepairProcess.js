@@ -19,7 +19,7 @@ const RepairProcess = ({ selectedModel }) => {
             <div className="globalText">Quick blurb about repairing the {selectedModel.name}.</div>
           </div>
           <div className={styles.repairSteps}>
-            <p>This section will dynamically take the user through the repair process.</p>
+            <p>dev info: This section will dynamically take the user through the repair process.</p>
             <RepairTypeSelector />
           </div>
         </>

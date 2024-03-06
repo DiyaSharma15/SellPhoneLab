@@ -1,0 +1,47 @@
+/* RepairTypeSelector.module.css */
+.container {
+  display: grid;
+  gap: 20px; /* Space between grid items */
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 100%;
+  margin: 20px auto;
+  background-color: #f9f9f9;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  background-color: #fff; /* Background color for each option */
+  border: 1px solid #eee; /* Light border for each option */
+  padding: 10px;
+  border-radius: 8px; /* Rounded corners for each option */
+}
+
+.checkbox {
+    appearance: none;
+    background-color: #f0f0f0;
+    margin: 5px;
+    font: inherit;
+    color: currentColor;
+    width: 40px; /* Width of the checkbox */
+    height: 40px; /* Height of the checkbox */
+    border: 2px solid #ddd; /* Border of the checkbox */
+    border-radius: 4px; /* Rounded corners of the checkbox */
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+}
+
+.checkbox:checked {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+
+
+.label {
+    cursor: pointer;
+    width: auto;
+}

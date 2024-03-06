@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import styles from './DeviceSelection.module.css'
+import styles from "./RepairTypeSelector.module.css";
+import globalStyles from '../../globals.css';
 
 const RepairTypeSelector = () => {
     const [selectedTypes, setSelectedTypes] = useState([]);
@@ -30,17 +31,18 @@ const RepairTypeSelector = () => {
     };
 
     return (
-        <div>
-            <h3>Select the type of repair:</h3>
+        <div className={styles.container}>
+            <div className="globalTitle">Select Your Service Type(s):</div>
             {repairOptions.map((option) => (
-                <div key={option.id}>
+                <div key={option.id} className={styles.option}>
                     <input
                         type="checkbox"
                         id={option.id}
+                        className={styles.checkbox}
                         checked={selectedTypes.includes(option.id)}
                         onChange={() => handleSelectionChange(option.id)}
                     />
-                    <label htmlFor={option.id}>{option.name}</label>
+                    <label htmlFor={option.id} className={styles.label}>{option.name}</label>
                 </div>
             ))}
         </div>
