@@ -4,6 +4,7 @@
 //Import React && ______
 import React from 'react';
 import styles from './RepairProcess.module.css';
+import RepairTypeSelector from './RepairTypeSelector';
 
 const RepairProcess = ({ selectedModel }) => {
   //Pass selected model OBJECT, can use any information attached to it.
@@ -18,6 +19,7 @@ const RepairProcess = ({ selectedModel }) => {
           </div>
           <div className={styles.repairSteps}>
             <p>This section will dynamically take the user through the repair process.</p>
+            <RepairTypeSelector />
           </div>
         </>
       ) : (
