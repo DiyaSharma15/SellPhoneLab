@@ -32,7 +32,6 @@ const Appointments = () => {
                                 <p>Email: {appointment.email}</p>
                                 <p>Device Model: {appointment.deviceModel}</p>
                                 <p>Issue: {appointment.issueDescription}</p>
-                                <p>Submitted At: {appointment.submittedAt?.toDate().toLocaleString()}</p> {/* Ensure you convert Timestamp to Date */}
                             </li>
                         ))}
                     </ul>
