@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from './DeviceSelection.module.css'
 
 const RepairTypeSelector = () => {
     const [selectedTypes, setSelectedTypes] = useState([]);

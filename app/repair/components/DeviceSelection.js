@@ -1,6 +1,7 @@
 import React from 'react';
 import { IoArrowBackCircle } from "react-icons/io5";
 import styles from './DeviceSelection.module.css'; // Assuming shared CSS for now
+import globalStyles from '../../globals.css';
 
 
 const DeviceSelection = ({
@@ -27,7 +28,7 @@ const DeviceSelection = ({
   }
   return (
   <>
-    <div className={styles.titleStyle}>{title}</div>
+    <div className="globalTitle">{title}</div>
     <div className={styles.deviceSelection}>
       {/* Brand Selection */}
       {!selectedBrand && deviceTypes.map((brand, index) => (
