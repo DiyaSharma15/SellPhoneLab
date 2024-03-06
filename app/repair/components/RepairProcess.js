@@ -6,6 +6,7 @@ import React from 'react';
 import styles from './RepairProcess.module.css';
 import RepairTypeSelector from './RepairTypeSelector';
 import globalStyles from '../../globals.css';
+import { IoArrowForwardCircle } from "react-icons/io5";
 
 const RepairProcess = ({ selectedModel }) => {
   //Pass selected model OBJECT, can use any information attached to it.
@@ -19,8 +20,9 @@ const RepairProcess = ({ selectedModel }) => {
             <div className="globalText">Quick blurb about repairing the {selectedModel.name}.</div>
           </div>
           <div className={styles.repairSteps}>
-            <p>dev info: This section will dynamically take the user through the repair process.</p>
+          <div className="globalTitle">Select Your Service Type(s):</div>
             <RepairTypeSelector />
+            <IoArrowForwardCircle />
           </div>
         </>
       ) : (

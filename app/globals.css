@@ -38,7 +38,7 @@ body {
 .globalText {
   color: black;
   font-size: 16px;
-  font-weight: bold;
+  /* font-weight: bold; */
   text-align: center;
 }
 
@@ -48,4 +48,19 @@ body {
   font-weight: bold;
   color: #333;
   text-align: center;
+}
+
+/* Style for Arrow buttons? */
+.globalArrowButton {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #F27024;
+}
+
+.globalArrowButton:hover {
+  color: #0046BE;
 }
