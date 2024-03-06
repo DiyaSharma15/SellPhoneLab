@@ -1,47 +1,46 @@
 /* RepairTypeSelector.module.css */
 .container {
-  display: grid;
-  gap: 20px; /* Space between grid items */
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  width: 100%;
-  margin: 20px auto;
-  background-color: #f9f9f9;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Creates two columns */
+    gap: 20px; /* Space between grid items */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 100%;
+    margin: 20px auto;
+    background-color: #f9f9f9;
 }
 
 .option {
-  display: flex;
-  align-items: center;
-  background-color: #fff; /* Background color for each option */
-  border: 1px solid #eee; /* Light border for each option */
-  padding: 10px;
-  border-radius: 8px; /* Rounded corners for each option */
-}
-
-.checkbox {
-    appearance: none;
-    background-color: #f0f0f0;
-    margin: 5px;
-    font: inherit;
-    color: currentColor;
-    width: 40px; /* Width of the checkbox */
-    height: 40px; /* Height of the checkbox */
-    border: 2px solid #ddd; /* Border of the checkbox */
-    border-radius: 4px; /* Rounded corners of the checkbox */
-    transform: translateY(-0.075em);
-    display: grid;
-    place-content: center;
-}
-
-.checkbox:checked {
-    background-color: #007bff;
-    border-color: #007bff;
-}
-
-
-
-.label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Adjust content spacing */
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
     cursor: pointer;
-    width: auto;
-}
+    width: 100%; /* Use full width for better tap/click area */
+  }
+  
+  .checkbox {
+    opacity: 0; /* Hide the checkbox but keep it in the document flow */
+    position: absolute; /* Take it out of the flow if needed */
+    width: 40px;
+    height: 40px;
+  }
+  
+  .checkbox:checked + .label {
+    background-color: #007bff; /* Highlight background when checked */
+    color: #fff; /* Change text color for better readability */
+    border-radius: 8px; /* Maintain consistency with option border */
+  }
+  
+  .label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px; /* Ensure rounded corners */
+  }
+  

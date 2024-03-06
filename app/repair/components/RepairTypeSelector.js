@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styles from "./RepairTypeSelector.module.css";
 import globalStyles from '../../globals.css';
 
+
 const RepairTypeSelector = () => {
     const [selectedTypes, setSelectedTypes] = useState([]);
 
@@ -32,7 +33,6 @@ const RepairTypeSelector = () => {
 
     return (
         <div className={styles.container}>
-            <div className="globalTitle">Select Your Service Type(s):</div>
             {repairOptions.map((option) => (
                 <div key={option.id} className={styles.option}>
                     <input
