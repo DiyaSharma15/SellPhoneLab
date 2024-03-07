@@ -1,36 +1,38 @@
 /* AdminPage.module.css */
 .adminContainer {
-    padding: 20px;
-    min-height: 100vh;
-    background-color: rgb(var(--background-start-rgb)); /* Use variable for light mode */
-    color: rgb(var(--foreground-rgb)); /* Text color */
-  }
-  
-  .adminNav {
-    margin-bottom: 20px;
-  }
-  
-  .navList {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .navItem {
-    margin: 10px 0;
-    display: inline-block;
-    margin-right: 20px;
-  }
-  
-  .navLink {
-    text-decoration: none;
-    color: inherit; /* Inherits the color from the body */
-  }
-  
-  /* Ensure links are visible on all backgrounds */
-  .navLink:hover,
-  .navLink:focus {
-    color: yellow; /* Choose a color that stands out */
-  }
-  
-  /* Additional styles as needed */
-  
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+.adminNav {
+  background: #0046BE;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.navList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column; /* Change to row for a horizontal nav */
+}
+
+.navItem {
+  margin: 10px 0;
+}
+
+.navItem a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  display: block;
+}
+
+.navItem a:hover {
+  background-color: #F27024;
+  border-radius: 4px;
+}
+
+/* Add more styles below based on your layout and preference */
