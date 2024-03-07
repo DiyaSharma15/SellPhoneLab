@@ -12,8 +12,8 @@ import { collection, addDoc, Timestamp } from 'firebase/firestore';
 // Import CSS module for styling.
 import styles from './RepairForm.module.css'; 
 
-// Define the RepairForm component with props for the selected device model and a function to toggle form visibility.
-const RepairForm = ({ selectedModel, setShowForm }) => {
+// Define the RepairForm component with props for the selected device model, location, and dateTime
+const RepairForm = ({ selectedModel, selectedLocation, selectedDateTime}) => {
   // Initialize form methods including validation and reset functionality.
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
@@ -21,16 +21,18 @@ const RepairForm = ({ selectedModel, setShowForm }) => {
   const onSubmit = async (data) => {
     try {
       // Attempt to add a new document to the 'appointments' collection in Firestore.
-      // Include form data, the selected device model, and a timestamp.
+      // Include form data, the selected device model, location, date/time, and a timestamp.
       await addDoc(collection(db, "appointments"), {
         ...data,
         deviceModel: selectedModel,
+        location: selectedLocation,
+        startDateTime: selectedDateTime,
+        endDateTime: new Date(selectedDateTime.getTime() + 30 * 60000),
         submittedAt: Timestamp.fromDate(new Date()),
       });
       // Show success alert and reset form fields.
       alert("Your repair request has been submitted successfully.");
       reset();
-      setShowForm(false); // Optionally hide the form or redirect the user after submission.
     } catch (error) {
       // Log and alert the user of any errors during submission.
       console.error("Error submitting repair request: ", error);
@@ -45,9 +47,14 @@ const RepairForm = ({ selectedModel, setShowForm }) => {
       <h2>Repair Request Form</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.inputGroup}>
-          <label htmlFor="customerName">Name:</label>
-          <input id="customerName" {...register("customerName", { required: "Name is required" })} />
-          {errors.customerName && <p className={styles.error}>{errors.customerName.message}</p>}
+          <label htmlFor="firstName">First Name:</label>
+          <input id="firstName" {...register("firstName", { required: "First name is required" })} />
+          {errors.firstName && <p className={styles.error}>{errors.firstName.message}</p>}
+        </div>
+        <div className={styles.inputGroup}>
+          <label htmlFor="lastName">Last Name:</label>
+          <input id="lastName" {...register("lastName", { required: "Last name is required" })} />
+          {errors.lastName && <p className={styles.error}>{errors.lastName.message}</p>}
         </div>
         <div className={styles.inputGroup}>
           <label htmlFor="email">Email:</label>
@@ -59,14 +66,20 @@ const RepairForm = ({ selectedModel, setShowForm }) => {
           <textarea id="issueDescription" {...register("issueDescription", { required: "Issue description is required" })}></textarea>
           {errors.issueDescription && <p className={styles.error}>{errors.issueDescription.message}</p>}
         </div>
+        {/* Additional information (read-only) for the user's confirmation */}
         <div className={styles.inputGroup}>
-          <label>Device Model:</label>
-          <input type="text" value={selectedModel} readOnly />
-        </div>
-        <button type="submit" className={styles.submitButton}>Submit Request</button>
-        <button type="button" onClick={() => setShowForm(false)} className={styles.backButton}>
-          <i className="fas fa-arrow-left"></i> Go Back
-        </button>
+                    <label>Device Model:</label>
+                    <input type="text" value={selectedModel} readOnly />
+                </div>
+                <div className={styles.inputGroup}>
+                    <label>Location:</label>
+                    <input type="text" value={selectedLocation} readOnly />
+                </div>
+                <div className={styles.inputGroup}>
+                    <label>Appointment Time:</label>
+                    <input type="text" value={selectedDateTime.toLocaleString()} readOnly />
+                </div>
+                <button type="submit" className={styles.submitButton}>Submit Request</button>
       </form>
     </div>
   );

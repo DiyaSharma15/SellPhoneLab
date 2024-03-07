@@ -16,7 +16,8 @@ const RepairProcess = ({ selectedModel }) => {
   const [currentStep, setCurrentStep] = useState(1);
   const [selectedTypes, setSelectedTypes] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState('');
-  const [SelectedDateTime, setSelectedDateTime] = useState(''); 
+  const [selectedDateTime, setSelectedDateTime] = useState(''); 
+
   const stepsTotal = 3; //Adjust for number of steps
   const calculateProgress = () => (currentStep / stepsTotal) * 100;
 
@@ -49,7 +50,7 @@ const RepairProcess = ({ selectedModel }) => {
           <div className="globalTitle">Select Your Service Type(s):</div>
             {currentStep === 1  && <RepairTypeSelector selectedTypes={selectedTypes} setSelectedTypes={setSelectedTypes} />}
             {currentStep === 2 && <AppointmentSelection setSelectedLocation={setSelectedLocation} setSelectedDateTime={setSelectedDateTime} /> }
-            {currentStep === 3 && <RepairForm />}
+            {currentStep === 3 && <RepairForm selectedModel={selectedModel.name} selectedLocation={selectedLocation} selectedDateTime={selectedDateTime} />}
             {/* TODO: Other Steps */}
             <button className="globalForwardArrowButton" onClick={handleNextStep}>
               <IoArrowForwardCircle style={{fontSize: '40px'}}/>

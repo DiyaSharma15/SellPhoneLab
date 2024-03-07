@@ -67,8 +67,8 @@ const AppointmentSelection = ({ setSelectedLocation, setSelectedDateTime }) => {
                     }}
                 >
                     <option value="">Please select a location</option>
-                    <option value="calgary">SE Calgary</option>
-                    <option value="airdrie">Airdrie</option>
+                    <option value="Calgary">Calgary</option>
+                    <option value="Airdrie">Airdrie</option>
                 </select>
             </div>
             {location && (
