@@ -2,14 +2,36 @@
 "use client";
 
 //Import React && ______
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './RepairProcess.module.css';
 import RepairTypeSelector from './RepairTypeSelector';
-import globalStyles from '../../globals.css';
-import { IoArrowForwardCircle } from "react-icons/io5";
+import RepairForm from './RepairForm';
+import { ProgressBar } from 'react-step-progress-bar';
+import 'react-step-progress-bar/styles.css';
+import { IoArrowForwardCircle, IoArrowBackCircle } from "react-icons/io5";
 
 const RepairProcess = ({ selectedModel }) => {
   //Pass selected model OBJECT, can use any information attached to it.
+  const [currentStep, setCurrentStep] = useState(1);
+  const [selectedTypes, setSelectedTypes] = useState([]);
+  const stepsTotal = 3; //Adjust for number of steps
+  const calculateProgress = () => (currentStep / stepsTotal) * 100;
+
+  const handleNextStep = () => {
+    //Logic to move to the next step
+    if (currentStep < stepsTotal) {
+      setCurrentStep(currentStep + 1);
+    } else {
+      //Final step logic goes here
+    }
+  }
+
+  const handlePreviousStep = () => {
+    if (currentStep > 1) {
+      setCurrentStep(currentStep - 1);
+    }
+  };
+
   return (
     <div className={styles.container}>
       {selectedModel ? (
@@ -20,9 +42,14 @@ const RepairProcess = ({ selectedModel }) => {
             <div className="globalText">Quick blurb about repairing the {selectedModel.name}.</div>
           </div>
           <div className={styles.repairSteps}>
+          <ProgressBar percent={calculateProgress()} filledBackground="linear-gradient(to right, #2e3192, #1bffff)" />
           <div className="globalTitle">Select Your Service Type(s):</div>
-            <RepairTypeSelector />
-            <IoArrowForwardCircle />
+            {currentStep === 1  && <RepairTypeSelector selectedTypes={selectedTypes} setSelectedTypes={setSelectedTypes} />}
+            {currentStep === 2 && <RepairForm />}
+            {/* TODO: Other Steps */}
+            <button className="globalForwardArrowButton" onClick={handleNextStep}>
+              <IoArrowForwardCircle style={{fontSize: '40px'}}/>
+            </button>
           </div>
         </>
       ) : (

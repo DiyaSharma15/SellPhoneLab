@@ -41,7 +41,7 @@ const DeviceSelection = ({
       {/* Device Type selection */}
       {selectedBrand && !selectedDeviceType && (
         <>
-          <button className="globalArrowButton" onClick={() => setSelectedBrand(null)}>
+          <button className="globalBackArrowButton" onClick={() => setSelectedBrand(null)}>
             <IoArrowBackCircle style={{fontSize: '40px'}} />
           </button>
           {deviceTypes.find(brand => brand.brand === selectedBrand).models.map((model, index) => (
@@ -56,7 +56,7 @@ const DeviceSelection = ({
       {/* Device Series Selection */}
       {selectedDeviceType && !selectedSeries && (
         <>
-          <button className="globalArrowButton" onClick={() => setSelectedDeviceType(null)}>
+          <button className="globalBackArrowButton" onClick={() => setSelectedDeviceType(null)}>
             <IoArrowBackCircle style={{fontSize: '40px'}} />
           </button>
           {deviceTypes.find(brand => brand.brand === selectedBrand).models.find(model => model.name === selectedDeviceType).series.map((serie, index) => (
@@ -71,7 +71,7 @@ const DeviceSelection = ({
       {/* Specific Model Selection within a Series */}
       {selectedSeries && (
         <>
-          <button className="globalArrowButton" onClick={() => setSelectedSeries(null)}>
+          <button className="globalBackArrowButton" onClick={() => setSelectedSeries(null)}>
             <IoArrowBackCircle style={{fontSize: '40px'}} />
           </button>
           {deviceTypes

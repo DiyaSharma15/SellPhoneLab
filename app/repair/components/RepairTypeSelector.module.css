@@ -30,7 +30,7 @@
   }
   
   .checkbox:checked + .label {
-    background-color: #007bff; /* Highlight background when checked */
+    background-color: #f27024; /* Highlight background when checked */
     color: #fff; /* Change text color for better readability */
     border-radius: 8px; /* Maintain consistency with option border */
   }

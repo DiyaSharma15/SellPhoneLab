@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styles from "./RepairTypeSelector.module.css";
-import globalStyles from '../../globals.css';
 
 
 const RepairTypeSelector = () => {
