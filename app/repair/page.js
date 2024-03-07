@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import deviceTypes from "./deviceData";
 import Footer from '../components/Footer';
@@ -13,6 +13,21 @@ export default function Repair() {
   const [selectedDeviceType, setSelectedDeviceType] = useState(null);
   const [selectedSeries, setSelectedSeries] = useState(null);
   const [selectedModel, setSelectedModel] = useState(null);
+
+  //UseEffect to query URL and find previously selected brand
+  useEffect(() => {
+    // This function parses the query string and updates state accordingly
+    const parseQueryString = () => {
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      const brand = urlParams.get('selectedBrand');
+      if (brand) {
+        setSelectedBrand(brand);
+      }
+    };
+
+    parseQueryString();
+  }, []);
 
   // Function to reset selections based on level
   const resetSelection = (level) => {
