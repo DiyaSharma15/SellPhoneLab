@@ -56,22 +56,22 @@ export default function Header() {
                         {isDropdownVisible && (
                             <ul className={styles.dropdown}>
                                 <li className={styles.dropdownItem}>
-                                    <Link href={{ pathname: "/repair", query: { brand: "Apple" } }}>Apple</Link>
+                                    <Link href={{ pathname: "/repair", query: { selectedBrand: "Apple" } }}>Apple</Link>
                                 </li>
                                 <li className={styles.dropdownItem}>
-                                    <Link href={{ pathname: "/repair", query: { brand: "Samsung" } }}>Samsung</Link>
+                                    <Link href={{ pathname: "/repair", query: { selectedBrand: "Samsung" } }}>Samsung</Link>
                                 </li>
                                 <li className={styles.dropdownItem}>
-                                    <Link href={{ pathname: "/repair", query: { brand: "Google" } }}>Google</Link>
+                                    <Link href={{ pathname: "/repair", query: { selectedBrand: "Google" } }}>Google</Link>
                                 </li>
                                 <li className={styles.dropdownItem}>
-                                    <Link href={{ pathname: "/repair", query: { brand: "Huawei" } }}>Huawei</Link>
+                                    <Link href={{ pathname: "/repair", query: { selectedBrand: "Huawei" } }}>Huawei</Link>
                                 </li>
                                 <li className={styles.dropdownItem}>
-                                    <Link href={{ pathname: "/repair", query: { brand: "LG" } }}>LG</Link>
+                                    <Link href={{ pathname: "/repair", query: { selectedBrand: "LG" } }}>LG</Link>
                                 </li>
                                 <li className={styles.dropdownItem}>
-                                    <Link href={{ pathname: "/repair", query: { brand: "Other" } }}>Other Phones</Link>
+                                    <Link href={{ pathname: "/repair", query: { selectedBrand: "Others" } }}>Other Phones</Link>
                                 </li>
                             </ul>
                         )}
