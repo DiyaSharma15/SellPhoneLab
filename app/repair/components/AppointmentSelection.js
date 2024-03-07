@@ -12,21 +12,34 @@ const AppointmentSelection = ({ setSelectedLocation, setSelectedDateTime }) => {
 
     // Function to fetch available dates
     const fetchAvailableDates = async (selectedLocation) => {
-        const startDate = Timestamp.fromDate(new Date()); // Now
-        const endDate = Timestamp.fromDate(new Date(new Date().setFullYear(new Date().getFullYear() + 1))); // 1 year from now
-
+        if (!selectedLocation) return;
+    
+        // Adjust the selectedDate to cover the entire day
+        const startOfDay = new Date(selectedDate.setHours(0, 0, 0, 0));
+        const endOfDay = new Date(selectedDate.setHours(23, 59, 59, 999));
+    
+        // Convert to Firestore Timestamps
+        const startDate = Timestamp.fromDate(startOfDay);
+        const endDate = Timestamp.fromDate(endOfDay);
+    
         const appointmentsRef = collection(db, 'appointments');
         const q = query(appointmentsRef,
             where('location', '==', selectedLocation),
             where('startDateTime', '>=', startDate),
             where('startDateTime', '<=', endDate));
-
+    
         const snapshot = await getDocs(q);
-        const appointments = snapshot.docs.map(doc => ({...doc.data(), startDateTime: doc.data().startDateTime.toDate()})); // Convert startDateTime to JS Date
         
-        // Filter out times for the specifically selected date
-        const filteredTimes = getUnavailableTimes(appointments, selectedDate);
-        setUnavailableTimes(filteredTimes);
+        if (snapshot.empty) {
+            console.log("No matching documents for the day.");
+            setUnavailableTimes([]);
+            return;
+        }
+    
+        const appointments = snapshot.docs.map(doc => doc.data().startDateTime.toDate());
+    
+        // Assuming you want to exclude these times
+        setUnavailableTimes(appointments);
     };
 
     useEffect(() => {
@@ -62,6 +75,7 @@ const AppointmentSelection = ({ setSelectedLocation, setSelectedDateTime }) => {
                     id="location"
                     value={location}
                     onChange={(e) => {
+                        console.log("Selected location:", e.target.value);
                         setLocation(e.target.value);
                         setSelectedLocation(e.target.value);
                     }}
