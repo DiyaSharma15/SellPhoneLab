@@ -48,9 +48,9 @@ const RepairProcess = ({ selectedModel }) => {
           <div className={styles.repairSteps}>
           <ProgressBar percent={calculateProgress()} filledBackground="linear-gradient(to right, #2e3192, #1bffff)" />
           <div className="globalTitle">Select Your Service Type(s):</div>
-            {currentStep === 1  && <RepairTypeSelector selectedTypes={selectedTypes} setSelectedTypes={setSelectedTypes} />}
+            {currentStep === 1  && <RepairTypeSelector setSelectedTypes={setSelectedTypes} />}
             {currentStep === 2 && <AppointmentSelection setSelectedLocation={setSelectedLocation} setSelectedDateTime={setSelectedDateTime} /> }
-            {currentStep === 3 && <RepairForm selectedModel={selectedModel.name} selectedLocation={selectedLocation} selectedDateTime={selectedDateTime} />}
+            {currentStep === 3 && <RepairForm selectedModel={selectedModel.name} selectedLocation={selectedLocation} selectedDateTime={selectedDateTime} selectedTypes={selectedTypes} />}
             {/* TODO: Other Steps */}
             <button className="globalForwardArrowButton" onClick={handleNextStep}>
               <IoArrowForwardCircle style={{fontSize: '40px'}}/>

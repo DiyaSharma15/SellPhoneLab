@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import styles from "./RepairTypeSelector.module.css";
 
 
-const RepairTypeSelector = () => {
-    const [selectedTypes, setSelectedTypes] = useState([]);
+const RepairTypeSelector = ({ setSelectedTypes }) => {
+    const [selectedTypeNames, setSelectedTypeNames] = useState([]);
 
     const repairOptions = [
         { id: 'charging', name: 'Charge Port Replacement' },
@@ -21,12 +21,11 @@ const RepairTypeSelector = () => {
     ];
 
     const handleSelectionChange = (selectedId) => {
-        setSelectedTypes(prev => {
-            if (prev.includes(selectedId)) {
-                return prev.filter(id => id !== selectedId);
-            } else {
-                return [...prev, selectedId];
-            }
+        const option = repairOptions.find(option => option.id === selectedId);
+        setSelectedTypeNames(prev => {
+            const newSelectedNames = prev.includes(option.name) ? prev.filter(name => name !== option.name) : [...prev, option.name];
+            setSelectedTypes(newSelectedNames); // Update the parent state
+            return newSelectedNames;
         });
     };
 
@@ -38,7 +37,7 @@ const RepairTypeSelector = () => {
                         type="checkbox"
                         id={option.id}
                         className={styles.checkbox}
-                        checked={selectedTypes.includes(option.id)}
+                        checked={selectedTypeNames.includes(option.name)}
                         onChange={() => handleSelectionChange(option.id)}
                     />
                     <label htmlFor={option.id} className={styles.label}>{option.name}</label>

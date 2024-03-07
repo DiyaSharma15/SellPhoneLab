@@ -13,7 +13,7 @@ import { collection, addDoc, Timestamp } from 'firebase/firestore';
 import styles from './RepairForm.module.css'; 
 
 // Define the RepairForm component with props for the selected device model, location, and dateTime
-const RepairForm = ({ selectedModel, selectedLocation, selectedDateTime}) => {
+const RepairForm = ({ selectedModel, selectedLocation, selectedDateTime, selectedTypes}) => {
   // Initialize form methods including validation and reset functionality.
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
@@ -25,6 +25,7 @@ const RepairForm = ({ selectedModel, selectedLocation, selectedDateTime}) => {
       await addDoc(collection(db, "appointments"), {
         ...data,
         deviceModel: selectedModel,
+        repairTypes: selectedTypes,
         location: selectedLocation,
         startDateTime: selectedDateTime,
         endDateTime: new Date(selectedDateTime.getTime() + 30 * 60000),
@@ -68,18 +69,27 @@ const RepairForm = ({ selectedModel, selectedLocation, selectedDateTime}) => {
         </div>
         {/* Additional information (read-only) for the user's confirmation */}
         <div className={styles.inputGroup}>
-                    <label>Device Model:</label>
-                    <input type="text" value={selectedModel} readOnly />
-                </div>
-                <div className={styles.inputGroup}>
-                    <label>Location:</label>
-                    <input type="text" value={selectedLocation} readOnly />
-                </div>
-                <div className={styles.inputGroup}>
-                    <label>Appointment Time:</label>
-                    <input type="text" value={selectedDateTime.toLocaleString()} readOnly />
-                </div>
-                <button type="submit" className={styles.submitButton}>Submit Request</button>
+            <label>Device Model:</label>
+            <input type="text" value={selectedModel} readOnly />
+        </div>
+        {/* Display selected repair types */}
+        <div className={styles.inputGroup}>
+          <label>Selected Repair Types:</label>
+                <ul>
+                    {selectedTypes.map((typeName, index) => (
+                        <li key={index}>{typeName}</li>
+                    ))}
+                </ul>
+        </div>
+        <div className={styles.inputGroup}>
+            <label>Location:</label>
+            <input type="text" value={selectedLocation} readOnly />
+        </div>
+        <div className={styles.inputGroup}>
+            <label>Appointment Time:</label>
+            <input type="text" value={selectedDateTime.toLocaleString()} readOnly />
+        </div>
+        <button type="submit" className={styles.submitButton}>Submit Request</button>
       </form>
     </div>
   );
