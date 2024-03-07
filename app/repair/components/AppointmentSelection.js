@@ -1,15 +1,11 @@
 // AppointmentSelection.js
 
 import React, { useState } from 'react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
-const AppointmentSelection = ({ setSelectedLocation, setSelectedDate }) => {
+const AppointmentSelection = ({ setSelectedLocation, setSelectedDateTime }) => {
     const [location, setLocation] = useState('');
-    const [date, setDate] = useState('');
-
-    //Placeholder function for logic to fetch available dates from firebase
-    const fetchAvailableDates = async (selectedLocation) => {
-        //Fetch dates from Firebase and set some state here
-    };
 
     return (
         <div>
@@ -21,24 +17,27 @@ const AppointmentSelection = ({ setSelectedLocation, setSelectedDate }) => {
                     onChange={(e) => {
                         setLocation(e.target.value);
                         setSelectedLocation(e.target.value);
-                        fetchAvailableDates(e.target.value);
+                        // Assuming fetchAvailableDates will adjust available dates in DatePicker
+                        // fetchAvailableDates(e.target.value);
                     }}
                 >
+                    <option value="">Please select a location</option>
                     <option value="calgary">SE Calgary</option>
                     <option value="airdrie">Airdrie</option>
                 </select>
             </div>
 
             <div>
-                <label htmlFor="date">Select Date:</label>
-                <input 
-                    type="date"
-                    id="date"
-                    value={date}
-                    onChange={(e) => {
-                        setDate(e.target.value);
-                        setSelectedDate(e.target.value);
-                    }}
+                <label htmlFor="date">Select Date and Time:</label>
+                <DatePicker
+                    inline // Keeps the calendar always visible
+                    selected={new Date()} // Simplified to directly use a new Date() object
+                    onChange={setSelectedDateTime} // Directly updates parent state
+                    showTimeSelect
+                    dateFormat="Pp"
+                    timeFormat="HH:mm"
+                    minDate={new Date()} // Prevents past dates from being selected
+                    // Additional props like minTime and maxTime can be used to restrict time selection
                 />
             </div>
         </div>
