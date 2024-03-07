@@ -16,7 +16,7 @@ const RepairProcess = ({ selectedModel }) => {
   const [currentStep, setCurrentStep] = useState(1);
   const [selectedTypes, setSelectedTypes] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState('');
-  const [selectedDate, setSelectedDate] = useState(''); 
+  const [SelectedDateTime, setSelectedDateTime] = useState(''); 
   const stepsTotal = 3; //Adjust for number of steps
   const calculateProgress = () => (currentStep / stepsTotal) * 100;
 
@@ -48,7 +48,7 @@ const RepairProcess = ({ selectedModel }) => {
           <ProgressBar percent={calculateProgress()} filledBackground="linear-gradient(to right, #2e3192, #1bffff)" />
           <div className="globalTitle">Select Your Service Type(s):</div>
             {currentStep === 1  && <RepairTypeSelector selectedTypes={selectedTypes} setSelectedTypes={setSelectedTypes} />}
-            {currentStep === 2 && <AppointmentSelection setSelectedLocation={setSelectedLocation} setSelectedDate={setSelectedDate} /> }
+            {currentStep === 2 && <AppointmentSelection setSelectedLocation={setSelectedLocation} setSelectedDateTime={setSelectedDateTime} /> }
             {currentStep === 3 && <RepairForm />}
             {/* TODO: Other Steps */}
             <button className="globalForwardArrowButton" onClick={handleNextStep}>
