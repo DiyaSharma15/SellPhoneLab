@@ -21,6 +21,20 @@ const RepairProcess = ({ selectedModel }) => {
   const stepsTotal = 3; //Adjust for number of steps
   const calculateProgress = () => (currentStep / stepsTotal) * 100;
 
+  //Function to get title for other steps
+  const getTitle = () => {
+    switch (currentStep) {
+      case 1:
+        return "Select Your Service Type(s):";
+      case 2:
+        return "Select Your Store & Appointment Time:";
+      case 3: 
+        return "Customer Information";
+      default:
+        return ""; //Fallback title can change
+    }
+  }
+
   const handleNextStep = () => {
     //Logic to move to the next step
     if (currentStep < stepsTotal) {
@@ -46,8 +60,8 @@ const RepairProcess = ({ selectedModel }) => {
             <div className="globalText">Quick blurb about repairing the {selectedModel.name}.</div>
           </div>
           <div className={styles.repairSteps}>
+          <div className="globalTitle">{getTitle()}</div>
           <ProgressBar percent={calculateProgress()} filledBackground="linear-gradient(to right, #2e3192, #1bffff)" />
-          <div className="globalTitle">Select Your Service Type(s):</div>
             {currentStep === 1  && <RepairTypeSelector setSelectedTypes={setSelectedTypes} />}
             {currentStep === 2 && <AppointmentSelection setSelectedLocation={setSelectedLocation} setSelectedDateTime={setSelectedDateTime} /> }
             {currentStep === 3 && <RepairForm selectedModel={selectedModel.name} selectedLocation={selectedLocation} selectedDateTime={selectedDateTime} selectedTypes={selectedTypes} />}
