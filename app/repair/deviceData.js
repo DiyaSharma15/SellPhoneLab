@@ -274,7 +274,7 @@ name: "Samsung Z Series",
         series: [
         {
         name: "Samsung Z Fold",
-                image: "",
+                image: "/assets/mages/repair/Samsung/Z Series/Galaxy-Z-Fold-4.jpg"",
                 devices: [
                 { name: "Galaxy Z Fold 2", image: "/assets/images/repair/Samsung/Z%20Series/fold/Galaxy-Z-Fold-2.jpg" },
                 { name: "Galaxy Z Fold 3", image: "/assets/images/repair/Samsung/Z%20Series/fold/Galaxy-Z-Fold-3.jpg" },
@@ -285,7 +285,7 @@ name: "Samsung Z Series",
         },
         {
         name: "Samsung Z Flip",
-                image: "",
+                image: "/assets/images/repair/Samsung/Z Series/Galaxy-Z-Flip.jpg",
                 devices: [
                 { name: "Galaxy Z Flip 3", image: "/assets/images/repair/Samsung/Z%20Series/flip/Galaxy-Z-Flip-3.jpg" },
                 { name: "Galaxy Z Flip 4", image: "/assets/images/repair/Samsung/Z%20Series/flip/Galaxy-Z-Flip-4.jpg" },
@@ -461,7 +461,7 @@ name: "Samsung Z Series",
                                 series :[
                                 {
                                 name: "LG X Series",
-                                        image: "",
+                                        image: "/assets/images/repair/LG/LG-X-Series.jpg"",
                                         devices: [
                                         { name: "X Power", image: "/assets/images/repair/LG/X Series/x-power.png" },
                                         { name: "X Power 2", image: "/assets/images/repair/LG/X Series/x-power-2.png" },
@@ -472,7 +472,7 @@ name: "Samsung Z Series",
                                 },
                                 {
                                 name: "LG V Series",
-                                        image: "",
+                                        image: "/assets/images/repair/LG/LG-V-Series.jpg",
                                         devices: [
                                         { name: "V20", image: "/assets/images/repair/LG/V Series/v20.png" },
                                         { name: "V20 Mini", image: "/assets/images/repair/LG/V Series/v20-mini.png" },
@@ -489,7 +489,7 @@ name: "Samsung Z Series",
                                 },
                                 {
                                 name: "LG Tribute",
-                                        image: "",
+                                        image: "/assets/images/repair/LG/LG-Tribute.jpg",
                                         devices: [
                                         { name: "Tribute Dynasty", image: "/assets/images/repair/LG/tribute/tribute-dynasty.png" },
                                         { name: "Tribute HD", image: "/assets/images/repair/LG/tribute/tribute-hd.png" },
