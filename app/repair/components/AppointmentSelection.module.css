@@ -1,0 +1,11 @@
+/* AppointmentSelection.module.css */
+
+.datePickerContainer {
+    margin-top: 20px;
+    position: relative;
+}
+
+.datePickerLabel {
+    display: block;
+    margin-bottom: 10px;
+}

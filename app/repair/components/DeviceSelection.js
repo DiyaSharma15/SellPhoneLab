@@ -1,6 +1,7 @@
 import React from 'react';
 import { IoArrowBackCircle } from "react-icons/io5";
 import styles from './DeviceSelection.module.css'; // Assuming shared CSS for now
+import globalStyles from '../../globals.css';
 
 
 const DeviceSelection = ({
@@ -27,7 +28,7 @@ const DeviceSelection = ({
   }
   return (
   <>
-    <div className={styles.titleStyle}>{title}</div>
+    <div className="globalTitle">{title}</div>
     <div className={styles.deviceSelection}>
       {/* Brand Selection */}
       {!selectedBrand && deviceTypes.map((brand, index) => (
@@ -40,7 +41,7 @@ const DeviceSelection = ({
       {/* Device Type selection */}
       {selectedBrand && !selectedDeviceType && (
         <>
-          <button className={styles.backButton} onClick={() => setSelectedBrand(null)}>
+          <button className="globalBackArrowButton" onClick={() => setSelectedBrand(null)}>
             <IoArrowBackCircle style={{fontSize: '40px'}} />
           </button>
           {deviceTypes.find(brand => brand.brand === selectedBrand).models.map((model, index) => (
@@ -55,7 +56,7 @@ const DeviceSelection = ({
       {/* Device Series Selection */}
       {selectedDeviceType && !selectedSeries && (
         <>
-          <button className={styles.backButton} onClick={() => setSelectedDeviceType(null)}>
+          <button className="globalBackArrowButton" onClick={() => setSelectedDeviceType(null)}>
             <IoArrowBackCircle style={{fontSize: '40px'}} />
           </button>
           {deviceTypes.find(brand => brand.brand === selectedBrand).models.find(model => model.name === selectedDeviceType).series.map((serie, index) => (
@@ -70,7 +71,7 @@ const DeviceSelection = ({
       {/* Specific Model Selection within a Series */}
       {selectedSeries && (
         <>
-          <button className={styles.backButton} onClick={() => setSelectedSeries(null)}>
+          <button className="globalBackArrowButton" onClick={() => setSelectedSeries(null)}>
             <IoArrowBackCircle style={{fontSize: '40px'}} />
           </button>
           {deviceTypes
