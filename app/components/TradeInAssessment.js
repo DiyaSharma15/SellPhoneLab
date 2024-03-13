@@ -28,14 +28,17 @@ export default function TradeIn_Assessment(){
         <div className={styles.container}>
             {/* Header */}
             <div className={styles.header}>
-                Trade-in assessment
-                Trade-in your device and save.
+                <h1>Trade-in assessment</h1>
+                <h2>Trade-in your device and save.</h2>
             </div>
             {/* Description */}
-            <div className={styles.description}>
-                <h2>Find out how much your device is worth</h2>
-                <h6>This is a preliminary estimate of your device. To determine the exact trade-in value, visit a SellPhone Lab store.</h6>
+            <div className={styles.descriptionBox}>
+                <div className={styles.description}>
+                    <h2>Find out how much your device is worth</h2>
+                    <h6>This is a preliminary estimate of your device. To determine the exact trade-in value, visit a SellPhone Lab store.</h6>
+                </div>
             </div>
+            
             {/* Device Selection Dropdown */}
             <div className={styles.deviceSelection}>
                 <div>
