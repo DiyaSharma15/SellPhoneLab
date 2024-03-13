@@ -1,12 +1,12 @@
 import  React  from 'react';
 import Header from "../components/Header"
 import Footer from '../components/Footer';
-import ProductCategories from './product-categories/ProductCategories';
-export default function Accessories() {
+import ProductDetails from './ProductDetails';
+export default function productDetails() {
     return (
         <div>
         <Header/>
-        <ProductCategories/>
+        <ProductDetails/>
         <Footer/>  
       </div>
     );

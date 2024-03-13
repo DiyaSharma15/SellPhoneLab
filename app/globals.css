@@ -77,3 +77,12 @@ body {
 .globalForwardArrowButton:hover {
   color: #0046BE;
 }
+
+a{
+  text-decoration: none !important;
+  outline: none !important;
+}
+
+.productDetails svg,.Cart svg{
+    display: inline;
+}
