@@ -1,64 +1,73 @@
 import React, { useState } from "react";
-import styles from "../cssFiles/TradeInAssessment.module.css"; // Ensure updated styles are correctly imported
+import styles from"../cssFiles/TradeInAssessment.module.css";
 import iphoneModels from "./phonesTrade-in.json";
 
-export default function TradeInAssessment() {
-  const [selectedDevice, setSelectedDevice] = useState("");
-  const [price, setPrice] = useState("");
+//Trade-in Assessment Component 
+export default function TradeIn_Assessment(){
+    //State Variables
+    const [selectedDevice, setSelectedDevice] = useState(null);
+    const [price, setPrice] = useState(null);
 
-  const handleDeviceSelection = (event) => {
-    const selected = event.target.value;
-    setSelectedDevice(selected);
+    //Device Selection Handler 
+    const handleDeviceSelection = (event) => {
+        const selectedDevice = event.target.value;
+        setSelectedDevice(selectedDevice);
 
-    const device = iphoneModels.find((item) => item.name === selected);
-    setPrice(device ? device.price : null);
-  };
+        //Set price based on selected device 
+        const device = iphoneModels.find((item) => item.name === selectedDevice);
+        if (device){
+            setPrice(device.price);
+        }
+        else {
+            setPrice(null);
+        }
+    };
 
-  return (
-    <div className={styles.container}>
-      <header className={styles.header}>
-        <h1>Trade-in Assessment</h1>
-        <p>Trade in your device and save.</p>
-      </header>
-      <section className={styles.description}>
-        <h2>Find out how much your device is worth</h2>
-        <p>
-          This is a preliminary estimate of your device. To determine the exact
-          trade-in value, visit a SellPhone Lab store.
-        </p>
-      </section>
-      <section className={styles.deviceSelection}>
-        <label htmlFor="deviceSelect">Select your device: </label>
-        <select
-          id="deviceSelect"
-          value={selectedDevice}
-          onChange={handleDeviceSelection}
-        >
-          <option value="">Select Device</option>
-          {iphoneModels.map((item, index) => (
-            <option key={index} value={item.name}>
-              {item.name}
-            </option>
-          ))}
-        </select>
-      </section>
-      <section className={styles.displayPrice}>
-        {price && (
-          <div>
-            {price === 0 ? (
-              <p>
-                This phone needs further review. Please visit a SellPhone Lab
-                store for more information.
-              </p>
-            ) : (
-              <>
-                <h3>Trade-in price for {selectedDevice}: </h3>
-                <p>${price}</p>
-              </>
-            )}
-          </div>
-        )}
-      </section>
-    </div>
-  );
+    //Render UI
+    return(
+        <div className={styles.container}>
+            {/* Header */}
+            <div className={styles.header}>
+                <h1>Trade-in assessment</h1>
+                <h2>Trade-in your device and save.</h2>
+            </div>
+            {/* Description */}
+            <div className={styles.descriptionBox}>
+                <div className={styles.description}>
+                    <h2>Find out how much your device is worth</h2>
+                    <h6>This is a preliminary estimate of your device. To determine the exact trade-in value, visit a SellPhone Lab store.</h6>
+                </div>
+            </div>
+            
+            {/* Device Selection Dropdown */}
+            <div className={styles.deviceSelection}>
+                <div>
+                    <label>Select your device: </label>
+                    <select onChange={handleDeviceSelection}>
+                        <option value="">Select Device</option>
+                        {iphoneModels.map((item, index) => (
+                            <option key={index} value={item.name}>
+                                {item.name}
+                            </option>
+                        ))}
+                    </select>
+                </div>  
+            </div>  
+            {/* Display Price */}
+            <div className={styles.displayPrice}>
+                {price !== null && (
+                    <div>
+                        {price === 0 ? (
+                            <p>This phone needs further review. Please vist a SellPhone Lab store for more information.</p>
+                        ) : (
+                            <>
+                                <h3>Trade-in price for {selectedDevice}: </h3>
+                                <p>${price}</p>
+                            </>
+                        )}
+                    </div>
+                )}
+            </div>
+        </div>
+    );
 }

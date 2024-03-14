@@ -31,3 +31,58 @@ body {
     text-wrap: balance;
   }
 }
+
+/* Consistent styling for common components like titles and subtitles. */
+
+/* Style for global title and text styles */
+.globalText {
+  color: black;
+  font-size: 16px;
+  /* font-weight: bold; */
+  text-align: center;
+}
+
+.globalTitle {
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+}
+
+/* Style for Arrow buttons? */
+.globalBackArrowButton {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #F27024;
+}
+
+.globalBackArrowButton:hover {
+  color: #0046BE;
+}
+
+.globalForwardArrowButton {
+  position: absolute;
+  right: 35px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #F27024;
+}
+
+.globalForwardArrowButton:hover {
+  color: #0046BE;
+}
+
+a{
+  text-decoration: none !important;
+  outline: none !important;
+}
+
+.productDetails svg,.Cart svg{
+    display: inline;
+}

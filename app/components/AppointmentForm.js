@@ -6,17 +6,17 @@
 //       phone: '',
 //       message: '',
 //     });
-
+  
 //     const handleChange = (e) => {
 //       setFormData({ ...formData, [e.target.name]: e.target.value });
 //     };
-
+  
 //     const handleSubmit = (e) => {
 //       e.preventDefault();
 //       console.log('Form data submitted:', formData);
 //       // Integrate with your backend or API as needed
 //     };
-
+  
 //     const formContainerStyle = {
 //       border: '1px solid black',
 //       background: '#f9f9f9', // Very light grey background
@@ -31,13 +31,13 @@
 //       flexDirection: 'column',
 //       gap: '10px', // Creates consistent spacing between form elements
 //     };
-
+  
 //     const inputStyle = {
 //       padding: '8px',
 //       border: '1px solid #ccc', // Lighter border for input fields for visibility
 //       borderRadius: '4px',
 //     };
-
+  
 //     return (
 //       <form onSubmit={handleSubmit} style={formContainerStyle}>
 //         <h2 style={{ color: 'black', margin: '0 0 10px 0' }}>Request Appointment</h2>
@@ -49,5 +49,6 @@
 //       </form>
 //     );
 //   };
-
+  
 //   export default AppointmentForm;
+  

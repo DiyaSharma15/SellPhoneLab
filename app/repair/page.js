@@ -1,50 +1,77 @@
-// Use client to help with fetching behavior that allows components to be rendered.
 "use client";
 
-// Import all necessary components for repair page.
-import React, { useState } from 'react';
-import Header from '../components/Header';
+import React, { useState, useEffect } from "react";
+import Header from "../components/Header";
+import deviceTypes from "./deviceData";
 import Footer from '../components/Footer';
-import DeviceSelection from './components/DeviceSelection';
-import RepairForm from './components/RepairForm';
-import deviceTypes from './deviceData';
+import DeviceSelection from "./components/DeviceSelection";
+import RepairProcess from "./components/RepairProcess";
 
-// Set up the default function for repair.
 export default function Repair() {
+  // State Variables for selecting device type, device model, and series
+  const [selectedBrand, setSelectedBrand] = useState(null);
+  const [selectedDeviceType, setSelectedDeviceType] = useState(null);
+  const [selectedSeries, setSelectedSeries] = useState(null);
+  const [selectedModel, setSelectedModel] = useState(null);
 
-  // State hook for the selected model that user chooses.
-  const [selectedModel, setSelectedModel] = useState('');
+  //UseEffect to query URL and find previously selected brand
+  useEffect(() => {
+    // This function parses the query string and updates state accordingly
+    const parseQueryString = () => {
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      const brand = urlParams.get('selectedBrand');
+      if (brand) {
+        setSelectedBrand(brand);
+      }
+    };
 
-  // State hook for controlling the display of the repair form.
-  const [showForm, setShowForm] = useState(false);
-  
-  // This function handles the selection of a model the updates the selected model and shows the form.
-  const handleModelSelect = (model) => {
-    setSelectedModel(model); // Update the state with selected model.
-    setShowForm(true); // This makes the form visible.
+    parseQueryString();
+  }, []);
+
+  // Function to reset selections based on level
+  const resetSelection = (level) => {
+    if (level === "brand") {
+      setSelectedDeviceType(null);
+      setSelectedSeries(null);
+      setSelectedModel(null);
+    } else if (level === "deviceType") {
+      setSelectedSeries(null);
+      setSelectedModel(null);
+    } else if (level === "series") {
+      setSelectedModel(null);
+    }
   };
 
-  // Render function returns the UI structure for the repair page.
+  const handleFormSubmit = (formData) => {
+    console.log("Form submitted with data:", formData);
+    // TODO:include logic for what happens after form submission,
+    // such as sending data to an API
+  };
+
   return (
     <div>
-      <Header/>
-      {!showForm ? (
-        // If the form is not shown, display the DeviceSelection component,
-        // passing deviceTypes and the model selection handler as props.
+      <Header />
+      {!selectedModel && ( // This line ensures DeviceSelection is only shown when no model is selected
         <DeviceSelection
-          deviceTypes={deviceTypes}
-          onModelSelect={handleModelSelect}
-        />
-      ) : (
-        // If the form is shown, display the RepairForm component,
-        // passing the selectedModel and a function to set the form visibility as props.
-        <RepairForm
+          selectedBrand={selectedBrand}
+          setSelectedBrand={setSelectedBrand}
+          selectedDeviceType={selectedDeviceType}
+          setSelectedDeviceType={setSelectedDeviceType}
+          selectedSeries={selectedSeries}
+          setSelectedSeries={setSelectedSeries}
           selectedModel={selectedModel}
-          setShowForm={setShowForm}
+          setSelectedModel={setSelectedModel}
+          deviceTypes={deviceTypes}
+          resetSelection={resetSelection}
         />
       )}
-      <Footer/> 
+      {selectedModel && ( // This line ensures RepairForm is shown only when a model is selected
+        <RepairProcess
+         selectedModel={selectedModel}
+        />
+      )}
+      <Footer />
     </div>
   );
 }
-

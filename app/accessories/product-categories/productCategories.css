@@ -1,0 +1,13 @@
+@media screen and (max-width: 500px) {
+  .categories-container-box {
+    justify-content: center !important;
+  }
+}
+
+.categories-container-box {
+  gap: 1.5rem;
+}
+
+.btn-primary svg {
+  display: inline;
+}
