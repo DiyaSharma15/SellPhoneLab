@@ -14,6 +14,13 @@ import TradeIn_Assessment from "./components/TradeInAssessment"; // Trade in val
 
 // Default function for the HomePage.
 export default function Home() {
+
+  const pageContainerStyle = {
+    display: 'flex',
+    flexDirection: 'column', // Ensure components are stacked vertically
+    alignItems: 'center', // Center the components horizontally
+  };
+  
   // images for carousel, will move this to separate file later on, for simplicity.
   const images = [
     { 
@@ -60,7 +67,7 @@ export default function Home() {
       <Header/> 
       <SimpleCarousel images={images} />
       <BrandToRepair/>
-      <div style={{ display: 'flex', justifyContent: 'space-between', margin: '20px' }}>
+      <div style={pageContainerStyle}>
         <TradeIn_Assessment/>
         <HomePageSections />
       </div>
