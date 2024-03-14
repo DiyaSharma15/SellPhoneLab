@@ -1,51 +1,51 @@
-.child-card .categories-card-img{
-    background: #f1f1f1;
-   overflow: hidden;
-   min-height: 180px;
-   padding: 10px;
-   border-radius: 15px;
+.child-card .categories-card-img {
+  background: #f1f1f1;
+  overflow: hidden;
+  min-height: 180px;
+  padding: 10px;
+  border-radius: 15px;
 }
-.child-card .categories-card-img .card-img-top{
-    object-fit: contain;
-    max-height: 210px;
-    transition: all linear 0.2s;
+.child-card .categories-card-img .card-img-top {
+  object-fit: contain;
+  max-height: 210px;
+  transition: all linear 0.2s;
 }
-.child-card .card-body{
-    color: #4f5d77;
-    display: flex;
+.child-card .card-body {
+  color: #4f5d77;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
-.child-card .categories-card:hover .card-img-top{
-    transform: scale(1.05);
+.child-card .categories-card:hover .card-img-top {
+  transform: scale(1.05);
 }
-.child-card .categories-card{
-    border-radius: 15px;
-    padding: 10px;
-    max-width: 210px;
-    max-height: 243px;
-    border: 1px solid #b3ddf3;
-    cursor: pointer;
+.child-card .categories-card {
+  border-radius: 15px;
+  padding: 10px;
+  max-width: 210px;
+  max-height: 243px;
+  border: 1px solid #eef0f1;
+  cursor: pointer;
 }
-.child-card{
-    width: max-content;
- }
-@media (max-width:510px) {
-    .child-card .categories-card-img{
-        min-height: 260px;
-        max-height: 260px;
-        max-width: 300px;
-        min-width: 300px;
-        padding: 20px;
-    }
-    .child-card .categories-card{
-        display: grid;
-        justify-content: center;
-        min-height: 350px;
-        min-width:350px ;
-        padding-top: 25px;
-    }
-    .child-card .card-title{
-        font-size: 25px !important;
-    }
+.child-card {
+  width: max-content;
+}
+@media (max-width: 510px) {
+  .child-card .categories-card-img {
+    min-height: 260px;
+    max-height: 260px;
+    max-width: 300px;
+    min-width: 300px;
+    padding: 20px;
+  }
+  .child-card .categories-card {
+    display: grid;
+    justify-content: center;
+    min-height: 350px;
+    min-width: 350px;
+    padding-top: 25px;
+  }
+  .child-card .card-title {
+    font-size: 25px !important;
+  }
 }
