@@ -20,11 +20,11 @@ const DeviceSelection = ({
   //Set title based on current selection
   let title = "Select a Brand to Start the Repair Process.";
   if (selectedBrand && !selectedDeviceType) {
-    title = `Select your ${selectedBrand} device`;
+    title = `Select Your ${selectedBrand} Device`;
   } else if (selectedDeviceType && !selectedSeries) {
-    title = `Select your ${selectedDeviceType}`;
+    title = `Select Your ${selectedDeviceType}`;
   } else if (selectedSeries){
-    title = `Select your ${selectedSeries} model`;
+    title = `Select Your ${selectedSeries} Model`;
   }
   return (
   <>
