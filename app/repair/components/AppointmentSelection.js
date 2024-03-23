@@ -10,13 +10,22 @@ const AppointmentSelection = ({ setSelectedLocation, setSelectedDateTime }) => {
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [unavailableTimes, setUnavailableTimes] = useState([]);
 
+    const minTime = new Date(selectedDate);
+    minTime.setHours(9, 0, 0, 0);
+
+    const maxTime = new Date(selectedDate);
+    maxTime.setHours(17, 0, 0, 0);
+
     // Function to fetch available dates
     const fetchAvailableDates = async (selectedLocation) => {
         if (!selectedLocation) return;
     
         // Adjust the selectedDate to cover the entire day
-        const startOfDay = new Date(selectedDate.setHours(0, 0, 0, 0));
-        const endOfDay = new Date(selectedDate.setHours(23, 59, 59, 999));
+        const startOfDay = new Date(selectedDate);
+        startOfDay.setHours(0, 0, 0, 0);
+        const endOfDay = new Date(selectedDate);
+        endOfDay.setHours(23, 59, 59, 999);
+
     
         // Convert to Firestore Timestamps
         const startDate = Timestamp.fromDate(startOfDay);
@@ -64,8 +73,7 @@ const AppointmentSelection = ({ setSelectedLocation, setSelectedDateTime }) => {
     const handleDateChange = (date) => {
         setSelectedDate(date); // Update local state date
         setSelectedDateTime(date); // Propagate selected date/time up to parent
-        // Optionally, you can trigger re-fetching of unavailable times here if needed
-    }
+    };
 
     return (
         <div>
@@ -97,8 +105,8 @@ const AppointmentSelection = ({ setSelectedLocation, setSelectedDateTime }) => {
                         timeFormat="HH:mm"
                         minDate={new Date()}
                         excludeTimes={unavailableTimes}
-                        minTime={new Date().setHours(9, 0, 0, 0)} // From 9:00 AM
-                        maxTime={new Date().setHours(17, 0, 0, 0)} // To 5:00 PM
+                        minTime={minTime} // From 9:00 AM
+                        maxTime={maxTime} // To 5:00 PM
                     />
                 </div>
             )}
