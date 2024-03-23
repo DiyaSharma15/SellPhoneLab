@@ -44,3 +44,6 @@
     border-radius: 8px; /* Ensure rounded corners */
   }
   
+  .label:hover {
+    background-color: rgba(242, 112, 36, 0.7); /* Orange color with lighter transparency on hover */
+}
