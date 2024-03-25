@@ -5,7 +5,6 @@
     padding: 20px;
     color: black;
     text-align: center;
-    /* This will center the text for direct children, which includes the .section divs, but not the nested content */
 }
   
 .section {
@@ -17,9 +16,14 @@
     border: 2px solid #1C2321; /* Slim, dark border for the phone's edge */
     border-radius: 25px; /* Rounded edges like many modern smartphones */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds depth, like the phone's elevation from the surface */
-    padding: 20px;
     position: relative; /* For positioning the pseudo-elements */
-    overflow: hidden; /* Ensures nothing spills outside the border-radius */
+    overflow: hidden;
+    padding-bottom: 80px;
+    padding-top: 40px; /* Ensures nothing spills outside the border-radius */
+}
+.section p {
+    margin-left:30px;
+    margin-right: 30px;
 }
 
 .section::before {

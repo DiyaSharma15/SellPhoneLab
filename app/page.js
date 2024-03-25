@@ -66,10 +66,11 @@ export default function Home() {
     <div>
       <Header/> 
       <SimpleCarousel images={images} />
+      <HomePageSections />
       <BrandToRepair/>
       <div style={pageContainerStyle}>
         <TradeIn_Assessment/>
-        <HomePageSections />
+        
       </div>
       <Footer/>
 
