@@ -10,7 +10,7 @@
   
   .inputGroup input,
   .inputGroup textarea {
-    width: calc(100% - 22px); 
+    width: 100%; 
     padding: 10px;
     border: 1px solid black;
     border-radius: 4px;
@@ -27,7 +27,7 @@
     color: black;
     display: flex;
     flex-direction: column;
-    max-width: 600px;
+    max-width: 800px;
     margin: 20px auto;
     padding: 20px;
     border: 1px solid black; 
@@ -52,7 +52,6 @@
     background-color: #45a049;
   }
   
-
 .backButton {
     margin-top: 20px; 
     background-color: #f44336;
@@ -68,11 +67,19 @@
     background-color: #d32f2f; /* Darken red color on hover */
   }
   
-
-  
-  
   .thankYouMessage {
     text-align: center;
     padding: 20px;
   }
   
+  .formLayout {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .vStack {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }

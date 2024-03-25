@@ -2,20 +2,30 @@
 "use client";
 
 // Import React and useForm hook from react-hook-form for form handling.
-import React from 'react';
-import { useForm } from 'react-hook-form';
+import React from "react";
+import { useForm } from "react-hook-form";
 
 // Import Firebase configuration and Firestore functions.
-import { db } from '/firebase-config'; // Path to Firebase config
-import { collection, addDoc, Timestamp } from 'firebase/firestore';
+import { db } from "/firebase-config"; // Path to Firebase config
+import { collection, addDoc, Timestamp } from "firebase/firestore";
 
 // Import CSS module for styling.
-import styles from './RepairForm.module.css'; 
+import styles from "./RepairForm.module.css";
 
 // Define the RepairForm component with props for the selected device model, location, and dateTime
-const RepairForm = ({ selectedModel, selectedLocation, selectedDateTime, selectedTypes}) => {
+const RepairForm = ({
+  selectedModel,
+  selectedLocation,
+  selectedDateTime,
+  selectedTypes,
+}) => {
   // Initialize form methods including validation and reset functionality.
-  const { register, handleSubmit, formState: { errors }, reset } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm();
 
   // Define onSubmit function for form submission.
   const onSubmit = async (data) => {
@@ -46,51 +56,89 @@ const RepairForm = ({ selectedModel, selectedLocation, selectedDateTime, selecte
   return (
     <div className={styles.formContainer}>
       <h2>Repair Request Form</h2>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className={styles.inputGroup}>
-          <label htmlFor="firstName">First Name:</label>
-          <input id="firstName" {...register("firstName", { required: "First name is required" })} />
-          {errors.firstName && <p className={styles.error}>{errors.firstName.message}</p>}
-        </div>
-        <div className={styles.inputGroup}>
-          <label htmlFor="lastName">Last Name:</label>
-          <input id="lastName" {...register("lastName", { required: "Last name is required" })} />
-          {errors.lastName && <p className={styles.error}>{errors.lastName.message}</p>}
-        </div>
-        <div className={styles.inputGroup}>
-          <label htmlFor="email">Email:</label>
-          <input id="email" type="email" {...register("email", { required: "Email is required" })} />
-          {errors.email && <p className={styles.error}>{errors.email.message}</p>}
-        </div>
-        <div className={styles.inputGroup}>
-          <label htmlFor="issueDescription">Issue Description:</label>
-          <textarea id="issueDescription" {...register("issueDescription", { required: "Issue description is required" })}></textarea>
-          {errors.issueDescription && <p className={styles.error}>{errors.issueDescription.message}</p>}
-        </div>
-        {/* Additional information (read-only) for the user's confirmation */}
-        <div className={styles.inputGroup}>
+      <div className={styles.formLayout}>
+        {" "}
+        {/* This div acts as an "HStack" */}
+        <form onSubmit={handleSubmit(onSubmit)} className={styles.vStack}>
+          {" "}
+          {/* This form now also acts as the first "VStack" */}
+          {/* Input Fields VStack */}
+          <div className={styles.inputGroup}>
+            <label htmlFor="firstName">First Name:</label>
+            <input
+              id="firstName"
+              {...register("firstName", { required: "First name is required" })}
+            />
+            {errors.firstName && (
+              <p className={styles.error}>{errors.firstName.message}</p>
+            )}
+          </div>
+          <div className={styles.inputGroup}>
+            <label htmlFor="lastName">Last Name:</label>
+            <input
+              id="lastName"
+              {...register("lastName", { required: "Last name is required" })}
+            />
+            {errors.lastName && (
+              <p className={styles.error}>{errors.lastName.message}</p>
+            )}
+          </div>
+          <div className={styles.inputGroup}>
+            <label htmlFor="email">Email:</label>
+            <input
+              id="email"
+              type="email"
+              {...register("email", { required: "Email is required" })}
+            />
+            {errors.email && (
+              <p className={styles.error}>{errors.email.message}</p>
+            )}
+          </div>
+          <div className={styles.inputGroup}>
+            <label htmlFor="issueDescription">Issue Description:</label>
+            <textarea
+              id="issueDescription"
+              {...register("issueDescription", {
+                required: "Issue description is required",
+              })}
+            ></textarea>
+            {errors.issueDescription && (
+              <p className={styles.error}>{errors.issueDescription.message}</p>
+            )}
+          </div>
+          <button type="submit" className={styles.submitButton}>
+            Submit Request
+          </button>
+        </form>
+        
+        {/* Pre-Selected Information VStack */}
+        <div className={styles.vStack}>
+          <div className={styles.inputGroup}>
             <label>Device Model:</label>
             <input type="text" value={selectedModel} readOnly />
-        </div>
-        {/* Display selected repair types */}
-        <div className={styles.inputGroup}>
-          <label>Selected Repair Types:</label>
-                <ul>
-                    {selectedTypes.map((typeName, index) => (
-                        <li key={index}>{typeName}</li>
-                    ))}
-                </ul>
-        </div>
-        <div className={styles.inputGroup}>
+          </div>
+          <div className={styles.inputGroup}>
+            <label>Selected Repair Types:</label>
+            <ul>
+              {selectedTypes.map((typeName, index) => (
+                <li key={index}>{typeName}</li>
+              ))}
+            </ul>
+          </div>
+          <div className={styles.inputGroup}>
             <label>Location:</label>
             <input type="text" value={selectedLocation} readOnly />
-        </div>
-        <div className={styles.inputGroup}>
+          </div>
+          <div className={styles.inputGroup}>
             <label>Appointment Time:</label>
-            <input type="text" value={selectedDateTime.toLocaleString()} readOnly />
+            <input
+              type="text"
+              value={selectedDateTime.toLocaleString()}
+              readOnly
+            />
+          </div>
         </div>
-        <button type="submit" className={styles.submitButton}>Submit Request</button>
-      </form>
+      </div>
     </div>
   );
 };
