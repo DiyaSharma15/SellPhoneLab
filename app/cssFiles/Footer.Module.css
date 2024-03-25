@@ -1,28 +1,39 @@
+/* Adjustments to the existing styles and new additions for enhancement */
+
 .footer {
     display: flex;
     flex-direction: column;
-}
-
-.mainContent {
-    background-color: #f0f0f0; /* Light grey background for the main content */
-    padding: 20px;
+    font-family: 'Roboto', sans-serif; /* Example font, adjust as necessary */
+    border-top: 2px solid #CCC; /* Light grey top border for clear separation */
     color: #333; /* Dark grey text for contrast */
 }
 
+
+.mainContent {
+    background-color: #F1E3E4; /* Light grey background for the main content */
+    padding: 20px;
+    color: #333; /* Dark grey text for contrast */
+    display: flex;
+    flex-wrap: wrap; /* Allows the content to wrap on smaller screens */
+    justify-content: space-between; /* Distributes space evenly between items */
+}
+
 .contactSection, .locations {
-    margin-bottom: 20px;
+    flex: 1; /* Allows flexible filling of the available space */
+    margin: 20px; /* Provides uniform margin around sections */
+    min-width: 250px; /* Minimum width before wrapping, adjust as needed */
 }
 
-.contactSection h2, .locations h3 {
+.contactSection h2, .locations h3, .coupon h3 {
+    color: #0046BE; /* Adds a consistent theme color to titles */
     font-weight: bold;
+    margin-bottom: 10px; /* Adds space below the headings */
 }
-
-
 
 .socialLinks {
     display: flex;
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 20px; /* Additional margin for spacing */
 }
 
 .socialLinks a {
@@ -30,8 +41,19 @@
     text-decoration: none;
 }
 
+.coupon {
+    border: 2px dotted #000; /* Maintains the dotted border style */
+    background-color: #fff; /* White background for contrast */
+    color: #000; /* Black text for readability */
+    padding: 20px; /* Inner padding for content spacing */
+    margin: 20px 0; /* Adjusted margin for uniform spacing */
+    text-align: center; /* Center-aligns text for focus */
+    font-size: 0.9rem; /* Slightly smaller font size for emphasis */
+    width: auto; /* Adjusts width to fit content */
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.1); /* Adds a subtle shadow for depth */
+}
 
-
+/* Preserved as provided */
 .footerBottom {
     background-color: #0046BE !important; /* Ensures blue background is applied */
     color: #fff; /* White text for contrast */
@@ -43,20 +65,3 @@
     gap: 20px;
     width: 100%;
 }
-
-.footer .footerBottom {
-    background-color: #0046BE; /* Blue background */
-    /* Other styles remain unchanged */
-}
-.coupon {
-    border: 2px dotted #000; /* Creates a dotted border with black color */
-    background-color: #fff; /* Sets the background color to white */
-    color: #000; /* Sets the text color to black */
-    padding: 20px; /* Adds some padding inside the coupon box */
-    margin: 10px 0; /* Adds some margin for spacing around the coupon */
-    text-align: center; /* Centers the text inside the coupon */
-    font-size: 0.9rem;
-    width: 150px; /* Adjust the font size as needed */
-  }
-  
-  

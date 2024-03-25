@@ -12,18 +12,14 @@ export default function Footer() {
                     <h2>Contact Us</h2>
                     <p>We welcome you in our store in Calgary, AB</p>
                     <div className={styles.socialLinks}>
-                        <a href="https://facebook.com">
+                        <a href="https://www.facebook.com/SellPhoneLab/">
                             <img src="/assets/images/home/facebook.svg" alt="Facebook" width="20" height="20" />
                         </a>
-                        <a href="https://twitter.com">
-                            <img src="/assets/images/home/twitter.svg" alt="Twitter" width="20" height="20" />
-                        </a>
-                        <a href="https://instagram.com">
+
+                        <a href="https://www.instagram.com/sellphonelab/">
                             <img src="/assets/images/home/instagram.svg" alt="Instagram" width="20" height="20" />
                         </a>
-                        <a href="https://linkedin.com">
-                            <img src="/assets/images/home/linkedin.svg" alt="LinkedIn" width="20" height="20" />
-                        </a>
+
                     </div>
                     <div className={styles.coupon}>
                         <h3>Ask us for a Loyalty Card</h3>
@@ -43,6 +39,12 @@ export default function Footer() {
                         <p>+1 403-561-2020</p>
                         <p>olds@sellphonelab.ca</p>
                         <p>6214 46 St Olds, AB T4H 1M6</p>
+                    </div>
+                    <div className={styles.location}>
+                        <h3>SellPhone Lab - Cochrane, AB</h3>
+                        <p>+1 403-449-3030</p>
+                        <p>cochrane@sellphonelab.ca</p>
+                        <p>#6, 122, 4th Avenue West, Cochrane, AB T4C 1A9</p>
                     </div>
                 </div>
             </div>
