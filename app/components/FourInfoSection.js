@@ -1,12 +1,10 @@
 import React from "react";
-
-// HomePage.js or HomePage.jsx
-
-import styles from '../cssFiles/HomePage.module.css'; // Adjust the path as needed
+import styles from "../cssFiles/HomePage.module.css"; // Adjust the path as needed
 
 function HomePage() {
   return (
     <div className={styles.container}>
+      {/* Existing Sections */}
       <div className={styles.section}>
         <h2 className={styles.title}>Price Match Guarantee</h2>
         <p>We guarantee to match the price of any local competitor for the same repair, giving you confidence that you are receiving the best possible price. Plus, we will complete the repair faster than anyone else.</p>
@@ -23,8 +21,8 @@ function HomePage() {
         <h2 className={styles.title}>Lifetime Warranty</h2>
         <p>Our repairs come with a lifetime warranty that is valid at all of our locations worldwide, providing you with peace of mind that your device is protected for life.</p>
       </div>
-    </div>
-  );
+      </div>
+    );
 }
 
 export default HomePage;
