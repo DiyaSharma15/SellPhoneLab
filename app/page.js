@@ -11,7 +11,7 @@ import Link from "next/link"; // Helps with client side navigation.
 import SimpleCarousel from './components/SimpleCarousel.client'; // Client side carousel.
 import HomePageSections from "./components/HomePageSections"; // Home page content.
 import TradeIn_Assessment from "./components/TradeInAssessment"; // Trade in valuation component.
-
+import { GlobalProvider } from "./GlobalProvider";
 // Default function for the HomePage.
 export default function Home() {
 
@@ -64,6 +64,7 @@ export default function Home() {
   return (
     //Import all the components of homepage. (Header at top, Footer at the end)
     <div>
+      <GlobalProvider>
       <Header/> 
       <SimpleCarousel images={images} />
       <BrandToRepair/>
@@ -72,7 +73,7 @@ export default function Home() {
         <HomePageSections />
       </div>
       <Footer/>
-
+      </GlobalProvider>
     </div>
   );
 };

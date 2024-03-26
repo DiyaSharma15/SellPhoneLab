@@ -1,6 +1,52 @@
-import React from 'react'
-
+"use client";
+import React, { useContext,useState,useEffect } from 'react'
+import { loadStripe } from '@stripe/stripe-js'
+import CartContext from "../context/CartContext";
+import axios from 'axios';
 export default function Checkout() {
+    const { addItemToCart, deleteItemFromCart, cart } = useContext(CartContext);
+    const increaseQty = (cartItem) => {
+        const newQty = cartItem?.quantity + 1;
+        const item = { ...cartItem, quantity: newQty };
+    
+        if (newQty > Number(cartItem.stock)) return;
+    
+        addItemToCart(item);
+      };
+      const decreaseQty = (cartItem) => {
+        const newQty = cartItem?.quantity - 1;
+        const item = { ...cartItem, quantity: newQty };
+    
+        if (newQty <= 0) return;
+    
+        addItemToCart(item);
+      };
+      const amountWithoutTax = cart?.cartItems?.reduce(
+        (acc, item) => acc + item.quantity * item.price,
+        0
+      );
+    
+      const taxAmount = (amountWithoutTax * 0.15).toFixed(2);
+    
+      const totalAmount = (Number(amountWithoutTax) + Number(taxAmount)).toFixed(2);
+      const publishableKey = process.env.NEXT_PUBLIC_API_KEY;
+      const stripePromise = loadStripe(publishableKey);
+      const [items, setItems] = useState([]);
+      useEffect(() => {
+        if (cart && cart.cartItems) {
+          setItems([...items, ...cart.cartItems]);
+        }
+      }, [cart]);
+      const createCheckoutSession = async () => {
+        try {
+            const response = await axios.post('/api/home', { items });
+            //console.log('resposne checkour'+response);
+            // Assuming you want to redirect to the session URL after successful response
+             window.location = response.data.sessionURL;
+        } catch (error) {
+            console.error('Error creating checkout session:', error);
+        }
+    };
     return (
         <section className="py-5">
             <div className="container">
@@ -143,7 +189,7 @@ export default function Checkout() {
 
                                 <div className="float-end">
                                     <button className="btn btn-light border">Cancel</button>
-                                    <button className="ml-2 btn btn-success shadow-0 border">Continue</button>
+                                    <button  onClick={createCheckoutSession} className="ml-2 btn btn-success shadow-0 border" >Continue</button>
                                 </div>
                             </div>
                         </div>
@@ -154,20 +200,17 @@ export default function Checkout() {
                             <h6 className="mb-3">Summary</h6>
                             <div className="d-flex justify-content-between">
                                 <p className="mb-2">Total price:</p>
-                                <p className="mb-2">$195.90</p>
+                                <p className="mb-2">${amountWithoutTax}</p>
                             </div>
                             <div className="d-flex justify-content-between">
-                                <p className="mb-2">Discount:</p>
-                                <p className="mb-2 text-danger">- $60.00</p>
+                                <p className="mb-2">Tax:</p>
+                                <p className="mb-2 text-danger">${taxAmount}</p>
                             </div>
-                            <div className="d-flex justify-content-between">
-                                <p className="mb-2">Shipping cost:</p>
-                                <p className="mb-2">+ $14.00</p>
-                            </div>
+                            
                             <hr />
                             <div className="d-flex justify-content-between">
                                 <p className="mb-2">Total price:</p>
-                                <p className="mb-2 fw-bold">$149.90</p>
+                                <p className="mb-2 fw-bold">${totalAmount}</p>
                             </div>
 
                             <div className="input-group mt-3 mb-4">
@@ -178,50 +221,30 @@ export default function Checkout() {
                             <hr />
                             <h6 className="text-dark my-4">Items in cart</h6>
 
+                            {cart?.cartItems?.length > 0 && (
+                                <div>
+                                {cart?.cartItems?.map((cartItem) => (
                             <div className="d-flex align-items-center mb-4">
                                 <div className="me-3 position-relative">
                                     <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill badge-secondary">
                                         1
                                     </span>
-                                    <img src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/7.webp" style={{ height: "96px", width: "96x" }} className="img-sm rounded border" />
+                                    <img src={cartItem.image} alt={cartItem.name} style={{ height: "96px", width: "96x" }} className="img-sm rounded border" />
                                 </div>
                                 <div className="">
                                     <a href="#" className="nav-link">
-                                        Gaming Headset with Mic <br />
-                                        Darkblue color
+                                        {cartItem.name}
                                     </a>
-                                    <div className="price text-muted">Total: $295.99</div>
+                                    <div className="price text-muted">Total: ${cartItem.price * cartItem.quantity.toFixed(2)}</div>
                                 </div>
                             </div>
+                            
+                            ))}
+                            </div>
+                        )}
+                            
 
-                            <div className="d-flex align-items-center mb-4">
-                                <div className="me-3 position-relative">
-                                    <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill badge-secondary">
-                                        1
-                                    </span>
-                                    <img src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/5.webp" style={{ height: "96px", width: "96x" }} className="img-sm rounded border" />
-                                </div>
-                                <div className="">
-                                    <a href="#" className="nav-link">
-                                        Apple Watch Series 4 Space <br />
-                                        Large size
-                                    </a>
-                                    <div className="price text-muted">Total: $217.99</div>
-                                </div>
-                            </div>
-
-                            <div className="d-flex align-items-center mb-4">
-                                <div className="me-3 position-relative">
-                                    <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill badge-secondary">
-                                        3
-                                    </span>
-                                    <img src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/1.webp" style={{ height: "96px", width: "96x" }} className="img-sm rounded border" />
-                                </div>
-                                <div className="">
-                                    <a href="#" className="nav-link">GoPro HERO6 4K Action Camera - Black</a>
-                                    <div className="price text-muted">Total: $910.00</div>
-                                </div>
-                            </div>
+                           
                         </div>
                     </div>
                 </div>

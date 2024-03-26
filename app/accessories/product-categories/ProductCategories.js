@@ -1,52 +1,52 @@
-"use client";
-import React, { useState } from "react";
+import React from "react";
 import "./productCategories.css";
 import ProductCategoriesItem from "./product-categories-item/ProductCategoriesItem";
-import phonecase from "./Images/phone-photos-9-1.jpg.webp";
-import PrivacyTemperedGlass from "./Images/Privacy-Tempered-Glass.webp";
-import ArmBand from "./Images/arm-band.jpg.webp";
-import MultiCountryWallPlug from "./Images/Multi-Country-Wall-Plug.webp";
-import WiredEarPlugs from "./Images/Wired-Ear-Plugs.jpg.webp";
-import AppleWatchProtector from "./Images/Apple-Watch-Protector.jpg (1).webp";
 
 const CategoriesItem = [
   {
     name: "Phone Cases",
-    image: phonecase,
+    image: "Images/phone-photos-9-1.jpg.webp",
+    slug: "phone-cases",
   },
   {
     name: "Privacy Tempered Glass",
-    image: PrivacyTemperedGlass,
+    image: "/Images/Privacy-Tempered-Glass.webp",
+    slug: "privacy-tempered-glass",
   },
   {
     name: "Arm Band",
-    image: ArmBand,
+    image: "/Images/arm-band.jpg.webp",
+    slug: "arm-band",
   },
   {
     name: "Multi Country Wall Plug",
-    image: MultiCountryWallPlug,
+    image: "/Images/Multi-Country-Wall-Plug.webp",
+    slug: "multi-country-wall-plug",
   },
   {
     name: "Wired Ear Plugs",
-    image: WiredEarPlugs,
+    image: "/Images/Wired-Ear-Plugs.jpg.webp",
+    slug: "wired-ear-plugs",
   },
   {
     name: "Apple Watch Protector",
-    image: AppleWatchProtector,
+    // Assuming you have two versions and want to use the first one
+    image: "/Images/Apple-Watch-Protector.jpg (1).webp",
+    slug: "apple-watch-protector",
   },
 ];
-const ProductCategories = (props) => {
+
+const ProductCategories = () => {
   return (
-    <div className="container flex-wrap d-flex flex-row  categories-container-box align-items-center justify-content-between my-3">
-      {CategoriesItem.map((element) => {
-        return (
-          <ProductCategoriesItem
-            key={element.name}
-            name={element.name}
-            image={element.image}
-          />
-        );
-      })}
+    <div className="container flex-wrap d-flex flex-row categories-container-box align-items-center justify-content-between my-3">
+      {CategoriesItem.map((element) => (
+        <ProductCategoriesItem
+          key={element.name}
+          name={element.name}
+          slug={element.slug}
+          image={element.image}
+        />
+      ))}
     </div>
   );
 };

@@ -22,8 +22,8 @@
 .child-card .categories-card {
   border-radius: 15px;
   padding: 10px;
-  max-width: 210px;
-  max-height: 243px;
+  /* max-width: 210px;
+  max-height: 243px; */
   border: 1px solid #eef0f1;
   cursor: pointer;
 }

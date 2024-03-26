@@ -1,12 +1,32 @@
-import React from "react";
+'use client';
+import React, { useRef, useContext, useState } from "react";
 import { MdShoppingBag, MdShoppingBasket } from "react-icons/md";
 import Link from "next/link";
-import products from "./productData"; // Import product data from productData.js
+import products from "./CategoryData";
+import { useRouter } from 'next/navigation';
+
+import CartContext from "../../context/CartContext";
 
 export default function ProductDetails() {
-  // Assuming you have a way to determine which product to display, for example, by index or ID
-  const product = products[0]; // Get the first product for demonstration
-
+  const { addItemToCart } = useContext(CartContext);
+  const [showMessage, setShowMessage] = useState(false);
+    const fullURL = window.location.href;
+    const parts = fullURL.split('/');
+    const slug = parts[parts.length - 1];
+    const product = products.find(product => product.slug === slug);
+   // console.log(product);
+    const addToCartHandler = () => {
+      
+      // Call addItemToCart function from context
+      addItemToCart({
+        product: product.id,
+        name: product.name,
+        price: product.price,
+        image: product.mainImage,
+        quantity: 1,
+      });
+      setShowMessage(true);
+    };
   if (!product) {
     return (
       <div className="container py-5">
@@ -107,10 +127,16 @@ export default function ProductDetails() {
                 </div>
               </div>
 
-              <Link href="/cart" className="btn btn-primary shadow-0">
-                {" "}
-                <MdShoppingBag /> Add to cart{" "}
-              </Link>
+              
+              <button
+                  className="btn btn-primary shadow-0"
+                  onClick={addToCartHandler}
+                 
+                >
+                  <i className="fa fa-shopping-cart mr-2"></i>
+                  Add to cart
+                </button>
+                {showMessage && <div className="alert alert-success">Item added to cart! <a href="/cart">Go to Cart</a></div>}
             </div>
           </main>
         </div>
