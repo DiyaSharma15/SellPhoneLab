@@ -11,18 +11,18 @@ export default function Header() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [isMobileMenuVisible, setIsMobileMenuVisible] = useState(false);
 
-    useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
-            if (user) {
-                // User is signed in
-                setIsLoggedIn(true);
-            } else {
-                // User is signed out
-                setIsLoggedIn(false);
-            }
-        });
-        return () => unsubscribe(); // Clean up subscription on unmount
-    }, []);
+    // useEffect(() => {
+    //     const unsubscribe = onAuthStateChanged(auth, (user) => {
+    //         if (user) {
+    //             // User is signed in
+    //             setIsLoggedIn(true);
+    //         } else {
+    //             // User is signed out
+    //             setIsLoggedIn(false);
+    //         }
+    //     });
+    //     return () => unsubscribe(); // Clean up subscription on unmount
+    // }, []);
 
     const handleLogout = async () => {
         try {

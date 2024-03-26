@@ -18,6 +18,12 @@
     font-weight: 600;
   }
 
+  .navItem a{
+    color: #fff;
+    text-decoration: none;
+    outline: none;
+  }
+
 .navItem a:hover {
   color: #F27024;
 }
