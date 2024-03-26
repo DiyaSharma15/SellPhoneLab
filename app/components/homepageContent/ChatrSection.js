@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import styles from '../cssFiles/Chatr.module.css'; // Adjust the path as needed
+import styles from '../../cssFiles/Chatr.module.css'; // Adjust the path as needed
 
 const ChatrSection = () => {
   return (

@@ -6,13 +6,15 @@ import React from "react";
 import Image from "next/image";
 import Header from "./components/Header"; // Header component.
 import Footer from "./components/Footer"; // Footer component.
-import BrandToRepair from "./components/BrandToRepair"; // To display the brands.
+import BrandToRepair from "./components/homepageContent/BrandToRepair"; // To display the brands.
 import Link from "next/link"; // Helps with client side navigation.
-import SimpleCarousel from "./components/SimpleCarousel.client"; // Client side carousel.
-import HomePageSections from "./components/FourInfoSection"; // Home page content.
-import TradeIn_Assessment from "./components/TradeInAssessment"; // Trade in valuation component.
+import SimpleCarousel from "./components/homepageContent/SimpleCarousel.client"; // Client side carousel.
+import HomePageSections from "./components/homepageContent/FourInfoSection"; // Home page content.
+import TradeIn_Assessment from "./components/homepageContent/TradeInAssessment"; // Trade in valuation component.
 import { GlobalProvider } from "./GlobalProvider";
-import ChatrSection from "./components/ChatrSection";
+import ChatrSection from "./components/homepageContent/ChatrSection";
+import ApprovedComments from "./components/homepageContent/ApprovedComment";
+import SubmitCommentForm from "./components/homepageContent/SubmitCommentForm";
 // Default function for the HomePage.
 export default function Home() {
   const pageContainerStyle = {
@@ -72,6 +74,8 @@ export default function Home() {
         <div style={pageContainerStyle}>
           <TradeIn_Assessment />
           <ChatrSection />
+          <SubmitCommentForm />
+          <ApprovedComments />
         </div>
         <Footer />
       </GlobalProvider>

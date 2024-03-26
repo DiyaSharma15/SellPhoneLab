@@ -20,6 +20,9 @@ const AdminPage = () => {
             <li className={styles.navItem}>
               <Link href="/admin/appointments">View Customer Appointments</Link>
             </li>
+            <li className={styles.navItem}>
+              <Link href="/admin/comments">Moderate Comments</Link>
+            </li>
             
           </ul>
         </nav>

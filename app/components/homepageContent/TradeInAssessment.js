@@ -1,9 +1,9 @@
 // Importing React library and necessary hooks
 import React, { useState } from "react";
 // Importing CSS module for styling the component
-import styles from "../cssFiles/TradeInAssessment.module.css";
+import styles from "../../cssFiles/TradeInAssessment.module.css";
 // Importing the list of iPhone models from a local JSON file for the dropdown options
-import iphoneModels from "./phonesTrade-in.json";
+import iphoneModels from "../phonesTrade-in.json";
 
 // Defining the Trade-in Assessment Component using a functional component approach
 export default function TradeIn_Assessment() {

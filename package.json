@@ -19,7 +19,7 @@
     "@stripe/stripe-js": "^3.0.10",
     "axios": "^1.6.8",
     "bootstrap": "^5.3.3",
-    "firebase": "^10.8.1",
+    "firebase": "^10.9.0",
     "font-awesome": "^4.7.0",
     "ionicons": "^7.2.2",
     "next": "14.1.0",

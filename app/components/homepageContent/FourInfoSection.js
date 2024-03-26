@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../cssFiles/HomePage.module.css"; // Adjust the path as needed
+import styles from "../../cssFiles/HomePage.module.css"; // Adjust the path as needed
 
 function HomePage() {
   return (

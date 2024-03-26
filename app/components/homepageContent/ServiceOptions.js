@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../cssFiles/InfoAndLink.module.css"; // Adjust the path as needed
+import styles from "../../cssFiles/InfoAndLink.module.css"; // Adjust the path as needed
 
 function HomePageInfo() {
   return (
