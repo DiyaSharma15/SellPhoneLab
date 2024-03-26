@@ -11,7 +11,8 @@ import Link from "next/link"; // Helps with client side navigation.
 import SimpleCarousel from "./components/SimpleCarousel.client"; // Client side carousel.
 import HomePageSections from "./components/FourInfoSection"; // Home page content.
 import TradeIn_Assessment from "./components/TradeInAssessment"; // Trade in valuation component.
-
+import { GlobalProvider } from "./GlobalProvider";
+import ChatrSection from "./components/ChatrSection";
 // Default function for the HomePage.
 export default function Home() {
   const pageContainerStyle = {
@@ -70,7 +71,6 @@ export default function Home() {
         <BrandToRepair />
         <div style={pageContainerStyle}>
           <TradeIn_Assessment />
-          <HomePageInfo />
           <ChatrSection />
         </div>
         <Footer />
