@@ -8,7 +8,7 @@ import styles from './ServiceCard.module.css';
 function ServiceCard({title, description, imageSrc, readMoreLink}) {
     return (
         <div className={styles.card}>
-            <Image src={imageSrc} alt={title} width={100} height={100} />
+            <Image src={imageSrc} alt={title} width={175} height={175} />
             <h2>{title}</h2>
             <p>{description}</p>
             {readMoreLink && <Link href={readMoreLink}>Read more</Link>}
