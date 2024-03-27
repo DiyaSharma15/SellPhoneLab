@@ -7,22 +7,18 @@ import { auth } from '/firebase-config'; // Adjust the path to your Firebase con
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 
 export default function Header() {
-    const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+    const [isCompanyDropdownVisible, setIsCompanyDropdownVisible] = useState(false);
+    const [isRepairDropdownVisible, setIsRepairDropdownVisible] = useState(false);
+    const [isWhatWeDoDropdownVisible, setIsWhatWeDoDropdownVisible] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [isMobileMenuVisible, setIsMobileMenuVisible] = useState(false);
 
-    // useEffect(() => {
-    //     const unsubscribe = onAuthStateChanged(auth, (user) => {
-    //         if (user) {
-    //             // User is signed in
-    //             setIsLoggedIn(true);
-    //         } else {
-    //             // User is signed out
-    //             setIsLoggedIn(false);
-    //         }
-    //     });
-    //     return () => unsubscribe(); // Clean up subscription on unmount
-    // }, []);
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            setIsLoggedIn(!!user);
+        });
+        return () => unsubscribe(); // Clean up subscription on unmount
+    }, []);
 
     const handleLogout = async () => {
         try {
@@ -34,7 +30,7 @@ export default function Header() {
     };
 
     return (
-<header className={styles.header}>
+        <header className={styles.header}>
             <Link href="/">
                 <img src="/assets/icons/logo.png" alt="SellPhoneLab Logo" className={styles.image}/>
             </Link>
@@ -46,14 +42,35 @@ export default function Header() {
                     <li className={styles.navItem}>
                         <Link href="/">Home</Link>
                     </li>
-                    <li className={styles.navItem} onMouseEnter={() => setIsDropdownVisible(true)} onMouseLeave={() => setIsDropdownVisible(false)}>
+                    <li className={styles.navItem} onMouseEnter={() => setIsCompanyDropdownVisible(true)} onMouseLeave={() => setIsCompanyDropdownVisible(false)}>
                         <div style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
-                            Repair
-                            <div onClick={() => setIsDropdownVisible(!isDropdownVisible)} style={{ display: 'flex', alignItems: 'center' }}>
-                                {isDropdownVisible ? <MdArrowDropUp /> : <MdArrowDropDown />}
+                            Company
+                            <div onClick={() => setIsCompanyDropdownVisible(!isCompanyDropdownVisible)} style={{ display: 'flex', alignItems: 'center' }}>
+                                {isCompanyDropdownVisible ? <MdArrowDropUp /> : <MdArrowDropDown />}
                             </div>
                         </div>
-                        {isDropdownVisible && (
+                        {isCompanyDropdownVisible && (
+                            <ul className={styles.dropdown}>
+                                <li className={styles.dropdownItem}>
+                                    <Link href="/about">About</Link>
+                                </li>
+                                <li className={styles.dropdownItem}>
+                                    <Link href="/locations">Locations</Link>
+                                </li>
+                                <li className={styles.dropdownItem}>
+                                    <Link href="/contact">Contact</Link>
+                                </li>
+                            </ul>
+                        )}
+                    </li>
+                    <li className={styles.navItem} onMouseEnter={() => setIsRepairDropdownVisible(true)} onMouseLeave={() => setIsRepairDropdownVisible(false)}>
+                        <div style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
+                            <Link href={{pathname: "/repair"}}>Repair</Link>
+                            <div onClick={() => setIsRepairDropdownVisible(!isRepairDropdownVisible)} style={{ display: 'flex', alignItems: 'center' }}>
+                                {isRepairDropdownVisible ? <MdArrowDropUp /> : <MdArrowDropDown />}
+                            </div>
+                        </div>
+                        {isRepairDropdownVisible && (
                             <ul className={styles.dropdown}>
                                 <li className={styles.dropdownItem}>
                                     <Link href={{ pathname: "/repair", query: { selectedBrand: "Apple" } }}>Apple</Link>
@@ -79,17 +96,41 @@ export default function Header() {
                     <li className={styles.navItem}>
                         <Link href="/accessories">Accessories</Link>
                     </li>
-                    <li className={styles.navItem}>
-                        <Link href="/what-we-do">What We Do</Link>
-                    </li>
-                    <li className={styles.navItem}>
-                        <Link href="/about">About</Link>
+                    <li className={styles.navItem} onMouseEnter={() => setIsWhatWeDoDropdownVisible(true)} onMouseLeave={() => setIsWhatWeDoDropdownVisible(false)}>
+                        <div style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
+                            <Link href={{pathname: "/what-we-do"}}>What we do</Link>
+                            <div onClick={() => setIsWhatWeDoDropdownVisible(!isWhatWeDoDropdownVisible)} style={{ display: 'flex', alignItems: 'center' }}>
+                                {isWhatWeDoDropdownVisible ? <MdArrowDropUp /> : <MdArrowDropDown />}
+                            </div>
+                        </div>
+                        {isWhatWeDoDropdownVisible && (
+                            <ul className={styles.dropdown}>
+                                <li className={styles.dropdownItem}>
+                                    <Link href={{ pathname: "/unlockPhones" }}>Unlock Phones</Link>
+                                </li>
+                                <li className={styles.dropdownItem}>
+                                    <Link href={{ pathname: "/phoneRepairs" }}>Phone Repairs</Link>
+                                </li>
+                                <li className={styles.dropdownItem}>
+                                    <Link href={{ pathname: "/computerRepairs"}}>Computer Repairs</Link>
+                                </li>
+                                <li className={styles.dropdownItem}>
+                                    <Link href={{ pathname: "/dataTransfer"}}>Data Transfer / Management</Link>
+                                </li>
+                                <li className={styles.dropdownItem}>
+                                    <Link href={{ pathname: "/phoneAccessories"}}>Phone Accessories</Link>
+                                </li>
+                                <li className={styles.dropdownItem}>
+                                    <Link href={{ pathname: "/saleOfPhones"}}>Sale of new & used phones</Link>
+                                </li>
+                                <li className={styles.dropdownItem}>
+                                    <Link href={{ pathname: "/saleOfCases"}}>Sale of Mobile Cases</Link>
+                                </li>
+                            </ul>
+                        )}
                     </li>
                     <li className={styles.navItem}>
                         <Link href="/blog">Blog</Link>
-                    </li>
-                    <li className={styles.navItem}>
-                        <Link href="/contact">Contact</Link>
                     </li>
                     {isLoggedIn ? (
                         <>
