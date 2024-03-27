@@ -1,8 +1,7 @@
-"use client";
-
 import { useEffect, useState } from 'react';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from '/firebase-config';
+import styles from '../../cssFiles/ViewComment.module.css'; // Adjust the path as necessary
 
 const ApprovedComments = () => {
   const [comments, setComments] = useState([]);
@@ -31,20 +30,36 @@ const ApprovedComments = () => {
   };
 
   if (!comments.length) {
-    return <p>No approved comments to display.</p>;
+    return <p className={styles.noComments}>No approved comments to display.</p>;
   }
 
   return (
-    <div>
-      <div>
+    <div className={styles.commentContainer}>
+      <div className={styles.comment}>
         <p><strong>Name:</strong> {comments[currentIndex].name}</p>
-        <p><strong>Stars:</strong> {comments[currentIndex].stars}</p>
+        <p><strong>Stars:</strong> <StarDisplay rating={comments[currentIndex].stars} /></p>
         <p><strong>Comment:</strong> {comments[currentIndex].comment}</p>
       </div>
-      <button onClick={handlePrev}>Prev</button>
-      <button onClick={handleNext}>Next</button>
+      <div className={styles.navigation}>
+        <button onClick={handlePrev} className={styles.navButton}>Prev</button>
+        <button onClick={handleNext} className={styles.navButton}>Next</button>
+      </div>
     </div>
   );
+};
+
+// The StarDisplay function/component
+const StarDisplay = ({ rating }) => {
+  const fullStar = "★";
+  const emptyStar = "☆";
+  const maxRating = 5; // Adjust based on your scale
+  let starsDisplay = "";
+
+  for (let i = 1; i <= maxRating; i++) {
+    starsDisplay += i <= rating ? fullStar : emptyStar;
+  }
+
+  return <span className={styles.starDisplay}>{starsDisplay}</span>;
 };
 
 export default ApprovedComments;
