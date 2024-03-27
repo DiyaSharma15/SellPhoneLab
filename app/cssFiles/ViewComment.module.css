@@ -1,0 +1,43 @@
+.commentContainer {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .comment {
+    padding: 15px;
+  }
+  
+  .noComments {
+    text-align: center;
+    color: #999;
+  }
+  
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .navButton {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .navButton:hover {
+    background-color: #0056b3;
+  }
+  
+  .starDisplay {
+    color: #f39c12; /* Gold color for stars */
+    font-size: 1.5em; /* Adjust the size as needed */
+  }
+  

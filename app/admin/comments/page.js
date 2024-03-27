@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import { db } from '/firebase-config';
 import { collection, getDocs, updateDoc, deleteDoc, doc } from 'firebase/firestore';
 import styles from '../_components/Comment.module.css';
+import Header from '../../components/Header'; // Adjust the path as necessary
+import Footer from '../../components/Footer'; 
 
 const ModerateCommentsPage = () => {
     const [pendingComments, setPendingComments] = useState([]);
@@ -42,17 +44,21 @@ const ModerateCommentsPage = () => {
   };
 
    return (
-    <div className={styles.container}>
-      <h1>Moderate Comments</h1>
-      <section>
-        <h2>Pending Comments</h2>
-        {pendingComments.map((comment) => renderComment(comment, approveComment, deleteComment, styles))}
-      </section>
-      <section>
-        <h2>Approved Comments</h2>
-        {approvedComments.map((comment) => renderComment(comment, null, deleteComment, styles))}
-      </section>
-    </div>
+    <>
+    <Header />
+      <div className={styles.container}>
+        <h1>Moderate Comments</h1>
+        <section>
+          <h2>Pending Comments</h2>
+          {pendingComments.map((comment) => renderComment(comment, approveComment, deleteComment, styles))}
+        </section>
+        <section>
+          <h2>Approved Comments</h2>
+          {approvedComments.map((comment) => renderComment(comment, null, deleteComment, styles))}
+        </section>
+      </div>
+    <Footer />
+    </>
   );
 };
 

@@ -64,21 +64,31 @@ export default function Home() {
 
   // Render the function to create the UI of the page.
   return (
-    //Import all the components of homepage. (Header at top, Footer at the end)
     <div>
       <GlobalProvider>
         <Header />
         <SimpleCarousel images={images} />
         <HomePageSections />
         <BrandToRepair />
-        <div style={pageContainerStyle}>
+        <div style={{
+          ...pageContainerStyle,
+          display: 'flex',
+          flexDirection: 'row', // This can be omitted as it's the default value
+          justifyContent: 'space-around', // Adjusts spacing between the components
+          alignItems: 'flex-start', // Adjusts vertical alignment
+          flexWrap: 'wrap' // Allows the items to wrap in smaller screens
+        }}>
           <TradeIn_Assessment />
           <ChatrSection />
-          <SubmitCommentForm />
-          <ApprovedComments />
+          <div style={{ flex: 1, maxWidth: '50%' }}> {/* Ensure each component doesn't exceed half the container's width */}
+            <SubmitCommentForm />
+          </div>
+          <div style={{ flex: 1, maxWidth: '50%' }}>
+            <ApprovedComments />
+          </div>
         </div>
         <Footer />
       </GlobalProvider>
     </div>
   );
-}
+      }  
