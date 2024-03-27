@@ -14,19 +14,17 @@ export default function Contact() {
       <div className={styles.container}>
         <AppointmentForm />
         <div className={styles.content}>
+          <Image
+            src="/assets/images/about/mobile-phones-6-1024x576.jpg"
+            alt="Mobile Phones"
+            width={1024}
+            height={576}
+          />
           <div className="globalText">
             Here at the Sellphone Lab, we offer high quality repairs, phones and
             accessories and our technicians are highly qualified. Visit our
             store today and let us inspect your phone. We are confident that you
             will be back!
-          </div>
-          <div>
-            <Image
-              src="/assets/images/about/mobile-phones-6-1024x576.jpg"
-              alt="Mobile Phones"
-              width={1024}
-              height={576}
-            />
           </div>
         </div>
       </div>
