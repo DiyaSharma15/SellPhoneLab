@@ -148,14 +148,8 @@ export default function Checkout() {
                                         <p className="mb-0">City</p>
                                         <select className="form-select">
                                             <option value="1">Calgary</option>
-                                            <option value="2">Edmonton</option>
-                                            <option value="3">High River</option>
-                                            <option value="4">Airdrie</option>
-                                            <option value="5">Okotoks</option>
-                                            <option value="6">Black Diamond</option>
-                                            <option value="7">Crossfield</option>
-                                            <option value="8">Irricana</option>
-
+                                            <option value="3">Olds</option>
+                                            <option value="4">Cochrane</option>
                                         </select>
                                     </div>
 
