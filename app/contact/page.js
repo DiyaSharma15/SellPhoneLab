@@ -24,7 +24,7 @@ export default function Contact() {
             Here at the Sellphone Lab, we offer high quality repairs, phones and
             accessories and our technicians are highly qualified. Visit our
             store today and let us inspect your phone. We are confident that you
-            will be back!
+            will be back! Testing
           </div>
         </div>
       </div>
