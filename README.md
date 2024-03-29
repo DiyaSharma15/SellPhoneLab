@@ -10,8 +10,8 @@ Instructions on setting up your project locally. involve:
 
 ## git clone https://github.com/DiyaSharma15/SellPhoneLab.git
 
-## cd SellPhoneLab
+### cd SellPhoneLab
 
-## npm install
+### npm install
 
-## npm run dev
+### npm run dev
