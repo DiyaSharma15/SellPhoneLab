@@ -1,19 +1,26 @@
-'use client';
-import React, { useRef, useContext, useState } from "react";
+"use client";
+import React, { useEffect, useRef, useContext, useState } from "react";
 import { MdShoppingBag, MdShoppingBasket } from "react-icons/md";
 import Link from "next/link";
 import products from "./CategoryData";
 import { useRouter } from 'next/navigation';
-
 import CartContext from "../../context/CartContext";
+
 
 export default function ProductDetails() {
   const { addItemToCart } = useContext(CartContext);
   const [showMessage, setShowMessage] = useState(false);
+  const [slug, setSlug] = useState('');
+
+  useEffect(() => {
+    // Now this code runs on client-side only, where 'window' is available
     const fullURL = window.location.href;
     const parts = fullURL.split('/');
-    const slug = parts[parts.length - 1];
-    const product = products.find(product => product.slug === slug);
+    const extractedSlug = parts[parts.length - 1];
+    setSlug(extractedSlug);
+  }, []); // Empty dependency array means this runs once on mount
+
+  const product = products.find(product => product.slug === slug);
    // console.log(product);
     const addToCartHandler = () => {
       
