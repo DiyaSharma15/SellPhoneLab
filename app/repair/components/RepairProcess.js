@@ -10,6 +10,7 @@ import { ProgressBar } from "react-step-progress-bar";
 import "react-step-progress-bar/styles.css";
 import { IoArrowForwardCircle, IoArrowBackCircle } from "react-icons/io5";
 import AppointmentSelection from "./AppointmentSelection";
+import Image from 'next/image';
 
 const RepairProcess = ({ selectedModel }) => {
   //Pass selected model OBJECT, can use any information attached to it.
@@ -58,15 +59,13 @@ const RepairProcess = ({ selectedModel }) => {
             <div className="globalTitle">
               Repair Process for {selectedModel.name}
             </div>
-            <img
+            <Image
               src={selectedModel.image}
               alt={`Repair for ${selectedModel.name}`}
-              style={{
-                display: "block",
-                margin: "0 auto",
-                maxWidth: "100%",
-                height: "auto",
-              }}
+              layout="responsive"
+              width={500} // Example width, adjust as necessary
+              height={300} // Example height, adjust to maintain the aspect ratio
+              objectFit="contain" // This ensures the image scales nicely. Use "cover" if you want it to fill the container.
             />
             <div className="globalText">
               Quick blurb about repairing the {selectedModel.name}.

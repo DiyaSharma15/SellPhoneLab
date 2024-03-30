@@ -222,29 +222,26 @@ export default function Checkout() {
                             <h6 className="text-dark my-4">Items in cart</h6>
 
                             {cart?.cartItems?.length > 0 && (
-                                <div>
-                                {cart?.cartItems?.map((cartItem) => (
-                            <div className="d-flex align-items-center mb-4">
-                                <div className="me-3 position-relative">
+                            <div>
+                                {cart?.cartItems?.map((cartItem, index) => ( // Assuming cartItem has a unique identifier, e.g., cartItem.id
+                                <div className="d-flex align-items-center mb-4" key={cartItem.id || index}> 
+                                    <div className="me-3 position-relative">
                                     <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill badge-secondary">
-                                        1
+                                        {cartItem.quantity}
                                     </span>
-                                    <img src={cartItem.image} alt={cartItem.name} style={{ height: "96px", width: "96x" }} className="img-sm rounded border" />
-                                </div>
-                                <div className="">
+                                    <img src={cartItem.image} alt={cartItem.name} style={{ height: "96px", width: "96px" }} className="img-sm rounded border" />
+                                    </div>
+                                    <div className="">
                                     <a href="#" className="nav-link">
                                         {cartItem.name}
                                     </a>
-                                    <div className="price text-muted">Total: ${cartItem.price * cartItem.quantity.toFixed(2)}</div>
+                                    <div className="price text-muted">Total: ${(cartItem.price * cartItem.quantity).toFixed(2)}</div>
+                                    </div>
                                 </div>
+                                ))}
                             </div>
-                            
-                            ))}
-                            </div>
-                        )}
-                            
-
-                           
+                            )}
+                              
                         </div>
                     </div>
                 </div>
