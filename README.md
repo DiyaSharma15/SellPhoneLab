@@ -15,3 +15,5 @@ Instructions on setting up your project locally. involve:
 ### npm install
 
 ### npm run dev
+
+![Image](public/assets/images/readme/gitclone.png)
