@@ -87,7 +87,7 @@ export default function Checkout() {
                                     <div className="col-6 mb-3">
                                         <p className="mb-0">Phone</p>
                                         <div className="form-outline">
-                                            <input type="tel" id="typePhone" defaultValue="+48 " className="form-control" />
+                                            <input type="tel" id="typePhone" defaultValue="+1 " className="form-control" />
                                         </div>
                                     </div>
 
@@ -147,9 +147,9 @@ export default function Checkout() {
                                     <div className="col-sm-4 mb-3">
                                         <p className="mb-0">City</p>
                                         <select className="form-select">
-                                            <option value="1">New York</option>
-                                            <option value="2">Moscow</option>
-                                            <option value="3">Samarqand</option>
+                                            <option value="1">Calgary</option>
+                                            <option value="3">Olds</option>
+                                            <option value="4">Cochrane</option>
                                         </select>
                                     </div>
 

@@ -5,7 +5,7 @@ import ProductCategoriesItem from "./product-categories-item/ProductCategoriesIt
 const CategoriesItem = [
   {
     name: "Phone Cases",
-    image: "Images/phone-photos-9-1.jpg.webp",
+    image: "/Images/phone-photos-9-1.jpg.webp",
     slug: "phone-cases",
   },
   {
