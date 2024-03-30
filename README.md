@@ -85,7 +85,7 @@ This SellPhoneLab beta deployment is brought to you by a team of dedicated stude
 
 - [Diya Sharma](mailto:harry.diya161@gmail.com)
 - [Jesse Taylor](mailto:jessetayloor@gmail.com)
-- [Seth Dijkstra](mailto: seth.d87@icloud.com)
+- [Seth Dijkstra](mailto:seth.d87@icloud.com)
 - [Sarbjeet Brar](mailto:sarbjeetb2@gmail.com)
-- [Yuxiao Shen](mailto: syx2401@gmail.com)
+- [Yuxiao Shen](mailto:syx2401@gmail.com)
 - [Yuvraj Singh](mailto:yuvraj10662@gmail.com)
