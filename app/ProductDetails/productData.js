@@ -7,10 +7,10 @@ const products = [
     inStock: true,
     price: 15.99,
     description: "Sleek and minimalist design with drop protection.",
-    mainImage: "https://example.com/images/phone-cases/sleek-phone-case.jpg",
+    mainImage: "Images/phone-photos-9-1.jpg.webp",
     images: [
-      "https://example.com/images/phone-cases/sleek-phone-case-1.webp",
-      "https://example.com/images/phone-cases/sleek-phone-case-2.webp",
+      "Images/phone-photos-9-1.jpg.webp",
+      "Images/phone-photos-9-1.jpg.webp",
     ],
     color: "Various",
     material: "Silicone",
