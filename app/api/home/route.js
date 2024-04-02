@@ -1,10 +1,10 @@
 import { NextResponse } from "next/server";
 import stripePackage from "stripe";
-const stripe = require("stripe")(
-  "pk_test_51OrOfrP991lWFWFdIyZHvDhB2mPEgc94PgaEsatHJnHH1BZ5NsKYKvUExRHzA7D4GysVdMTXcMOgB8gIyz5m979c00SZkjWaUJ"
-);
+//const stripe = require("stripe")(
+// "pk_test_51OrOfrP991lWFWFdIyZHvDhB2mPEgc94PgaEsatHJnHH1BZ5NsKYKvUExRHzA7D4GysVdMTXcMOgB8gIyz5m979c00SZkjWaUJ"
+//);
 
-//const stripe = require("stripe")(`${process.env.NEXT_PUBLIC_SCRET}`);
+const stripe = require("stripe")(`${process.env.NEXT_PUBLIC_SCRET}`);
 export async function POST(req, res) {
   if (req.method === "POST") {
     try {
