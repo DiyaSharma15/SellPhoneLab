@@ -23,10 +23,14 @@ const AdminPage = () => {
             <li className={styles.navItem}>
               <Link href="/admin/comments">Moderate Comments</Link>
             </li>
-            
+            <li className={styles.navItem}>
+              <Link href="/admin/analytics">Analytics</Link>
+            </li>
+            <li className={styles.navItem}>
+              <Link href="/admin/updateProducts">Modify Products</Link>
+            </li>
           </ul>
         </nav>
-        {/* Additional admin page content here */}
       </div>
       <Footer />
     </div>
