@@ -65,6 +65,7 @@ export default function Home() {
   // Render the function to create the UI of the page.
   return (
     <div>
+      <script id="messenger-widget-b" src="https://cdn.botpenguin.com/website-bot.js" defer>660d7c3e6c182202df2ee3c5,660d7b81eef8b629a21e022f</script>
       <GlobalProvider>
         <Header />
         <SimpleCarousel images={images} />
