@@ -4,7 +4,7 @@ import stripePackage from "stripe";
 // "pk_test_51OrOfrP991lWFWFdIyZHvDhB2mPEgc94PgaEsatHJnHH1BZ5NsKYKvUExRHzA7D4GysVdMTXcMOgB8gIyz5m979c00SZkjWaUJ"
 //);
 
-const stripe = require("stripe")(`${process.env.NEXT_PUBLIC_SECRET}`);
+const stripe = require("stripe")(`${process.env.STRIPE_SECRET_KEY}`);
 export async function POST(req, res) {
   if (req.method === "POST") {
     try {

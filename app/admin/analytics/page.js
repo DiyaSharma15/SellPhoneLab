@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import { collection, query, where, getDocs } from "firebase/firestore";
-import { db } from '/firebase-config'; // Adjust the path as necessary
+import { db } from '/firebase-config'; // Ensure this path is correct
 import styles from '../_components/Analytics.module.css';
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -13,16 +13,14 @@ const Analytics = () => {
   const [totalRevenue, setTotalRevenue] = useState(0); // Total revenue in dollars
 
   useEffect(() => {
-    // Fetch appointments from Firebase
     const fetchAppointments = async () => {
-      // Fetch all appointments for 'pending' count, adjust if your logic differs
-      const allAppointmentsQuery = query(collection(db, 'appointments'));
-      const allAppointmentsSnapshot = await getDocs(allAppointmentsQuery);
-      setPendingAppointments(allAppointmentsSnapshot.docs.length);
-
-
-      const completedSnapshot = await getDocs(completedQuery);
-      const pendingSnapshot = await getDocs(pendingQuery);
+      const completedQuery = query(collection(db, 'appointments'), where('status', '==', 'C'));
+      const pendingQuery = query(collection(db, 'appointments'), where('status', '==', 'P'));
+      
+      const [completedSnapshot, pendingSnapshot] = await Promise.all([
+        getDocs(completedQuery),
+        getDocs(pendingQuery),
+      ]);
 
       setCompletedAppointments(completedSnapshot.docs.length);
       setPendingAppointments(pendingSnapshot.docs.length);
@@ -33,21 +31,20 @@ const Analytics = () => {
 
   useEffect(() => {
     const fetchStripeData = async () => {
-      const res = await fetch('../_components/stripeTransactions.js ');
-      const { balance, totalRevenue, transactions } = await res.json();
-  
-      if (res.ok) {
-        setStripeTransactions(transactions);
-        setTotalRevenue(totalRevenue);
-      } else {
+      const res = await fetch('/api/stripeTransactions'); // Corrected path
+      if (!res.ok) {
         console.error('Failed to fetch Stripe data');
+        return;
       }
+    
+      const { transactions, totalRevenue } = await res.json();
+      setStripeTransactions(transactions);
+      setTotalRevenue(totalRevenue);
     };
   
     fetchStripeData();
   }, []);
   
-
   return (
     <>
       <Header />
