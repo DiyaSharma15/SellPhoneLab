@@ -14,8 +14,8 @@ const Analytics = () => {
 
   useEffect(() => {
     const fetchAppointments = async () => {
-      const completedQuery = query(collection(db, 'appointments'), where('status', '==', 'C'));
-      const pendingQuery = query(collection(db, 'appointments'), where('status', '==', 'P'));
+      const completedQuery = query(collection(db, 'appointments'), where('status', '==', 'Complete'));
+      const pendingQuery = query(collection(db, 'appointments'), where('status', '==', 'Pending'));
       
       const [completedSnapshot, pendingSnapshot] = await Promise.all([
         getDocs(completedQuery),
