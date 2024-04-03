@@ -9,35 +9,52 @@ import styles from '../_components/appointments.module.css';
 
 const Appointments = () => {
     const [appointments, setAppointments] = useState([]);
+    const [selectedAppointment, setSelectedAppointment] = useState(null);
 
     useEffect(() => {
         const getAppointments = async () => {
-            // Adjusted to order by customerName and submittedAt.
-            const querySnapshot = await getDocs(query(collection(db, 'appointments'), orderBy('customerName'), orderBy('submittedAt', 'desc')));
+            const querySnapshot = await getDocs(collection(db, 'appointments'));
             setAppointments(querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
         };
     
         getAppointments();
     }, []);
+    
+    const selectAppointment = (appointment) => {
+        setSelectedAppointment(appointment);
+    };
 
     return (
         <>
             <Header />
-                <div className={styles.container}>
-                    <h1 className={styles.title}>Appointment Requests</h1>
+            <div className={styles.container}>
+                <h1 className={styles.title}>Appointments</h1>
+                <div className={styles.appointmentsLayout}>
                     <ul className={styles.appointmentList}>
                         {appointments.map(appointment => (
-                            <li key={appointment.id} className={styles.appointmentItem}>
-                                <p>Name: {appointment.customerName}</p>
+                            <li key={appointment.id} className={styles.appointmentItem} onClick={() => selectAppointment(appointment)}>
+                                {/* <p>Name: {appointment.firstName} {appointment.lastName}</p> */}
                                 <p>Email: {appointment.email}</p>
                                 <p>Device Model: {appointment.deviceModel}</p>
-                                <p>Issue: {appointment.issueDescription}</p>
-                                <p>Submitted At: {appointment.submittedAt?.toDate().toLocaleString()}</p> {/* Ensure you convert Timestamp to Date */}
+                                <p>Services: {appointment.repairTypes ? appointment.repairTypes.join(', ') : 'No services listed'}</p>
+                                {/* <p>Issue: {appointment.issueDescription}</p>
+                                <p>Submitted At: {appointment.submittedAt?.toDate().toLocaleString()}</p> */}
                             </li>
                         ))}
                     </ul>
+                    {selectedAppointment && (
+                        <div className={styles.appointmentDetails}>
+                            <h2>Details</h2>
+                            <p>Name: {selectedAppointment.firstName} {selectedAppointment.lastName}</p>
+                            <p>Email: {selectedAppointment.email}</p>
+                            <p>Device Model: {selectedAppointment.deviceModel}</p>
+                            <p>Issue: {selectedAppointment.issueDescription}</p>
+                            <p>Submitted At: {selectedAppointment.submittedAt?.toDate().toLocaleString()}</p>
+                        </div>
+                    )}
                 </div>
-            <Footer />
+            </div>
+            <Footer/>
         </>
     );
 };

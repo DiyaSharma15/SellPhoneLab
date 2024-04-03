@@ -1,29 +1,62 @@
 /* appointments.module.css */
+/* appointments.module.css */
+
 .container {
     padding: 20px;
-    color: black; /* Ensures text inside the container is black */
+    color: black; /* Text color for the entire container */
+    max-width: 1500px; /* Sets a max width for the container */
+    margin: 0 auto; /* Centers the container on the page */
+    background-color: #e0e0e0; /* Light grey background for the container */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Adds a subtle shadow around the container */
 }
 
 .appointmentList {
-    list-style: none;
-    padding: 0;
+    list-style: none; /* Removes bullet points from the list */
+    padding: 0; /* Removes padding from the list */
+    margin: 20px 0; /* Adds margin above and below the list for spacing */
 }
 
-.appointmentItem {
+.appointmentsLayout {
+    display: flex;
+    gap: 20px; /* Adds space between list and details */
+}
+
+
+.appointmentDetails {
+    flex-grow: 1; /* Takes up remaining space */
+    padding: 20px;
     border: 1px solid #ccc;
-    margin-bottom: 10px;
-    padding: 10px;
     border-radius: 5px;
     background-color: #f9f9f9;
 }
 
+.appointmentItem {
+    border: 1px solid #ccc; /* Light grey border around each appointment item */
+    margin-bottom: 15px; /* Adds space between appointment items */
+    padding: 15px; /* Padding inside each appointment item for spacing */
+    border-radius: 8px; /* Rounds the corners of the appointment item */
+    background-color: #ffffff; /* White background for each item */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle shadow for depth */
+    transition: transform 0.2s ease-in-out; /* Smooth transition for hover effect */
+}
+
+.appointmentItem:hover {
+    transform: translateY(-5px); /* Slightly lifts the item on hover for a dynamic effect */
+    border-color: #007bff; /* Changes the border color on hover for highlight */
+}
+
 .appointmentItem p {
-    color: black; /* Ensures paragraph text inside items is black */
-    margin: 5px 0;
+    color: #333; /* Darker text color for better readability */
+    margin: 8px 0; /* Adjusts spacing around each paragraph for a cleaner look */
 }
 
 .title {
-    color: black;
+    color: #333; /* Darker color for the title for emphasis */
     text-align: center;
     margin-top: 0;
+    font-size: 24px; /* Larger font size for the title */
+    font-weight: bold; /* Makes the title bold */
+    padding-bottom: 20px; /* Space below the title */
+    border-bottom: 1px solid #ccc; /* Adds a subtle line below the title for separation */
+    margin-bottom: 20px; /* Space below the line to the content */
 }
