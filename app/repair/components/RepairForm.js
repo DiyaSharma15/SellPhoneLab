@@ -40,6 +40,7 @@ const RepairForm = ({
         startDateTime: selectedDateTime,
         endDateTime: new Date(selectedDateTime.getTime() + 30 * 60000),
         submittedAt: Timestamp.fromDate(new Date()),
+        status: "Pending",
       });
       // Show success alert and reset form fields.
       alert("Your repair request has been submitted successfully.");

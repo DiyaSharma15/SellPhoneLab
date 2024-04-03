@@ -7,6 +7,7 @@ import Header from '../../components/Header'; // Adjust the path as necessary
 import Footer from '../../components/Footer'; 
 import styles from '../_components/appointments.module.css';
 import deviceTypes from '../../repair/deviceData'; // Adjust the import path as necessary
+import { doc, updateDoc } from 'firebase/firestore';
 
 
 const findDeviceImageUrl = (deviceModel) => {
@@ -30,17 +31,31 @@ const Appointments = () => {
     const [appointments, setAppointments] = useState([]);
     const [selectedAppointment, setSelectedAppointment] = useState(null);
 
+    // Refactored getAppointments function
+    const getAppointments = async () => {
+        const querySnapshot = await getDocs(collection(db, 'appointments'));
+        setAppointments(querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
+    };
+
     useEffect(() => {
-        const getAppointments = async () => {
-            const querySnapshot = await getDocs(collection(db, 'appointments'));
-            setAppointments(querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
-        };
-    
         getAppointments();
     }, []);
-    
+
     const selectAppointment = (appointment) => {
         setSelectedAppointment(appointment);
+    };
+
+    const markAppointmentAsComplete = async (appointmentId) => {
+        const appointmentRef = doc(db, 'appointments', appointmentId);
+        await updateDoc(appointmentRef, {
+            status: 'Complete' // Assuming you're updating a 'status' field. Adjust as necessary.
+        });
+        // Refresh the appointments list to reflect the update
+        await getAppointments();
+        // If you're using the selectedAppointment state, update it as well
+        if (selectedAppointment && selectedAppointment.id === appointmentId) {
+            setSelectedAppointment({ ...selectedAppointment, status: 'Complete' });
+        }
     };
 
     return (
@@ -60,6 +75,7 @@ const Appointments = () => {
                                 {/* <p><strong>Device Model:</strong> {appointment.deviceModel}</p> */}
                                 <p><strong>Services:</strong> {appointment.repairTypes ? appointment.repairTypes.join(', ') : 'No services listed'}</p>
                                 <p><strong>Date/Time: </strong>{appointment.startDateTime?.toDate().toLocaleString()}</p>
+                                <p><strong>Status: </strong>{appointment.status}</p>
                                 {/* <p>Issue: {appointment.issueDescription}</p>
                                 <p>Submitted At: {appointment.submittedAt?.toDate().toLocaleString()}</p> */}
                             </li>
@@ -78,7 +94,23 @@ const Appointments = () => {
                             <p><strong>Store: </strong>{selectedAppointment.location}</p>
                             <p><strong>Appointment Date/Time: </strong>{selectedAppointment.startDateTime?.toDate().toLocaleString()}</p>
                             {/* <p>Submitted At: {selectedAppointment.submittedAt?.toDate().toLocaleString()}</p> */}
-                            
+                            <button className={styles.pageButton} onClick={() => {
+                                //Edit action here
+                            }}>
+                                Edit
+                            </button>
+                            <button className={styles.pageButton}
+                            onClick={() => {
+                                const isConfirmed = window.confirm('Are you sure you want to mark this appointment as complete?');
+                                if (isConfirmed) {
+                                    markAppointmentAsComplete(selectedAppointment.id);
+                                    // Optionally reset the selectedAppointment or update its state to reflect the change
+                                    setSelectedAppointment({ ...selectedAppointment, status: "Complete" });
+                                }
+                            }}
+                            >
+                                Mark as Complete
+                            </button>
                         </div>
                         </>
                     )}
