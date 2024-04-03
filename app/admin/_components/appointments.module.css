@@ -10,6 +10,24 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Adds a subtle shadow around the container */
 }
 
+.pageButton {
+    background-color: #0046BE; /* Button's primary color */
+    color: white; /* Text color */
+    border: none; /* Removes the default border */
+    padding: 10px 20px; /* Top and bottom padding, left and right padding */
+    border-radius: 5px; /* Rounds the corners of the button */
+    cursor: pointer; /* Changes the cursor to a pointer on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for the background color */
+    text-align: center; /* Ensures the text is centered */
+    display: inline-block; /* Allows the setting of width and height */
+    font-size: 16px; /* Sets the text size */
+}
+
+.pageButton:hover {
+    background-color: #00308F; /* Button color on hover: a darker shade of blue */
+}
+
+
 .appointmentList {
     width: 500px; /* Or any fixed width according to your design needs */
     overflow-y: auto; /* Allows for vertical scrolling within the list if it gets too long */
@@ -35,7 +53,7 @@
 
 /* Displaying Appointment for selection */
 .appointmentItem {
-    border: 4px solid #0046BE; /* Light grey border around each appointment item */
+    border: 4px solid #0046BE; 
     margin-bottom: 15px; /* Adds space between appointment items */
     padding: 15px; /* Padding inside each appointment item for spacing */
     border-radius: 8px; /* Rounds the corners of the appointment item */
