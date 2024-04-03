@@ -22,7 +22,7 @@
     "firebase": "^10.9.0",
     "font-awesome": "^4.7.0",
     "ionicons": "^7.2.2",
-    "next": "^14.1.0",
+    "next": "^14.1.4",
     "react": "^18.2.0",
     "react-datepicker": "^6.2.0",
     "react-dom": "^18.2.0",
