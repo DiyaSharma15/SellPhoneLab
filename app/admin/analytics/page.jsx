@@ -1,22 +1,21 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import { collection, query, where, getDocs } from "firebase/firestore";
-import { db } from '/firebase-config'; // Ensure this path is correct
-import styles from '../_components/Analytics.module.css';
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
+import { db } from '/firebase-config'; // Make sure this path is correct
+import styles from '../_components/Analytics.module.css'; // Make sure this path is correct
+import Header from "../../components/Header"; // Make sure this path is correct
+import Footer from "../../components/Footer"; // Make sure this path is correct
 
-const Analytics = () => {
+// Provide a default value for stripeData in the component's parameters
+const Analytics = ({ stripeData = { transactions: 0, totalRevenue: 0 } }) => {
   const [completedAppointments, setCompletedAppointments] = useState(0);
   const [pendingAppointments, setPendingAppointments] = useState(0);
-  const [stripeTransactions, setStripeTransactions] = useState([]);
-  const [totalRevenue, setTotalRevenue] = useState(0); // Total revenue in dollars
 
   useEffect(() => {
     const fetchAppointments = async () => {
       const completedQuery = query(collection(db, 'appointments'), where('status', '==', 'Complete'));
       const pendingQuery = query(collection(db, 'appointments'), where('status', '==', 'Pending'));
-      
+
       const [completedSnapshot, pendingSnapshot] = await Promise.all([
         getDocs(completedQuery),
         getDocs(pendingQuery),
@@ -29,22 +28,6 @@ const Analytics = () => {
     fetchAppointments();
   }, []);
 
-  useEffect(() => {
-    const fetchStripeData = async () => {
-      const res = await fetch('/api/stripeTransactions'); // Corrected path
-      if (!res.ok) {
-        console.error('Failed to fetch Stripe data');
-        return;
-      }
-    
-      const { transactions, totalRevenue } = await res.json();
-      setStripeTransactions(transactions);
-      setTotalRevenue(totalRevenue);
-    };
-  
-    fetchStripeData();
-  }, []);
-  
   return (
     <>
       <Header />
@@ -60,11 +43,11 @@ const Analytics = () => {
         </div>
         <div>
           <h2>Stripe Transactions</h2>
-          <p>Total Transactions: {stripeTransactions.length}</p>
+          <p>Total Transactions: {stripeData.transactions}</p>
         </div>
         <div>
           <h2>Total Revenue</h2>
-          <p>${totalRevenue.toFixed(2)}</p>
+          <p>${stripeData.totalRevenue.toFixed(2)}</p>
         </div>
       </div>
       <Footer />
