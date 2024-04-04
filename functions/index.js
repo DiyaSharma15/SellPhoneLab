@@ -26,7 +26,7 @@ exports.sendEmailConfirmation = functions.firestore
     `Thank you for choosing us!`;
 
       const mailOptions = {
-        from: "The team at <sellphonelabs@gmail.com>",
+        from: "SellPhoneLabs <sellphonelabs@gmail.com>",
         to: data.email,
         subject: "Appointment Confirmation",
         text: emailBody,
