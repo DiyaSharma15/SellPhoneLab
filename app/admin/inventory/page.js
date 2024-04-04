@@ -4,7 +4,7 @@
 import React, { useEffect, useState } from "react";
 import { db } from "/firebase-config"; // Make sure this path correctly points to your Firebase config
 import { collection, getDocs, addDoc, deleteDoc, doc, updateDoc, onSnapshot } from "firebase/firestore";
-import styles from '../_components/InventoryManagement.module.css'; // Adjust with your actual CSS module path
+import styles from '../components/InventoryManagement.module.css'; // Adjust with your actual CSS module path
 import Header from "../../components/Header"; // Adjust the import path as needed
 import Footer from "../../components/Footer"; // Adjust the import path as needed
 

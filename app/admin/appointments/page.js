@@ -5,7 +5,7 @@ import { db } from '/firebase-config'; // Update the path to your Firebase confi
 import { collection, getDocs, query, orderBy } from 'firebase/firestore';
 import Header from '../../components/Header'; // Adjust the path as necessary
 import Footer from '../../components/Footer'; 
-import styles from '../_components/appointments.module.css';
+import styles from '../components/appointments.module.css';
 import deviceTypes from '../../repair/deviceData'; // Adjust the import path as necessary
 import { doc, updateDoc } from 'firebase/firestore';
 

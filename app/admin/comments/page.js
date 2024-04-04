@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { db } from '/firebase-config';
 import { collection, getDocs, updateDoc, deleteDoc, doc } from 'firebase/firestore';
-import styles from '../_components/Comment.module.css';
+import styles from '../components/Comment.module.css';
 import Header from '../../components/Header'; // Adjust the path as necessary
 import Footer from '../../components/Footer'; 
 
