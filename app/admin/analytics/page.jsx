@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from '/firebase-config'; 
-import styles from '../_components/Analytics.module.css'; 
+import styles from '../components/Analytics.module.css'; 
 import Header from "../../components/Header"; 
 import Footer from "../../components/Footer"; 
 
