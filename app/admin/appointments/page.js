@@ -10,6 +10,8 @@ import deviceTypes from '../../repair/deviceData'; // Adjust the import path as 
 import { doc, updateDoc } from 'firebase/firestore';
 
 
+
+
 const findDeviceImageUrl = (deviceModel) => {
     for (const brand of deviceTypes) {
       for (const model of brand.models) {
@@ -58,29 +60,41 @@ const Appointments = () => {
         }
     };
 
+
+    const pendingAppointments = appointments.filter(appointment => appointment.status === 'Pending');
+    const completeAppointments = appointments.filter(appointment => appointment.status === 'Complete');
+
     return (
         <>
             <Header />
             <div className={styles.container}>
-                
                 <div className={styles.appointmentsLayout}>
-                    
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    <div className="globalTitle">Pending Appointments</div>
                     <ul className={styles.appointmentList}>
-                    <div className="globalTitle">Appointments</div>
-                        {appointments.map(appointment => (
+                        {pendingAppointments.map(appointment => (
                             <li key={appointment.id} className={styles.appointmentItem} onClick={() => selectAppointment(appointment)}>
-                                {/* <p>Name: {appointment.firstName} {appointment.lastName}</p> */}
                                 <p><strong>Store: </strong> {appointment.location}</p>
-                                {/* <p><strong>Email:</strong> {appointment.email}</p> */}
-                                {/* <p><strong>Device Model:</strong> {appointment.deviceModel}</p> */}
                                 <p><strong>Services:</strong> {appointment.repairTypes ? appointment.repairTypes.join(', ') : 'No services listed'}</p>
                                 <p><strong>Date/Time: </strong>{appointment.startDateTime?.toDate().toLocaleString()}</p>
                                 <p><strong>Status: </strong>{appointment.status}</p>
-                                {/* <p>Issue: {appointment.issueDescription}</p>
-                                <p>Submitted At: {appointment.submittedAt?.toDate().toLocaleString()}</p> */}
                             </li>
                         ))}
                     </ul>
+                    <div className="globalTitle">Completed Appointments</div>
+                    <ul className={styles.appointmentList}>
+                        {/* This will be filled similarly to pending appointments once you start adding completed ones */}
+                        {completeAppointments.map(appointment => (
+                            <li key={appointment.id} className={styles.appointmentItem} onClick={() => selectAppointment(appointment)}>
+                                <p><strong>Store: </strong> {appointment.location}</p>
+                                <p><strong>Services:</strong> {appointment.repairTypes ? appointment.repairTypes.join(', ') : 'No services listed'}</p>
+                                <p><strong>Date/Time: </strong>{appointment.startDateTime?.toDate().toLocaleString()}</p>
+                                <p><strong>Status: </strong>{appointment.status}</p>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
                     {selectedAppointment && (
                         <>
                         <div className={styles.appointmentDetails}>
