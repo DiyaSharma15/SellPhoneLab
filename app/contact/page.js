@@ -17,8 +17,8 @@ export default function Contact() {
           <Image
             src="/assets/images/about/mobile-phones-6-1024x576.jpg"
             alt="Mobile Phones"
-            width={1024}
-            height={576}
+            width={1500}
+            height={900}
           />
           <div className="globalText">
             Here at the Sellphone Lab, we offer high quality repairs, phones and
