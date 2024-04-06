@@ -6,7 +6,7 @@ Our team SellPhoneLab is committed to delivering an optimized digital platform t
 
 If you would like to see our currently deployed beta website using Vercel, you can navigate to this link and get started!
 
-[SellPhoneLabBetaDeployment](https://testing-deployment-cyan.vercel.app/)
+[SellPhoneLabBetaDeployment](https://sell-phone-lab.vercel.app/)
 
 To report any critical errors, bugs, or suggested updates, please email us [here](mailto:jessetayloor@gmail.com).
 

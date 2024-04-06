@@ -5,7 +5,7 @@ import React from "react";
 import Header from "../components/Header"; // Adjust the path as necessary
 import Footer from "../components/Footer"; // Adjust the path as necessary
 import Link from "next/link";
-import styles from './_components/AdminPage.module.css'; // Adjust the path as necessary
+import styles from './components/AdminPage.module.css'; // Adjust the path as necessary
 
 const AdminPage = () => {
   return (

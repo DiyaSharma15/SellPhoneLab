@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image"; // Make sure to use Next.js Image for optimization
-import styles from "../cssFiles/Footer.module.css"; 
+import styles from "../cssFiles/Footer.Module.css"; 
 
 
 export default function Footer() {
