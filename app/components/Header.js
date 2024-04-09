@@ -218,7 +218,7 @@ export default function Header() {
             {isWhatWeDoDropdownVisible && (
               <ul className={styles.dropdown}>
                 <li className={styles.dropdownItem}>
-                  <Link href={{ pathname: "/unlockPhones" }}>
+                  <Link href={{ pathname: "/what-we-do/UnlockPhones" }}>
                     Unlock Phones
                   </Link>
                 </li>

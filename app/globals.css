@@ -98,11 +98,3 @@ a {
 .location_icon span {
   width: 40px;
 }
-.banner_whatbedo_phoneaccessories {
-  background-image: url("https://sellphonelab.ca/wp-content/uploads/2023/02/Phone-Accessories.jpg");
-  transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
-  padding: 150px 50px 0;
-  background-position: center;
-  height: 210px;
-  position: relative;
-}
