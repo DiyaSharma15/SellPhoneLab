@@ -5,8 +5,8 @@ export default function Blog() {
     return (
         <div>
         <Header/>
-        <Footer/> 
-  
+        <Footer/>
+ 
       </div>
     );
     }

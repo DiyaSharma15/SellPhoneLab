@@ -15,7 +15,7 @@ export default function WhatWeDo() {
           title="Unlock Phones"
           description="If traveling abroad or simply looking to switch carriers, a locked phone can limit your options and make it difficult to access all the features of your device."
           imageSrc="/assets/images/whatwedo/unlockphones.jpg"
-          readMoreLink="/what-we-do"
+          readMoreLink="./what-we-do/UnlockPhones/page.js"
         />
         <ServiceCard
           title="Phone Repairs"
