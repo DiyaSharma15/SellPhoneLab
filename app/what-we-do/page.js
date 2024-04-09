@@ -39,7 +39,7 @@ export default function WhatWeDo() {
           title="Phone Accessories"
           description="If you’re looking for a new set of earphones, a wall charger, a cable, or even AirPods, we have you covered."
           imageSrc="/assets/images/whatwedo/phoneaccessories.jpeg"
-          readMoreLink="/what-we-do"
+          readMoreLink="/what-we-do/phone-accessories"
         />
         <ServiceCard
           title="Mobile Phone Cases"
