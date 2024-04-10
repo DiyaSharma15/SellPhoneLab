@@ -1,4 +1,6 @@
 "use client";
+require('dotenv').config();
+
 import { useState } from 'react';
 import Link from 'next/link';
 import BlogPostCard from './blogPostCard'; // Ensure correct path
