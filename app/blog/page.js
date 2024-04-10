@@ -1,38 +1,39 @@
 "use client";
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
-import BlogPostCard from './blogPostCard';
-import Header from '../components/Header'; 
+import BlogPostCard from './blogPostCard'; // Ensure correct path
+import Header from '../components/Header';
 import Footer from '../components/Footer';
+import postsData from './blogPosts.json'; // Import the JSON data directly
+
+const POSTS_PER_PAGE = 8; // Updated number of posts per page
 
 export default function BlogPage() {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState(postsData); // Initialize state with the imported data
+  const [page, setPage] = useState(1);
 
-  useEffect(() => {
-    // This is a placeholder. Replace with your actual fetch call
-    fetchBlogPosts().then(setPosts);
-  }, []);
+  // Calculate the posts to display based on the current page
+  const startIndex = (page - 1) * POSTS_PER_PAGE;
+  const selectedPosts = posts.slice(startIndex, startIndex + POSTS_PER_PAGE);
 
   return (
     <>
-    <Header />
+      <Header />
       <div>
-        {posts.map(post => (
-          <Link href={`/blog/${post.slug}`} key={post.id}>
-            <BlogPostCard post={post} />
+        {selectedPosts.map((post) => (
+          <Link href={`/blog/${post.slug}`} key={post.id} passHref>
+              <BlogPostCard post={post} />
           </Link>
         ))}
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+          {Array.from({ length: Math.ceil(posts.length / POSTS_PER_PAGE) }, (_, i) => (
+            <button key={i} onClick={() => setPage(i + 1)} style={{ margin: '5px' }}>
+              {i + 1}
+            </button>
+          ))}
+        </div>
       </div>
       <Footer />
     </>
   );
-}
-
-// Placeholder function. Replace with your actual fetch logic
-async function fetchBlogPosts() {
-  // Example response structure. Adjust according to your data source
-  return [
-    { id: 1, slug: 'used-phones-calgary', title: 'Where to Buy Used Phones in Calgary', summary: 'A guide to finding affordable used phones...', imageUrl: '/assets/images/blog/buyUsedPhone.webp', date: 'January 27, 2024' },
-    // Add more posts as needed
-  ];
 }

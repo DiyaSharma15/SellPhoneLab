@@ -1,4 +1,4 @@
-import styles from './BlogPostCard.module.css'; // Adjust the import path as necessary
+import styles from './BlogPostCard.module.css'; // Ensure you have this CSS module
 
 function BlogPostCard({ post }) {
   return (
