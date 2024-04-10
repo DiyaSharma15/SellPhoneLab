@@ -1,0 +1,38 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.content {
+    width: 80%;
+}
+.section {
+    margin-bottom: 40px;
+    text-align: center;
+}
+.pageHeader {
+    background-color:#0046BE;
+    color: white;
+    margin: 30px;
+    margin-bottom: 50px;
+    padding: 15px;
+    font-weight: bold;
+    border-radius: 10px;
+    width: fit-content;
+}
+.subHeader {
+    color: #0046BE;
+    padding-top: 20px;
+    font-weight: bold;
+}
+.serviceList {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+.serviceItem {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}

@@ -21,7 +21,7 @@ export default function WhatWeDo() {
           title="Phone Repairs"
           description="Whether you have a cracked screen, a dead battery, or something more complex like software issues, our team of expert technicians is here to help."
           imageSrc="/assets/images/whatwedo/phonerepairs.jpeg"
-          readMoreLink="/what-we-do"
+          readMoreLink="/what-we-do/PhoneRepairs"
         />
         <ServiceCard
           title="Computer Repairs"
