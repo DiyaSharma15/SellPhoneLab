@@ -43,7 +43,7 @@ const Analytics = () => {
     labels: ['Completed Appointments', 'Pending Appointments'],
     datasets: [
         {
-            label: 'Appointment Analytics',
+            label: 'Appointments',
             data: [completedAppointments, pendingAppointments], // These should be your state variables
             backgroundColor: ['rgba(75, 192, 192, 0.2)', 'rgba(255, 159, 64, 0.2)'],
             borderColor: ['rgba(75, 192, 192, 1)', 'rgba(255, 159, 64, 1)'],
@@ -51,68 +51,108 @@ const Analytics = () => {
         },
     ],
 };
-const stripeData = {
-  labels: ['Total Transactions', 'Total Revenue'],
-  datasets: [
-      {
-          label: 'Stripe Analytics',
-          data: [stripeAnalytics.totalTransactions, stripeAnalytics.totalRevenue], // Assuming these are calculated in your loader
-          backgroundColor: ['rgba(54, 162, 235, 0.2)', 'rgba(153, 102, 255, 0.2)'],
-          borderColor: ['rgba(54, 162, 235, 1)', 'rgba(153, 102, 255, 1)'],
-          borderWidth: 1,
-      },
-  ],
-};
 const revenueData = {
-  labels: ["Jan 1", "Jan 2", "Jan 3"], // Example dates
+  labels: ['Total Revenue', 'Average Transaction Value'],
   datasets: [{
-      label: 'Daily Revenue',
-      data: [500, 600, 550], // Example revenue data
-      fill: false,
-      borderColor: 'rgb(75, 192, 192)',
-      tension: 0.1
-  }]
+    label: 'Revenue Metrics',
+    type: 'bar',
+    data: [stripeAnalytics.totalRevenue],
+    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+    borderColor: 'rgba(54, 162, 235, 1)',
+    borderWidth: 1,
+  }, {
+    label: 'Avg. Transaction Value',
+    type: 'line',
+    data: [stripeAnalytics.averageTransactionValue],
+    backgroundColor: 'rgba(255, 206, 86, 0.2)',
+    borderColor: 'rgba(255, 206, 86, 1)',
+    borderWidth: 1,
+    fill: false,
+  }],
 };
-const aovData = {
-  labels: ["Jan 1", "Jan 2", "Jan 3"], // Example dates
-  datasets: [{
-      label: 'Average Order Value',
-      data: [50, 60, 55], // Example AOV data
-      backgroundColor: 'rgba(255, 99, 132, 0.2)',
-  }]
-};
-const productSalesData = {
-  labels: ["Product A", "Product B", "Product C"], // Example products
-  datasets: [{
-      label: 'Sales',
-      data: [300, 150, 200], // Example sales data
-      backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)'],
-  }]
-};
+
 const customerData = {
-  labels: ["New Customers", "Returning Customers"],
+  labels: ['New Customers', 'Returning Customers'],
   datasets: [{
-      label: 'Customer Type',
-      data: [120, 80], // Example data
-      backgroundColor: ['rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'],
-  }]
+    label: 'Customer Types',
+    data: [stripeAnalytics.newCustomers, stripeAnalytics.returningCustomers],
+    backgroundColor: ['rgba(54, 162, 235, .5)', 'rgba(255, 206, 86, .5)'],
+    borderColor: ['rgba(0, 0, 0, 1)', 'rgba(0, 0, 0, 1)'],
+    borderWidth: 1,
+  }],
 };
-  return (
-    <>
-      <Header />
-      <div className={styles.container}>
-        <div style={{ width: '600px', height: '400px' }}>
-            <h2>Appointment Analytics</h2>
-            <Chart type="bar" data={appointmentData} />
-        </div>
-        <div style={{ width: '600px', height: '400px' }}>
-            <h2>Stripe Analytics</h2>
-            <Chart type="bar" data={stripeData} />
-        </div>
+
+const transactionsData = {
+  labels: ['Total Transactions'],
+  datasets: [{
+    label: 'Transactions',
+    data: [stripeAnalytics.totalTransactions],
+    backgroundColor: ['rgba(75, 192, 192, 0.2)'],
+    borderColor: ['rgba(75, 192, 192, 1)'],
+    borderWidth: 1,
+  }],
+};
+const monthlyRevenueData = {
+  labels: Object.keys(stripeAnalytics.monthlyRevenue || {}),
+  datasets: [{
+    label: 'Monthly Revenue',
+    data: Object.values(stripeAnalytics.monthlyRevenue || {}),
+    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+    borderColor: 'rgba(255, 99, 132, 1)',
+    borderWidth: 1,
+  }],
+};
+
+const transactionsByMonthData = {
+  labels: Object.keys(stripeAnalytics.monthlyTransactions || {}),
+  datasets: [{
+    label: 'Transactions by Month',
+    data: Object.values(stripeAnalytics.monthlyTransactions || {}),
+    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+    borderColor: 'rgba(54, 162, 235, 1)',
+    borderWidth: 1,
+  }],
+};
+
+
+return (
+  <>
+    <Header />
+    <div style={{
+      display: 'flex',
+      flexWrap: 'wrap',
+      justifyContent: 'space-around' // Adjusts spacing around items
+    }}>
+      <div style={{ width: '600px', height: '400px', margin: '10px' }}>
+        <h2>Appointment Analytics</h2>
+        <Chart type="bar" data={appointmentData} />
       </div>
-      <Footer />
-    </>
-  );
+      <div style={{ width: '600px', height: '400px', margin: '10px' }}>
+        <h2>Revenue & Avg. Transaction Amount</h2>
+        <Chart type="bar" data={revenueData} />
+      </div>
+      <div style={{ width: '550px', height: '270px', margin: '10px', marginBottom: '55px' }}>
+        <h2>New vs. Returning Customers</h2>
+        <Chart type="pie" data={customerData} />
+      </div>
+      <div style={{ width: '600px', height: '400px', margin: '10px' }}>
+        <h2>Transactions</h2>
+        <Chart type="bar" data={transactionsData} />
+      </div>
+      <div style={{ width: '600px', height: '400px', margin: '10px' }}>
+        <h2>Monthly Revenue Trend</h2>
+        <Chart type="line" data={monthlyRevenueData} />
+      </div>
+      
+      <div style={{ width: '600px', height: '400px', margin: '10px' }}>
+        <h2>Transactions by Month</h2>
+        <Chart type="bar" data={transactionsByMonthData} />
+      </div>
+        </div>
+    <Footer />
+  </>
+);
+
 };
 
 export default Analytics;
