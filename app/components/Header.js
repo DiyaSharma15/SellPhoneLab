@@ -223,7 +223,7 @@ export default function Header() {
                   </Link>
                 </li>
                 <li className={styles.dropdownItem}>
-                  <Link href={{ pathname: "/phoneRepairs" }}>
+                  <Link href={{ pathname: "/what-we-do/PhoneRepairs" }}>
                     Phone Repairs
                   </Link>
                 </li>
