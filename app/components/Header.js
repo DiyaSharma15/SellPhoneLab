@@ -228,12 +228,14 @@ export default function Header() {
                   </Link>
                 </li>
                 <li className={styles.dropdownItem}>
-                  <Link href={{ pathname: "/computerRepairs" }}>
+                  <Link href={{ pathname: "/what-we-do/computer-repairs" }}>
                     Computer Repairs
                   </Link>
                 </li>
                 <li className={styles.dropdownItem}>
-                  <Link href={{ pathname: "/dataTransfer" }}>
+                  <Link
+                    href={{ pathname: "/what-we-do/data-transfer-management" }}
+                  >
                     Data Transfer / Management
                   </Link>
                 </li>
@@ -243,12 +245,12 @@ export default function Header() {
                   </Link>
                 </li>
                 <li className={styles.dropdownItem}>
-                  <Link href={{ pathname: "/saleOfPhones" }}>
+                  <Link href={{ pathname: "/what-we-do/saleOfPhones" }}>
                     Sale of new & used phones
                   </Link>
                 </li>
                 <li className={styles.dropdownItem}>
-                  <Link href={{ pathname: "/saleOfCases" }}>
+                  <Link href={{ pathname: "/what-we-do/sale-of-mobile-cases" }}>
                     Sale of Mobile Cases
                   </Link>
                 </li>
