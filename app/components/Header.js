@@ -201,7 +201,7 @@ export default function Header() {
                 cursor: "pointer",
               }}
             >
-              <a href={{ pathname: "/what-we-do" }}>What we do</a>
+              <Link href={{ pathname: "/what-we-do" }}>What we do</Link>
               <div
                 onClick={() =>
                   setIsWhatWeDoDropdownVisible(!isWhatWeDoDropdownVisible)
