@@ -50,8 +50,8 @@ export default function About() {
               device.
             </p>
             <p>
-              Known for our friendly and reliable service, whether you’re
-              seeking the latest gadget or need to revive an aging iPhone, we’re
+              Known for our friendly and reliable service, whether you&apos;re
+              seeking the latest gadget or need to revive an aging iPhone, we&apos;re
               here to assist you every step of the way.
             </p>
           </div>

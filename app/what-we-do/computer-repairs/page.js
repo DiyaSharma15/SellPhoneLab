@@ -49,7 +49,7 @@ export default function ComputerRepair() {
             </p>
             <p>
               When it comes to computer repairs, we know that every situation is
-              unique. That’s why we offer a wide range of services to meet your
+              unique. That&apos;s why we offer a wide range of services to meet your
               specific needs.
             </p>
             <div className="row">
@@ -160,18 +160,18 @@ export default function ComputerRepair() {
               </p>
               <p>
                 At Sellphone Lab, we understand that your computer is an
-                important part of your daily life. That’s why we are committed
+                important part of your daily life. That&apos;s why we are committed
                 to providing you with the best service possible. Our team of
                 experienced technicians is dedicated to getting your computer
                 back to you in a timely manner, so you can get back to using it.
               </p>
               <p>
-                If you’re looking for a reliable, affordable computer repair
+                If you&apos;re looking for a reliable, affordable computer repair
                 shop in Calgary, look no further than Sellphone Lab. We
                 guarantee that you will be satisfied with our services and will
                 build trust on the Name “Sellphone Lab shop in Calgary”. Our
                 goal is to provide you with the highest quality service and to
-                make sure you’re completely satisfied. So, please give us a call
+                make sure you&apos;re completely satisfied. So, please give us a call
                 or visit us today
               </p>
             </div>
