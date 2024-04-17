@@ -32,7 +32,7 @@ export default function About() {
           <div className="col-sm-6">
             <p>
               Welcome to Sellphone Lab, your ultimate destination for all your
-              cell phone, computer, and tablet requirements. Whether you’re
+              cell phone, computer, and tablet requirements. Whether you&apos;re
               contending with a cracked screen, software glitches, or on the
               lookout for a new device, our comprehensive array of services and
               products has got you covered.
@@ -59,7 +59,7 @@ export default function About() {
 
         <div className="row mt-5">
           <div className="col-sm-12 col-md-12 col-lg-6">
-            <h3>We're Experienced</h3>
+            <h3>We&apos;re Experienced</h3>
             <p>
               Our techs are trained professionals and ready to help you with any
               of your device repairs or upgrades. We offer Lcd replacement,

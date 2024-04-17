@@ -72,7 +72,7 @@ export default function ComputerRepair() {
                   If your computer is running slow, crashing, or having other
                   software issues, our team of experts can help. We can diagnose
                   and repair any software issues you may be experiencing, and we
-                  can also help you optimize your computer's performance.
+                  can also help you optimize your computer&apos;s performance.
                 </p>
               </div>
               <div className="col-sm-4 col-md-4 col-lg-4 shadow p-3 mb-3 bg-white rounded">
@@ -108,7 +108,7 @@ export default function ComputerRepair() {
                 <h4 className="text-center">Speed Upgrade:</h4>
                 <p className="text-center">
                   Is your computer running slow, lagging when playing your
-                  favorite game, Windows problems? Upgrade so you don't have to
+                  favorite game, Windows problems? Upgrade so you don&apos;t have to
                   buy a new computer!
                 </p>
               </div>
