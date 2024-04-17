@@ -32,7 +32,7 @@ export default function About() {
           <div className="col-sm-6">
             <p>
               Welcome to Sellphone Lab, your ultimate destination for all your
-              cell phone, computer, and tablet requirements. Whether you’re
+              cell phone, computer, and tablet requirements. Whether you are
               contending with a cracked screen, software glitches, or on the
               lookout for a new device, our comprehensive array of services and
               products has got you covered.
@@ -50,9 +50,9 @@ export default function About() {
               device.
             </p>
             <p>
-              Known for our friendly and reliable service, whether you’re
-              seeking the latest gadget or need to revive an aging iPhone, we’re
-              here to assist you every step of the way.
+              Known for our friendly and reliable service, whether you are
+              seeking the latest gadget or need to revive an aging iPhone, we
+              are here to assist you every step of the way.
             </p>
           </div>
         </div>
