@@ -257,9 +257,7 @@ export default function Header() {
               </ul>
             )}
           </li>
-          <li className={styles.navItem}>
-            <Link href="/blog">Blog</Link>
-          </li>
+          
           {isLoggedIn ? (
             <>
               <li className={styles.navItem}>
