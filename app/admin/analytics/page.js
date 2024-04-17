@@ -55,21 +55,20 @@ const revenueData = {
   labels: ['Total Revenue', 'Average Transaction Value'],
   datasets: [{
     label: 'Revenue Metrics',
-    type: 'bar',
-    data: [stripeAnalytics.totalRevenue],
-    backgroundColor: 'rgba(54, 162, 235, 0.2)',
-    borderColor: 'rgba(54, 162, 235, 1)',
-    borderWidth: 1,
-  }, {
-    label: 'Avg. Transaction Value',
-    type: 'line',
-    data: [stripeAnalytics.averageTransactionValue],
-    backgroundColor: 'rgba(255, 206, 86, 0.2)',
-    borderColor: 'rgba(255, 206, 86, 1)',
-    borderWidth: 1,
-    fill: false,
-  }],
+    type: 'bar',  // Both datasets as bar charts
+    data: [stripeAnalytics.totalRevenue, stripeAnalytics.averageTransactionValue],  // Ensure both data points are in one dataset
+    backgroundColor: [
+      'rgba(54, 162, 235, 0.2)',  // Blue for total revenue
+      'rgba(251, 192, 147, .5)'  // Yellow for avg. transaction value
+    ],
+    borderColor: [
+      'rgba(54, 162, 235, 1)',  // Blue border
+      'rgba(251, 192, 147, 1)'  // Yellow border
+    ],
+    borderWidth: 1
+  }]
 };
+
 
 const customerData = {
   labels: ['New Customers', 'Returning Customers'],
