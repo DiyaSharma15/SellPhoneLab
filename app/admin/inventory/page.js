@@ -1,19 +1,18 @@
 "use client";
-
-// InventoryManagement.js
 import React, { useEffect, useState } from "react";
-import { db } from "/firebase-config"; // Make sure this path correctly points to your Firebase config
+import { db } from "/firebase-config";
 import { collection, getDocs, addDoc, deleteDoc, doc, updateDoc, onSnapshot } from "firebase/firestore";
-import styles from '../components/InventoryManagement.module.css'; // Adjust with your actual CSS module path
-import Header from "../../components/Header"; // Adjust the import path as needed
-import Footer from "../../components/Footer"; // Adjust the import path as needed
-
+import styles from '../components/InventoryManagement.module.css';
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 const InventoryManagement = () => {
   const [inventoryItems, setInventoryItems] = useState([]);
+  const [groupedItems, setGroupedItems] = useState({});
   const [newModel, setNewModel] = useState('');
   const [newPrice, setNewPrice] = useState('');
   const [newQuantity, setNewQuantity] = useState('');
   const [editingId, setEditingId] = useState(null);
+  const [dropdownOpen, setDropdownOpen] = useState({});  // State to keep track of open dropdowns
 
   useEffect(() => {
     const unsubscribe = onSnapshot(collection(db, "inventory"), (snapshot) => {
@@ -21,42 +20,52 @@ const InventoryManagement = () => {
         id: doc.id,
         ...doc.data(),
       }));
-      setInventoryItems(loadedItems);
+      groupItems(loadedItems);
     });
   
-    return () => unsubscribe(); // This will unsubscribe from the snapshot listener when the component unmounts
+    return () => unsubscribe();
   }, []);
-  
 
+  const groupItems = (items) => {
+    const brands = { 'Apple': [], 'Samsung': [], 'Google': [], 'Huawei': [], 'LG': [], 'Other': [] };
+    items.forEach(item => {
+      if (item.model.includes("iPhone")) brands['Apple'].push(item);
+      else if (item.model.includes("Samsung")) brands['Samsung'].push(item);
+      else if (item.model.includes("Google")) brands['Google'].push(item);
+      else if (item.model.includes("Huawei")) brands['Huawei'].push(item);
+      else if (item.model.includes("LG")) brands['LG'].push(item);
+      else brands['Other'].push(item);
+    });
+    setGroupedItems(brands);
+  };
+
+  const toggleDropdown = (brand) => {
+    setDropdownOpen(prev => ({ ...prev, [brand]: !prev[brand] }));
+  };
   const handleSubmit = async (event) => {
-    event.preventDefault();
-    const itemData = { model: newModel, price: parseFloat(newPrice), quantity: parseInt(newQuantity, 10) };
+    event.preventDefault();  // Prevent the default form submit action
+
+    const itemData = {
+        model: newModel,
+        price: parseFloat(newPrice),  // Parse the price as a float
+        quantity: parseInt(newQuantity, 10)  // Parse the quantity as an integer
+    };
 
     if (editingId) {
-      const itemRef = doc(db, "inventory", editingId);
-      await updateDoc(itemRef, itemData);
+        // If there's an editing ID, update the existing document
+        const itemRef = doc(db, "inventory", editingId);
+        await updateDoc(itemRef, itemData);
     } else {
-      await addDoc(collection(db, "inventory"), itemData);
+        // If there's no editing ID, add a new document
+        await addDoc(collection(db, "inventory"), itemData);
     }
 
-    // Reset form and potentially refetch items
+    // Reset the form fields
     setNewModel('');
     setNewPrice('');
     setNewQuantity('');
-    setEditingId(null);
-  };
-
-  const handleEdit = (item) => {
-    setEditingId(item.id);
-    setNewModel(item.model);
-    setNewPrice(item.price.toString());
-    setNewQuantity(item.quantity.toString());
-  };
-
-  const handleDelete = async (id) => {
-    await deleteDoc(doc(db, "inventory", id));
-  };
-
+    setEditingId(null);  // Clear the editing ID
+};
   return (
     <>
       <Header />
@@ -77,17 +86,22 @@ const InventoryManagement = () => {
           </div>
           <button type="submit" className={styles.button}>{editingId ? 'Update' : 'Add'}</button>
         </form>
-        <ul className={styles.list}>
-          {inventoryItems.map(item => (
-            <li key={item.id} className={styles.item}>
-              Model: {item.model}, Price: ${item.price}, Quantity: {item.quantity}
-              <div className={styles.actions}>
-                <button onClick={() => handleEdit(item)} className={styles.edit}>Edit</button>
-                <button onClick={() => handleDelete(item.id)} className={styles.delete}>Delete</button>
-              </div>
-            </li>
-          ))}
-        </ul>
+        {Object.keys(groupedItems).map(brand => (
+          <div key={brand}>
+            <button className={styles.dropdown} onClick={() => toggleDropdown(brand)}>{brand}</button>
+            <ul className={`${styles.list} ${dropdownOpen[brand] ? '' : 'hidden'}`} id={`dropdown-${brand}`}>
+              {groupedItems[brand].map(item => (
+                <li key={item.id} className={styles.item}>
+                  Model: {item.model}, Price: ${item.price}, Quantity: {item.quantity}
+                  <div className={styles.actions}>
+                    <button onClick={() => handleEdit(item)} className={styles.edit}>Edit</button>
+                    <button onClick={() => handleDelete(item.id)} className={styles.delete}>Delete</button>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
       <Footer />
     </>

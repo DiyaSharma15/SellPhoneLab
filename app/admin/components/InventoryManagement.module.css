@@ -3,108 +3,116 @@
   color: black;
 }
 
-.container h1{ /* Assuming your title is either using h1 or a class named title */
+.container h1 {
   text-align: center;
-  font-size: 28px; /* Increased font size */
-  font-weight: bold; /* Bold text */
-  margin-bottom: 40px; /* Increased space below the title */
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 40px;
 }
 
 .form {
   display: flex;
-  flex-direction: column; /* Stack elements vertically */
-  gap: 15px; /* Space between form elements */
-  padding: 20px; /* Padding inside the form */
-  border: 2px solid #ccc; /* Border around the form */
-  border-radius: 8px; /* Rounded corners for the form */
-  background-color: #f9f9f9; /* Light background for the form area */
-  margin: auto; /* Center the form in its container */
-  max-width: 400px; /* Max width of the form */
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  margin: auto;
+  max-width: 400px;
   margin-bottom: 15px;
 }
 
-.inputGroup input { 
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  margin-bottom: 15px;
+.inputGroup label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.inputGroup input {
   padding: 10px;
-  border: 2px solid #0046BE; /* Making border more visible */
+  border: 2px solid #ccc;
   border-radius: 5px;
-  flex-grow: 1;
-  outline: none; /* Optional: Removes the default focus outline */
+  width: 100%;
+  outline: none;
 }
 
 .inputGroup input:focus {
-  border-color: #F27024; /* Changes border color when input is focused */
-}
-
-
-.label {
-  font-weight: bold;
-  margin-right: 10px; /* Space between label and input */
-}
-
-.input {
-  padding: 10px;
-  border: 2px solid #ccc; /* Visible border making it clear */
-  border-radius: 5px; /* Rounded corners */
-  width: auto; /* Adjust based on your form width or keep it flexible */
-  flex-grow: 1; /* Allows input to take up remaining space */
-}
-
-.form .button{
-  padding: 12px 0; /* Padding for the button */
-  background-color: #0046BE; /* Initial background color */
-  border: none;
-  cursor: pointer;
-  border-radius: 5px; /* Rounded corners for the button */
-  font-weight: bold; /* Bold text for the button */
+  border-color: #0046BE;
 }
 
 .button {
-  padding: 12px 0; /* Padding for the button */
-  background-color: #0046BE; /* Initial background color */
-  border: none;
-  color: white;
-  cursor: pointer;
-  border-radius: 5px; /* Rounded corners for the button */
-  font-weight: bold; /* Bold text for the button */
-}
-
-.button:hover {
-  background-color: #F27024; /* Background color on hover */
-}
-
-.list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Adjusts inventory items to show two per line */
-  gap: 20px; /* Space between items */
-}
-
-.item {
-  border: 2px solid #0046BE; /* Adds border around each item */
-  border-radius: 8px; /* Rounded corners */
-  padding: 20px; /* More internal space */
-  background-color: #f0f0f0;
-}
-
-.actions {
-  margin-top: 20px; /* More space above action buttons */
-  display: flex;
-  justify-content: flex-end; /* Aligns action buttons to the right */
-  gap: 10px; /* Space between buttons */
-}
-
-.edit, .delete {
+  padding: 12px 0;
   background-color: #0046BE;
   color: white;
   border: none;
-  padding: 8px 16px; /* Larger padding */
-  border-radius: 8px; /* Rounded corners */
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.button:hover {
+  background-color: #F27024;
+}
+
+.dropdown {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  width: 100%;
+  text-align: left;
+  border-radius: 5px;
+  margin-top: 20px;
   cursor: pointer;
 }
 
-.edit:hover, .delete:hover {
-  background-color: #F27024;
+.dropdown:hover {
+  background-color: #0056b3;
+}
+
+.list.hidden {
+  display: none;
+}
+
+.list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 5px;
+  background-color: #f8f8f8;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.edit, .delete {
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.edit {
+  background-color: #28a745;
+}
+
+.edit:hover {
+  background-color: #218838;
+}
+
+.delete {
+  background-color: #dc3545;
+}
+
+.delete:hover {
+  background-color: #c82333;
 }

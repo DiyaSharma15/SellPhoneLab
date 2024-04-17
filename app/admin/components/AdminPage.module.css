@@ -1,38 +1,90 @@
-/* AdminPage.module.css */
-.adminContainer {
+/* General Dashboard Styling */
+.dashboard {
+  font-family: 'Arial', sans-serif;
+  color: #333;
   max-width: 1200px;
   margin: auto;
   padding: 20px;
 }
 
+.welcomeBox {
+  text-align: center;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.statCard {
+  background: #ecf0f1;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  text-align: center;
+  font-size: 18px;
+}
+
+/* Navigation Styling as Buttons */
 .adminNav {
-  background: #0046BE;
-  padding: 10px;
-  border-radius: 5px;
+  background: #f8f9fa;
+  padding: 20px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-top: 20px;
+  text-align: center;
 }
 
 .navList {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
-  margin: 0;
   display: flex;
-  flex-direction: column; /* Change to row for a horizontal nav */
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .navItem {
-  margin: 10px 0;
+  margin: 10px;
 }
 
 .navItem a {
+  display: inline-block;
+  font-size: 16px;
   color: white;
+  background-color: #007BFF;
   text-decoration: none;
-  padding: 10px;
-  display: block;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.navItem a:hover {
-  background-color: #F27024;
-  border-radius: 4px;
+.navItem a:hover, .navItem a:focus {
+  background-color: #0056b3;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+  text-decoration: none; /* Ensures no underline on hover */
 }
 
-/* Add more styles below based on your layout and preference */
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .navList {
+    flex-direction: column;
+  }
+
+  .navItem a {
+    padding: 15px 30px; /* Larger touch targets on smaller screens */
+  }
+}
