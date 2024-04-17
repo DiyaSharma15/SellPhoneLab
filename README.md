@@ -62,6 +62,42 @@ SellPhoneLab introduces several key features designed to enhance the customer se
 - **Trade-In Assessment Feature**: Offers customers an instant valuation of their device.
 - **AI Supported Live Chat**: **NOT IMPLEMENTED YET**
 - **Online Payments**: Streamlines the transaction process with Stripe, offering a secure and straightforward payment gateway.
+## Test Payment Methods
+
+Below are the details of the test payment methods that can be used for testing purposes:
+
+### Visa Cards
+- **Visa (Credit):**  
+  Card Number: `4242 4242 4242 4242`  
+  Security Code: Any 3 digits  
+  Expiry Date: Any future date  
+
+- **Visa (Debit):**  
+  Card Number: `4000 0566 5566 5556`  
+  Security Code: Any 3 digits  
+  Expiry Date: Any future date  
+
+### Mastercard
+- **Mastercard (Credit):**  
+  Card Number: `5555 5555 5555 4444`  
+  Security Code: Any 3 digits  
+  Expiry Date: Any future date  
+
+- **Mastercard (2-series):**  
+  Card Number: `2223 0031 2200 3222`  
+  Security Code: Any 3 digits  
+  Expiry Date: Any future date  
+
+- **Mastercard (Debit):**  
+  Card Number: `5200 8282 8282 8210`  
+  Security Code: Any 3 digits  
+  Expiry Date: Any future date  
+
+- **Mastercard (Prepaid):**  
+  Card Number: `5105 1051 0510 5100`  
+  Security Code: Any 3 digits  
+  Expiry Date: Any future date  
+
 
 # Admin Features Login
 
